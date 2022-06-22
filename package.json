@@ -1,0 +1,33 @@
+{
+  "name": "academy-react",
+  "version": "1.0.0",
+  "description": "Core Academy",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sokratgruzit/academy-react.git"
+  },
+  "keywords": [],
+  "author": "Ali Pirievi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sokratgruzit/academy-react/issues"
+  },
+  "homepage": "https://github.com/sokratgruzit/academy-react#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "mysql": "^2.18.1",
+    "objection": "^3.0.1",
+    "react-scroll": "^1.8.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
