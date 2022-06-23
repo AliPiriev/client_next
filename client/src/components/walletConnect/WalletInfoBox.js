@@ -1,16 +1,17 @@
-import {motion} from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion/dist/framer-motion'
 import { useContext } from "react";
 import { AuthContect } from "../../contexts/AuthContext";
 
 
-function WalletInfoBox({closeInfoBox}) {
-   const {currentAccount, SignOut} = useContext(AuthContect)
+function WalletInfoBox({ closeInfoBox }) {
+
+   const { currentAccount, SignOut } = useContext(AuthContect)
    const shortAddr = `${currentAccount.substr(0, 4)}...${currentAccount.substring(currentAccount.length - 4, currentAccount.length)}`;
-   
+
    const handleClick = () => {
       SignOut();
       closeInfoBox();
-   }
+   } 
 
    const copyText = () => {
       let copyText = document.getElementById("wallet-adress");
@@ -19,19 +20,21 @@ function WalletInfoBox({closeInfoBox}) {
       navigator.clipboard.writeText(copyText.value);
    }
 
+   
+
    return (
       <motion.div className="wallet-info-box"
-         initial={{y: 20, opacity: 0}}
-         animate={{y: 0, opacity: 1}}
-         exit={{y: 20, opacity: 0, pointerEvents: 'none'}}>
+         initial={{ y: 20, opacity: 0 }}
+         animate={{ y: 0, opacity: 1 }}
+         exit={{ y: 20, opacity: 0, pointerEvents: 'none' }}>
          <span className="ttl">Wallet Adress</span>
          <button className="address" onClick={copyText}>
             <span className="value">
                {shortAddr}
             </span>
-            <input 
-               type="text" value={currentAccount} 
-               id="wallet-adress"  readOnly />
+            <input
+               type="text" value={currentAccount}
+               id="wallet-adress" readOnly />
             <div className="icon">
                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.33023 16.0486H4.20465C1.29488 16.0486 0 14.7537 0 11.8439V8.71832C0 5.80856 1.29488 4.51367 4.20465 4.51367H7.33023C10.24 4.51367 11.5349 5.80856 11.5349 8.71832V11.8439C11.5349 14.7537 10.24 16.0486 7.33023 16.0486ZM4.20465 5.62995C1.89767 5.62995 1.11628 6.41135 1.11628 8.71832V11.8439C1.11628 14.1509 1.89767 14.9323 4.20465 14.9323H7.33023C9.63721 14.9323 10.4186 14.1509 10.4186 11.8439V8.71832C10.4186 6.41135 9.63721 5.62995 7.33023 5.62995H4.20465Z" fill="white" />

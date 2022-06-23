@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect, useRef } from 'react';
 import { AuthContect } from '../../contexts/AuthContext';
 import Logo from '../../assets/svg/logo.svg'
 import WalletConnectModal from '../walletConnect/WalletConnectModal';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 function Header() {
+   const ref = useRef()
    const [modal, setModal] = useState(false);
    const [infoBox, setInfoBox] = useState(false)
    const { isLogged } = useContext(AuthContect);
@@ -25,6 +26,20 @@ function Header() {
       setModal(false);
    }
 
+   useEffect(() => {
+      const checkIfClickedOutside = e => {
+         if (infoBox && ref.current && !ref.current.contains(e.target)) {
+            setInfoBox(false)
+         }
+      }
+
+      document.addEventListener("mousedown", checkIfClickedOutside)
+
+      return () => {
+         document.removeEventListener("mousedown", checkIfClickedOutside)
+      }
+   }, [infoBox])
+
    return (
       <header className="header">
          <div className="container">
@@ -36,7 +51,7 @@ function Header() {
                </div>
 
                <div className="right">
-                  <nav className="navigation">
+                  <nav className="navigation"  >
                      <ul>
                         <li>
                            <Link to="pages/introduction" className='item'>Get Started</Link>
@@ -67,9 +82,11 @@ function Header() {
                            <span>Connect Wallet</span>
                         )}
                      </button>
-                     <AnimatePresence>
-                        {(infoBox && isLogged) && <WalletInfoBox closeInfoBox={closeInfoBox} key="info-box" />}
-                     </AnimatePresence>
+                     <div ref={ref}>
+                        <AnimatePresence>
+                           {(infoBox && isLogged) && <WalletInfoBox closeInfoBox={closeInfoBox} key="info-box" />}
+                        </AnimatePresence>
+                        </div>
                   </div>
                </div>
             </div>

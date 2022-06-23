@@ -1,24 +1,22 @@
-import { useContext } from 'react';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import { useParams } from 'react-router-dom'
 import useFetch from '../useFetch';
 import parse from 'html-react-parser';
 import ExploreArticles from '../components/ExploreArticles';
-import { CommonDataContext } from '../contexts/CommonDataContect';
 import Moment from 'react-moment';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getItemById } from '../helpers'
 
-
-function Article() {
+ 
+function Article({levels}) {
    let { slug } = useParams();
    const { data } = useFetch(`http://localhost:8080/api/articles/${slug}`);
-   const { getLevel } = useContext(CommonDataContext);
    const navigate = useNavigate();
-
+   console.log()
    let level = null;
-   if (data) {
-      level = getLevel(data.level)
-   }
+   if(levels && levels.data) level = getItemById(levels.data, data.level);
+
 
    return (
       <AnimatedPage>
@@ -74,4 +72,10 @@ function Article() {
    )
 }
 
-export default Article;
+const mapStateToProps = (state) => {
+   return{
+      levels: state.commonDataState.levels
+   }
+}
+
+export default connect(mapStateToProps, null)(Article);

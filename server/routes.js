@@ -12,6 +12,7 @@ const TagsController = new CommonController('Tag');
 const LevelController = new CommonController('Level');
 const SettingsController = new CommonController('Settings');
 const FooterController = new CommonController('Footer');
+const HomeContentController = new CommonController('HomeContent');
 
 
 //articles
@@ -41,5 +42,8 @@ router.get('/settings',  SettingsController.findFirst);
 
 //footer
 router.get('/footer',  FooterController.index);
+
+//home content
+router.get('/home-content',  HomeContentController.findFirst);
 
 module.exports = router;   

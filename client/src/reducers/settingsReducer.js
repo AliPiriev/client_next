@@ -1,6 +1,6 @@
 
 const INITIAL_STATE = {
-   settings: 'settings',
+   settings: null,
  };
  
  function settingsReducer(state = INITIAL_STATE, action) {

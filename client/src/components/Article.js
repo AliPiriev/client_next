@@ -1,11 +1,11 @@
-import { useContext } from 'react';
-import { CommonDataContext } from '../contexts/CommonDataContect';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getItemById } from '../helpers'
 
-
-function Article({ data }) {
-   const { getLevel } = useContext(CommonDataContext);
-   let level = getLevel(data.level);
+ 
+function Article({ data , levels}) {
+   let level = null;
+   if(levels && levels.data) level = getItemById(levels.data, data.level);
    return (
       <Link to={`/articles/${data.slug}`} className="article">
          <div className="img-box">
@@ -21,5 +21,11 @@ function Article({ data }) {
       </Link>
    )
 }
- 
-export default Article;
+
+const mapStateToProps = (state) => {
+   return{
+      levels: state.commonDataState.levels
+   }
+}
+
+export default connect(mapStateToProps, null)(Article);

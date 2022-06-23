@@ -3,7 +3,6 @@ import Article from './Article'
 
 function ExploreArticles({ id, category }) {
    const { data } = useFetch(`http://localhost:8080/api/articles?id_not=${id}&category=${category}&limit=3`);
-   console.log(data)
 
    return (
       <div className="explore-articles">

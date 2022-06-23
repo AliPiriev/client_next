@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState, useRef } from "react";
+import {  useEffect, useState, useRef } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import AnimatedPage from "../components/animated/AnimatedPage";
 import BgImage from '../components/BgImage';
-import { CommonDataContext } from "../contexts/CommonDataContect";
 import { fetchData } from '../queries'
 import Article from "../components/Article";
 import Pagination from "../components/Pagination";
 import NotResult from "../components/NotResult";
+import { connect } from 'react-redux';
 
-function Articles() {
+function Articles({commonData}) {
    const [articles, setArticles] = useState(null);
-   const { categories, levels, tags } = useContext(CommonDataContext);
+   const { categories, levels, tags } = commonData;
    const [searchParams, setSearchParams] = useSearchParams();
    const [params, setParams] = useState({
       category: [],
@@ -134,4 +134,10 @@ function Articles() {
    )
 }
 
-export default Articles;
+const mapStateToProps = (state) => {
+   return{
+      commonData: state.commonDataState
+   }
+}
+ 
+export default connect(mapStateToProps, null)(Articles);

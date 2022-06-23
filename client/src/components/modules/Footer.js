@@ -4,11 +4,10 @@ import useFetch from '../../useFetch';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { animateScroll  } from 'react-scroll'
+import { animateScroll } from 'react-scroll'
 
-function Footer({description, copyright}) {
+function Footer({ settings_data }) {
    const { data } = useFetch(`http://localhost:8080/api/footer`);
-
    const scroll = animateScroll;
    return (
       <footer className="footer">
@@ -21,7 +20,7 @@ function Footer({description, copyright}) {
                            <img src={DarkLogo} alt="logo" />
                         </Link>
                         <p className="copyright">
-                           {copyright}
+                           {settings_data ? settings_data.footer_copy_right : ''}
                         </p>
                      </div>
                      <div className="links">
@@ -29,8 +28,8 @@ function Footer({description, copyright}) {
                            {
                               data.filter(item => item.section === '1').map((link) => {
                                  let result;
-                                 !link.is_static ? result = (<Link to={'/pages/' + link.slug} className="link" key={link.id}>{link.name}</Link>) :
-                                    result = (<a href={link.slug} className="link" key={link.id}>{link.name}</a>)
+                                 !link.is_static ? result = (<Link to={'/pages/' + link.slug} className="link xer" key={link.id}>{link.name}</Link>) :
+                                    result = (<Link to={link.slug} className="link per" key={link.id}>{link.name}</Link>)
                                  return result;
                               })
                            }
@@ -40,7 +39,7 @@ function Footer({description, copyright}) {
                               data.filter(item => item.section === '2').map((link) => {
                                  let result;
                                  !link.is_static ? result = (<Link to={'/pages/' + link.slug} className="link" key={link.id}>{link.name}</Link>) :
-                                    result = (<a href={link.slug} className="link" key={link.id}>{link.name}</a>)
+                                    result = (<Link to={link.slug} className="link" key={link.id}>{link.name}</Link>)
                                  return result;
                               })
                            }
@@ -50,18 +49,20 @@ function Footer({description, copyright}) {
                               data.filter(item => item.section === '3').map((link) => {
                                  let result;
                                  !link.is_static ? result = (<Link to={'/pages/' + link.slug} className="link" key={link.id}>{link.name}</Link>) :
-                                    result = (<a href={link.slug} className="link" key={link.id}>{link.name}</a>)
+                                    result = (<Link to={link.slug} className="link" key={link.id}>{link.name}</Link>)
                                  return result;
                               })
                            }
                         </nav>
                      </div>
-                     <button className='up-btn' onClick={() => scroll.scrollToTop() }>
+                     <button className='up-btn' onClick={() => scroll.scrollToTop()}>
                         up
                      </button>
                   </div>
                   <div className="bottom">
-                     <p className="txt">{description}</p>
+                     <p className="txt">
+                        {settings_data ? settings_data.footer_about_description : ''}
+                     </p>
                      <div className="logo">
                         <img src={FooterLogo} alt="logo" />
                      </div>
@@ -72,11 +73,10 @@ function Footer({description, copyright}) {
       </footer>
    )
 }
- 
+
 const mapStateToProps = (state) => {
    return {
-      description: state.settingsState.settings.footer_about_description,
-      copyright: state.settingsState.settings.copyright_text,
+      settings_data: state.settingsState.settings,
    }
 }
 
