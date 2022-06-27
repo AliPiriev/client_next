@@ -30,6 +30,25 @@
 }
 
 //buttons
+.see-all-btn{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+
+   span{
+      font-size: $f-small;
+   }
+
+   svg{
+      transition: .4s;
+      margin-left: 8px;
+   }
+
+   &:hover svg{
+      transform: translateX(5px);
+   }
+}
+
 .grey-btn {
    flex: none;
    display: inline-flex;
@@ -91,7 +110,8 @@
 
 //tag
 .tag-item {
-   display: flex;
+   display: inline-flex;
+   align-items: center;
    position: relative;
    background-color: $c-white;
    font-size: $f-small;
@@ -103,9 +123,17 @@
    cursor: pointer;
 }
 
+.tag-item.active{
+   background: $c-blue;
+   color: $c-white;
+}
+
+
+
 //category
 .cat-item {
-   display: flex;
+   display: inline-flex;
+   align-items: center;
    position: relative;
    font-size: $f-small;
    line-height: 16px;
@@ -118,9 +146,15 @@
    cursor: pointer;
 }
 
+.cat-item.active{
+   background: $c-blue;
+   border-color: $c-blue;
+}
+
 //level
 .lev-item {
-   display: flex;
+   display: inline-flex;
+   align-items: center;
    position: relative;
    font-size: $f-small;
    line-height: 16px;
@@ -157,6 +191,24 @@
 
    &.pro {
       border-color: $c-orange;
+   }
+
+   //active
+
+   &.beginner.active {
+      background: #259c55;
+   }
+
+   &.intermediate.active {
+      background:  #bb0ba9;
+   }
+
+   &.advance.active {
+      background: #0b91bb;
+   }
+
+   &.pro.active {
+      background:  $c-orange;
    }
 }
 

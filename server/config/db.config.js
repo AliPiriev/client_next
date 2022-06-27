@@ -2,6 +2,6 @@ module.exports = {
    HOST: "localhost",
    USER: "root",
    PASSWORD: "root",
-   DB: "ac_last",
+   DB: "academy",
    SOCKETPATH: '/Applications/MAMP/tmp/mysql/mysql.sock'
  };

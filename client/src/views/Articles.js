@@ -1,4 +1,4 @@
-import {  useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import AnimatedPage from "../components/animated/AnimatedPage";
 import BgImage from '../components/BgImage';
@@ -7,8 +7,10 @@ import Article from "../components/Article";
 import Pagination from "../components/Pagination";
 import NotResult from "../components/NotResult";
 import { connect } from 'react-redux';
+import PHPUnserialize from 'php-unserialize';
+import { unserialize } from "@swordev/php-unserialize"
 
-function Articles({commonData}) {
+function Articles({ commonData }) {
    const [articles, setArticles] = useState(null);
    const { categories, levels, tags } = commonData;
    const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +22,7 @@ function Articles({commonData}) {
       limit: 15
    })
    const didMount = useRef(true);
-
+ 
    const hanldeChange = (definition, value) => {
       if (definition !== 'page' && definition !== 'limit') {
          let result = params[definition];
@@ -41,6 +43,11 @@ function Articles({commonData}) {
    const getData = async () => {
       const res = await fetchData(`http://localhost:8080/api/articles?${searchParams.toString()}`);
       setArticles(res.data);
+   }
+
+
+   if(articles && articles.results){
+
    }
 
 
@@ -67,39 +74,44 @@ function Articles({commonData}) {
                <div className="top">
                   <h2 className="title">Articles</h2>
                   <div className="filter-by">
-                     {(categories.data && categories.data.length) && (
-                        <div className="wrap">
+                     {(categories && categories.data) ? (
+                        <div className="wrap xer">
                            <span className="ttl">Categories:</span>
                            <div className="list">
                               {categories.data.map((cat) => {
                                  return (
-                                    <div className="item cat-item"
+                                    <div className={`item cat-item ${params.category.includes(String(cat.id)) ? 'active' : ''}`}
                                        key={cat.id} onClick={() => hanldeChange('category', cat.id)}>{cat.name}</div>
                                  )
                               })}
-
                            </div>
                         </div>
-                     )}
+                     ) : ''}
 
-                     {(levels.data && levels.data.length) && (
+                     {(levels && levels.data) && (
                         <div className="wrap">
                            <span className="ttl">Difficulty:</span>
                            <div className="list">
                               {levels.data.map((lev) => {
-                                 return (<div className={`item lev-item ${lev.title.toLowerCase()}`}
-                                    key={lev.id} onClick={() => hanldeChange('level', lev.id)}>{lev.title}</div>)
+                                 return (
+                                    <div
+                                       className={`item lev-item ${lev.title.toLowerCase()} 
+                                       ${params.level.includes(String(lev.id)) ? 'active' : ''}`}
+                                       key={lev.id} onClick={() => hanldeChange('level', lev.id)}>{lev.title}</div>
+                                 )
                               })}
                            </div>
                         </div>
                      )}
 
-                     {(tags.data && tags.data.length) && (
+                     {(tags && tags.data) && (
                         <div className="wrap">
                            <span className="ttl">Tags:</span>
                            <div className="list">
                               {tags.data.map((tag) => {
-                                 return (<div className="item tag-item" key={tag.id}>{tag.name}</div>)
+                                 return (<div 
+                                    className={`item tag-item ${params.tag.includes(String(tag.id)) ? 'active' : ''}`} 
+                                    key={tag.id} onClick={() => hanldeChange('tag', tag.id)}>{tag.name}</div>)
                               })}
                            </div>
                         </div>
@@ -135,9 +147,9 @@ function Articles({commonData}) {
 }
 
 const mapStateToProps = (state) => {
-   return{
+   return {
       commonData: state.commonDataState
    }
 }
- 
+
 export default connect(mapStateToProps, null)(Articles);

@@ -5,13 +5,17 @@ import WalletConnectModal from '../walletConnect/WalletConnectModal';
 import WalletInfoBox from '../walletConnect/WalletInfoBox';
 import { AnimatePresence } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom';
+import TopicsBox from '../TopicsBox';
 
 
 function Header() {
    const ref = useRef()
+   const topicsWrap = useRef()
    const [modal, setModal] = useState(false);
-   const [infoBox, setInfoBox] = useState(false)
+   const [infoBox, setInfoBox] = useState(false);
+   const [topicsBox, setTopicsBox] = useState(false);
    const { isLogged } = useContext(AuthContect);
+
 
    const handleConnectClick = () => {
       isLogged ? setInfoBox(!infoBox) : setModal(!modal);
@@ -31,6 +35,10 @@ function Header() {
          if (infoBox && ref.current && !ref.current.contains(e.target)) {
             setInfoBox(false)
          }
+
+         if (topicsBox && topicsWrap.current && !topicsWrap.current.contains(e.target)) {
+            setTopicsBox(false)
+         }
       }
 
       document.addEventListener("mousedown", checkIfClickedOutside)
@@ -38,7 +46,7 @@ function Header() {
       return () => {
          document.removeEventListener("mousedown", checkIfClickedOutside)
       }
-   }, [infoBox])
+   }, [infoBox, topicsBox])
 
    return (
       <header className="header">
@@ -56,8 +64,14 @@ function Header() {
                         <li>
                            <Link to="pages/introduction" className='item'>Get Started</Link>
                         </li>
-                        <li>
-                           <a href="/" className='item'>Topics</a>
+                        <li ref={topicsWrap} className={`topics ${topicsBox ? 'active' : ''}`}>
+                           <button className='item' onClick={() => setTopicsBox(!topicsBox)}>Topics</button>
+                           <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.44588 0.281726L5.5 4.2276L1.55412 0.281724L0.500001 1.33585L4.44588 5.28172C4.72548 5.56124 5.10465 5.71826 5.5 5.71826C5.89535 5.71826 6.27452 5.56124 6.55412 5.28172L10.5 1.33585L9.44588 0.281726Z" fill="white"></path> </svg>
+                           <div ref={topicsWrap} className='toppics-wrap'>
+                              <AnimatePresence>
+                                 {topicsBox && <TopicsBox />}
+                              </AnimatePresence>
+                           </div>
                         </li>
                         <li>
                            <a href="/" className='item'>Glossaries</a>
@@ -65,7 +79,7 @@ function Header() {
                      </ul>
                   </nav>
 
-                  <div className="connect-btn-wrap">
+                  <div className="connect-btn-wrap" ref={ref}>
                      <button className={`connect-btn ${isLogged ? 'connected' : ''}`}
                         onClick={handleConnectClick}>
                         {isLogged ? (
@@ -86,7 +100,7 @@ function Header() {
                         <AnimatePresence>
                            {(infoBox && isLogged) && <WalletInfoBox closeInfoBox={closeInfoBox} key="info-box" />}
                         </AnimatePresence>
-                        </div>
+                     </div>
                   </div>
                </div>
             </div>

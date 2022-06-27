@@ -1,5 +1,8 @@
 //header
-
+header{
+   position: relative;
+   z-index: 99;
+}
 .header-inner {
    display: flex;
    justify-content: space-between;
@@ -18,7 +21,7 @@
       display: flex;
       align-items: center;
    }
-}
+} 
 
 .header .navigation ul {
    display: flex;
@@ -29,18 +32,102 @@
    li:last-child {
       margin-right: 0;
    }
+   li.topics{
+      position: relative;
+
+      svg{
+         margin-left: 5px;
+         transition: .4s;
+      }
+
+      path{
+         transition: .4s;
+      }
+   }
+
+   li.topics.active,
+   li.topics:hover{
+      .item{
+         color: $c-orange;
+      }
+
+      svg{
+         transform: rotate(180deg);
+      }
+
+      path{
+         fill: $c-orange;
+      }
+   }
 
    .item {
       cursor: pointer;
       transition: 0.4s;
    }
+   .item svg,
+   .item path{
+      transition: .4s;
+   }
+   
    .item:hover {
       color: $c-orange;
+   }
+   .item:hover path {
+      fill: $c-orange;
+   }
+
+   .item.active {
+      color: $c-orange;
+   }
+   .item.active path {
+      fill: $c-orange;
    }
 }
 
 //end of header
 
+//toppics box
+
+.topics-box{
+   position: absolute;
+   right: 0;
+   top: calc(100% + 36px);
+   width: 330px;
+   background: $c-dark-grey;
+   padding: 30px 30px 20px 30px;
+   border-radius: $border-radius;
+   border: 1px solid #1b232f;
+
+   &:after {
+      position: absolute;
+      content: "";
+      right: 18px;
+      top: -7px;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #131a26;
+   }
+
+   .list{
+      display: flex;
+      flex-wrap: wrap;
+   } 
+
+   .tag-item{
+      margin-right: 8px;
+      margin-bottom: 8px;
+   }
+
+   .bottom{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #1C232F;
+   }
+}
+
+//end of toppics box
 
 // start of footer
 .footer{
@@ -442,6 +529,21 @@
       transform: scale(1.02);
    }
 
+   .pins{
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: calc(100% - 32px);
+      
+      display: flex;
+      flex-wrap: wrap;
+
+      div{
+         margin-bottom: 8px;
+         margin-right: 8px;
+      }
+   }
+
    .bottom {
       flex: 1;
       display: flex;
@@ -590,6 +692,7 @@
          margin-right: 16px;
          margin-bottom: 16px;
       }
+
    }
 }
 
