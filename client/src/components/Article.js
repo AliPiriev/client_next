@@ -6,11 +6,11 @@ import { getItemById } from '../helpers'
 function Article({ data, levels, tags, categories }) {
    let level = null;
    if (levels && levels.data) level = getItemById(levels.data, data.level);
-   // console.log(JSON.parse(data.tags))
+
    return (
       <Link to={`/articles/${data.slug}`} className="article">
          <div className="img-box">
-            <img src={require('../assets/img/article.png').default} alt="" className="img-absolute" />
+            <img src={require('../assets/img/article.png')} alt="" className="img-absolute" />
             <div className="pins">
                {(data.tags && JSON.parse(data.tags).length && tags.data) ? (
                   JSON.parse(data.tags).map((tag) => {

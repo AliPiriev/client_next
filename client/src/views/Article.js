@@ -13,9 +13,9 @@ function Article({levels}) {
    let { slug } = useParams();
    const { data } = useFetch(`http://localhost:8080/api/articles/${slug}`);
    const navigate = useNavigate();
-   console.log()
+
    let level = null;
-   if(levels && levels.data) level = getItemById(levels.data, data.level);
+   if(levels && levels.data && data) level = getItemById(levels.data, data.level);
 
 
    return (
@@ -26,7 +26,7 @@ function Article({levels}) {
                   <div className="top">
                      <div className="switcher"></div>
                      <div className="img-box">
-                        <img src={require('../assets/img/article.png').default} alt="" className="img-absolute" />
+                        <img src={require('../assets/img/article.png')} alt="" className="img-absolute" />
                      </div>
                      <div className="back-btn" onClick={() => navigate(-1)}>
                         <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M5.43654 1.05412L1.49066 5L5.43654 8.94588L4.38242 10L0.436538 6.05412C0.157023 5.77452 -2.01275e-07 5.39535 -2.18557e-07 5C-2.35838e-07 4.60465 0.157023 4.22548 0.436538 3.94588L4.38242 -1.91561e-07L5.43654 1.05412Z" fill="white"></path> </svg>

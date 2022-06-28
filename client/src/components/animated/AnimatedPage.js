@@ -1,18 +1,26 @@
-import {motion} from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion'
 
-const animations = {
-  initial: { opacity: 0, x: 0 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: 0 },
-};
+
 
 const AnimatedPage = ({ children }) => {
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    },
+  }
+
   return (
     <motion.div
-      variants={animations}
       initial="initial"
-      animate="animate"
-      exit="exit"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
       transition={{ duration: 0.4 }}
     >
       {children}

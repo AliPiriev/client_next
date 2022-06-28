@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
-import {AnimatePresence} from 'framer-motion/dist/framer-motion'
+import {AnimatePresence} from 'framer-motion'
+// import { AnimatePresence } from "framer-motion";
 
 import Home from '../../views/Home';
 import NotFound from '../../views/NotFound';
@@ -11,12 +12,12 @@ import SimplePage from '../../views/SimplePage';
 import Glossary from '../../views/Glossary';
 import Glossaries from '../../views/Glossaries';
  
-
+ 
 function AnimatedRoutes() {
    const location = useLocation();
-   return (
-      <AnimatePresence exitBeforeEnter>
-         <Routes location={location} key={location.pathname}>
+   return ( 
+      <AnimatePresence exitBeforeEnter initial={false}>
+         <Routes location={location} key={location.pathname}> 
             <Route path='/' element={<Home />}></Route>
             <Route path='articles' element={<Articles />}></Route>
             <Route path='articles/:slug' element={<Article />}></Route>

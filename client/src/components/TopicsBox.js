@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion'
 import {Link} from 'react-router-dom'
 
 function TopicBox({ tags }) {

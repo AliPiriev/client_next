@@ -7,6 +7,10 @@
    margin: 0 auto;
 }
 
+.wrapper{
+   min-height: calc(100vh - 90px);
+}
+
 //images
 .img-absolute {
    position: absolute;

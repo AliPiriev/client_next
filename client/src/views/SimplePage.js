@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import useFetch from '../useFetch';
 import parse from 'html-react-parser';
+import AnimatedPage from '../components/animated/AnimatedPage';
 
 
 function SimplePage() {
@@ -8,24 +9,26 @@ function SimplePage() {
    const { data } = useFetch(`http://localhost:8080/api/pages/${slug}`);
 
    return (
-      <div className="simple-page">
-         {data ? (
-            <div className="container">
-               <h1 className="title">{data.title}</h1>
-               {data.sub_title && (
-                  <span className="subtitle">{data.sub_title}</span>
-               )}
-               <div className="content text">
-                  {parse(data.details)}
+      <AnimatedPage>
+         <div className="simple-page">
+            {data ? (
+               <div className="container">
+                  <h1 className="title">{data.title}</h1>
+                  {data.sub_title && (
+                     <span className="subtitle">{data.sub_title}</span>
+                  )}
+                  <div className="content text">
+                     {parse(data.details)}
+                  </div>
                </div>
-            </div>
-         ) : (
-            <div className="container">
-               <div className="not-found">Page Not found</div>
-            </div>
-         )}
-      </div>
+            ) : (
+               <div className="container">
+                  <div className="not-found">Page Not found</div>
+               </div>
+            )}
+         </div>
+      </AnimatedPage>
    )
-} 
+}
 
-export default SimplePage; 
+export default SimplePage;  

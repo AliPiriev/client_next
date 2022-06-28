@@ -3,8 +3,8 @@ import { AuthContect } from '../../contexts/AuthContext';
 import Logo from '../../assets/svg/logo.svg'
 import WalletConnectModal from '../walletConnect/WalletConnectModal';
 import WalletInfoBox from '../walletConnect/WalletInfoBox';
-import { AnimatePresence } from 'framer-motion/dist/framer-motion'
-import { Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion'
+import { NavLink } from 'react-router-dom';
 import TopicsBox from '../TopicsBox';
 
 
@@ -53,20 +53,20 @@ function Header() {
          <div className="container">
             <div className="header-inner">
                <div className="left">
-                  <Link to="/" className="logo">
+                  <NavLink to="/" className="logo">
                      <img src={Logo} alt="logo" />
-                  </Link>
+                  </NavLink>
                </div>
 
                <div className="right">
                   <nav className="navigation"  >
                      <ul>
                         <li>
-                           <Link to="pages/introduction" className='item'>Get Started</Link>
+                           <NavLink to="pages/introduction" className='item'>Get Started</NavLink>
                         </li>
                         <li ref={topicsWrap} className={`topics ${topicsBox ? 'active' : ''}`}>
                            <button className='item' onClick={() => setTopicsBox(!topicsBox)}>Topics</button>
-                           <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.44588 0.281726L5.5 4.2276L1.55412 0.281724L0.500001 1.33585L4.44588 5.28172C4.72548 5.56124 5.10465 5.71826 5.5 5.71826C5.89535 5.71826 6.27452 5.56124 6.55412 5.28172L10.5 1.33585L9.44588 0.281726Z" fill="white"></path> </svg>
+                           <svg className='arrow' width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.44588 0.281726L5.5 4.2276L1.55412 0.281724L0.500001 1.33585L4.44588 5.28172C4.72548 5.56124 5.10465 5.71826 5.5 5.71826C5.89535 5.71826 6.27452 5.56124 6.55412 5.28172L10.5 1.33585L9.44588 0.281726Z" fill="white"></path> </svg>
                            <div ref={topicsWrap} className='toppics-wrap'>
                               <AnimatePresence>
                                  {topicsBox && <TopicsBox />}
@@ -74,7 +74,7 @@ function Header() {
                            </div>
                         </li>
                         <li>
-                           <a href="/" className='item'>Glossaries</a>
+                           <NavLink to="/glossaries" className='item'>Glossaries</NavLink>
                         </li>
                      </ul>
                   </nav>
@@ -101,6 +101,32 @@ function Header() {
                            {(infoBox && isLogged) && <WalletInfoBox closeInfoBox={closeInfoBox} key="info-box" />}
                         </AnimatePresence>
                      </div>
+                  </div>
+
+                  <button className="burger">
+                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="2" y1="8" x2="30" y2="8" stroke="white" stroke-width="2"></line> <line x1="2" y1="16" x2="30" y2="16" stroke="white" stroke-width="2"></line> <line x1="2" y1="24" x2="30" y2="24" stroke="white" stroke-width="2"></line> </svg>
+                  </button>
+
+                  <div className="mob-navigation">
+                     <div className="top">
+                        <span className='ttl'>Menu</span>
+                        <button className='close'>
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 1L1 23" stroke="white" stroke-width="2"></path> <path d="M1 1L23 23" stroke="white" stroke-width="2"></path> </svg>
+                        </button>
+                     </div>
+
+                     <ul className='list'>
+                        <li>
+                           <NavLink to="pages/introduction" className='item'>Get Started</NavLink>
+                        </li>
+                        <li>
+                           <NavLink to="/articles" className='item'>Topics</NavLink>
+                        </li>
+                        <li>
+                           <NavLink to="/glossaries" className='item'>Glossaries</NavLink>
+                        </li>
+                     </ul>
+
                   </div>
                </div>
             </div>

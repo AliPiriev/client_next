@@ -7,8 +7,6 @@ import Article from "../components/Article";
 import Pagination from "../components/Pagination";
 import NotResult from "../components/NotResult";
 import { connect } from 'react-redux';
-import PHPUnserialize from 'php-unserialize';
-import { unserialize } from "@swordev/php-unserialize"
 
 function Articles({ commonData }) {
    const [articles, setArticles] = useState(null);

@@ -2,7 +2,7 @@
 function BgImage({ id }) {
    let image = false;
    try {
-      image = require('../assets/img/bg/bg_' + id + '.png').default;
+      image = require('../assets/img/bg/bg_' + id + '.png');
    } catch (err) {
       console.log(err.message)
       image = false;

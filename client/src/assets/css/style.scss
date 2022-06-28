@@ -35,12 +35,12 @@ header{
    li.topics{
       position: relative;
 
-      svg{
+      .arrow{
          margin-left: 5px;
          transition: .4s;
       }
 
-      path{
+      .arrow path{
          transition: .4s;
       }
    }
@@ -51,11 +51,11 @@ header{
          color: $c-orange;
       }
 
-      svg{
+      .arrow{
          transform: rotate(180deg);
       }
 
-      path{
+      .arrow path{
          fill: $c-orange;
       }
    }
@@ -64,25 +64,80 @@ header{
       cursor: pointer;
       transition: 0.4s;
    }
-   .item svg,
-   .item path{
-      transition: .4s;
-   }
    
-   .item:hover {
-      color: $c-orange;
-   }
-   .item:hover path {
-      fill: $c-orange;
-   }
-
+   .item:hover,
    .item.active {
       color: $c-orange;
    }
-   .item.active path {
-      fill: $c-orange;
+}
+
+.header{
+   .burger{
+      display: none;
+      margin-left: 20px;
    }
 }
+
+.mob-navigation{
+   // position: fixed;
+   display: none;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 354px;
+   max-width: 100%;
+   background-color: #151442;
+   padding: 30px;
+   overflow: auto;
+
+   .top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+
+      .ttl{
+         font-size: $f-medium;
+      }
+
+      .close{
+         cursor: pointer;
+      }
+
+      path{
+         transition: .4s;
+      }
+
+      .close:hover path{
+         stroke: $c-orange;
+      }
+   }
+
+   .list{
+      display: flex;
+      flex-direction: column;
+   }
+
+   li{
+      margin-bottom: 20px;
+   }
+
+   li:last-child{
+      margin-bottom: 0;
+   }
+
+   .item{
+      font-size: $f-large;
+      line-height: 40px;
+      transition: .4s;
+   }
+   .item:hover,
+   .item.active{
+      color: $c-orange;
+   }
+}
+
+
 
 //end of header
 
