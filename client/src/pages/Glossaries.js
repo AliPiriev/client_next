@@ -1,8 +1,8 @@
 import useFetch from '../useFetch';
 import { Link } from 'react-router-dom'
-import NotResult from "../components/NotResult";
+import NotResult from "../components/UI/NotResult";
 import AnimatedPage from "../components/animated/AnimatedPage";
-import BgImage from '../components/BgImage';
+import BgImage from '../components/UI/BgImage';
 import { Link as ScrollLink, Element } from 'react-scroll'
 
 

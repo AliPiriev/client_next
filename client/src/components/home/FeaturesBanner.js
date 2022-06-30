@@ -1,6 +1,6 @@
-import Icon1 from '../assets/svg/feature-icon-1.svg'
-import Icon2 from '../assets/svg/feature-icon-2.svg'
-import Icon3 from '../assets/svg/feature-icon-3.svg'
+import Icon1 from '../../assets/svg/feature-icon-1.svg'
+import Icon2 from '../../assets/svg/feature-icon-2.svg'
+import Icon3 from '../../assets/svg/feature-icon-3.svg'
 
 function FeaturesBanner({ data }) {
    return (

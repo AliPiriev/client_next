@@ -1,26 +1,32 @@
-import { useParams } from 'react-router-dom';
+import AnimatedPage from '../components/animated/AnimatedPage';
+import { useParams } from 'react-router-dom'
 import useFetch from '../useFetch';
 import parse from 'html-react-parser';
+import ExploreArticles from '../components/article/ExploreArticles';
 import Moment from 'react-moment';
 import { useNavigate } from 'react-router-dom';
-import ModeSwitcher from '../components/ModeSwitcher';
-import BgImage from '../components/BgImage';
-import AnimatedPage from '../components/animated/AnimatedPage';
+import { connect } from 'react-redux';
+import { getItemById } from '../helpers'
 
-function Glossary() {
+ 
+function Article({levels}) {
    let { slug } = useParams();
-   const { data } = useFetch(`http://localhost:8080/api/glossaries/${slug}`);
+   const { data } = useFetch(`http://localhost:8080/api/articles/${slug}`);
    const navigate = useNavigate();
+
+   let level = null;
+   if(levels && levels.data && data) level = getItemById(levels.data, data.level);
+
 
    return (
       <AnimatedPage>
-         <div className="glossary-page">
-            <BgImage id={2} />
-            {data ? (
+         {data && (
+            <div className="article-page">
                <div className="container">
                   <div className="top">
-                     <div className="switcher-wrap">
-                        <ModeSwitcher />
+                     <div className="switcher"></div>
+                     <div className="img-box">
+                        <img src={require('../assets/img/article.png')} alt="" className="img-absolute" />
                      </div>
                      <div className="back-btn" onClick={() => navigate(-1)}>
                         <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M5.43654 1.05412L1.49066 5L5.43654 8.94588L4.38242 10L0.436538 6.05412C0.157023 5.77452 -2.01275e-07 5.39535 -2.18557e-07 5C-2.35838e-07 4.60465 0.157023 4.22548 0.436538 3.94588L4.38242 -1.91561e-07L5.43654 1.05412Z" fill="white"></path> </svg>
@@ -28,6 +34,7 @@ function Glossary() {
                      </div>
                      <h1 className="title">{data.title}</h1>
                      <div className="info">
+                        {level && (<div className={`item lev-item-simple ${level.title.toLowerCase()}`}>{level.title}</div>)}
                         <div className="item">
                            <div className="icon">
                               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4.71795 3.69231C4.38154 3.69231 4.10257 3.41333 4.10257 3.07692V0.615385C4.10257 0.278974 4.38154 0 4.71795 0C5.05436 0 5.33334 0.278974 5.33334 0.615385V3.07692C5.33334 3.41333 5.05436 3.69231 4.71795 3.69231Z" fill="white"></path> <path d="M11.2824 3.69231C10.946 3.69231 10.667 3.41333 10.667 3.07692V0.615385C10.667 0.278974 10.946 0 11.2824 0C11.6188 0 11.8978 0.278974 11.8978 0.615385V3.07692C11.8978 3.41333 11.6188 3.69231 11.2824 3.69231Z" fill="white"></path> <path d="M14.9743 6.03399H1.02554C0.689131 6.03399 0.410156 5.75502 0.410156 5.41861C0.410156 5.0822 0.689131 4.80322 1.02554 4.80322H14.9743C15.3107 4.80322 15.5896 5.0822 15.5896 5.41861C15.5896 5.75502 15.3107 6.03399 14.9743 6.03399Z" fill="white"></path> <path d="M11.2821 16.001H4.71795C1.72308 16.001 0 14.4501 0 11.7546V5.47733C0 2.78181 1.72308 1.23096 4.71795 1.23096H11.2821C14.2769 1.23096 16 2.78181 16 5.47733V11.7546C16 14.4501 14.2769 16.001 11.2821 16.001ZM4.71795 2.33871C2.37128 2.33871 1.23077 3.36522 1.23077 5.47733V11.7546C1.23077 13.8667 2.37128 14.8932 4.71795 14.8932H11.2821C13.6287 14.8932 14.7692 13.8667 14.7692 11.7546V5.47733C14.7692 3.36522 13.6287 2.33871 11.2821 2.33871H4.71795Z" fill="white"></path> <path d="M5.12813 9.94864C5.02146 9.94864 4.9148 9.92403 4.81634 9.883C4.71787 9.84198 4.62762 9.78454 4.54557 9.71069C4.47172 9.62864 4.41428 9.53839 4.37326 9.43992C4.33111 9.34131 4.30881 9.23536 4.30762 9.12813C4.30762 8.9148 4.39787 8.70146 4.54557 8.54557C4.62762 8.47172 4.71787 8.41428 4.81634 8.37326C4.96403 8.30762 5.12813 8.29121 5.29223 8.32403C5.34146 8.33223 5.39069 8.34864 5.43992 8.37326C5.48916 8.38967 5.53839 8.41428 5.58762 8.4471L5.71069 8.54557C5.74351 8.58659 5.78454 8.62762 5.80916 8.66864C5.84198 8.71787 5.86659 8.7671 5.883 8.81633C5.90762 8.86557 5.92403 8.9148 5.93223 8.96403C5.94044 9.02146 5.94864 9.07069 5.94864 9.12813C5.94864 9.34146 5.85839 9.5548 5.71069 9.71069C5.5548 9.85839 5.34146 9.94864 5.12813 9.94864Z" fill="white"></path> <path d="M8.0002 9.94822C7.78687 9.94822 7.57353 9.85796 7.41764 9.71027L7.31917 9.58719C7.2881 9.54147 7.26326 9.4918 7.24533 9.4395C7.22163 9.39301 7.20503 9.34322 7.1961 9.29181C7.18789 9.23437 7.17969 9.18514 7.17969 9.12771C7.17969 9.02104 7.2043 8.91437 7.24533 8.81591C7.28635 8.71745 7.34379 8.62719 7.41764 8.54514C7.64738 8.3154 8.01661 8.24155 8.312 8.37283C8.41866 8.41386 8.50071 8.4713 8.58276 8.54514C8.73046 8.70104 8.82071 8.91437 8.82071 9.12771C8.82071 9.18514 8.81251 9.23437 8.8043 9.29181C8.7961 9.34104 8.77969 9.39027 8.75507 9.4395C8.73866 9.48873 8.71405 9.53796 8.68123 9.58719L8.58276 9.71027C8.50071 9.78412 8.41866 9.84155 8.312 9.88258C8.21353 9.9236 8.10687 9.94822 8.0002 9.94822Z" fill="white"></path> <path d="M5.12813 12.8203C5.02146 12.8203 4.9148 12.7957 4.81634 12.7546C4.71787 12.7136 4.62762 12.6562 4.54557 12.5823C4.47172 12.5003 4.41428 12.4182 4.37326 12.3116C4.33111 12.213 4.30881 12.107 4.30762 11.9998C4.30762 11.7864 4.39787 11.5731 4.54557 11.4172C4.62762 11.3434 4.71787 11.2859 4.81634 11.2449C5.11992 11.1136 5.48095 11.1875 5.71069 11.4172C5.74351 11.4582 5.78454 11.4993 5.80916 11.5403C5.84198 11.5895 5.86659 11.6388 5.883 11.688C5.90762 11.7372 5.92403 11.7864 5.93223 11.8439C5.94044 11.8931 5.94864 11.9505 5.94864 11.9998C5.94864 12.2131 5.85839 12.4264 5.71069 12.5823C5.5548 12.73 5.34146 12.8203 5.12813 12.8203Z" fill="white"></path> </svg>
@@ -44,17 +51,31 @@ function Glossary() {
                               {data.updated_at}
                            </Moment>
                         </div>
-
+                        <div className="item">
+                           <div className="icon">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8 16.0005C3.58698 16.0005 0 12.4135 0 8.00049C0 3.58747 3.58698 0.000488281 8 0.000488281C12.413 0.000488281 16 3.58747 16 8.00049C16 12.4135 12.413 16.0005 8 16.0005ZM8 1.11677C4.20465 1.11677 1.11628 4.20514 1.11628 8.00049C1.11628 11.7958 4.20465 14.8842 8 14.8842C11.7953 14.8842 14.8837 11.7958 14.8837 8.00049C14.8837 4.20514 11.7953 1.11677 8 1.11677Z" fill="white"></path> <path d="M10.7608 10.9248C10.6605 10.9266 10.5619 10.898 10.478 10.8429L8.17104 9.46617C7.59801 9.12384 7.17383 8.37221 7.17383 7.70989V4.65873C7.17383 4.35361 7.42685 4.10059 7.73197 4.10059C8.03708 4.10059 8.29011 4.35361 8.29011 4.65873V7.70989C8.29011 7.97779 8.51336 8.37221 8.74406 8.50617L11.051 9.88291C11.3189 10.0392 11.4008 10.3815 11.2445 10.6494C11.1939 10.7326 11.123 10.8016 11.0383 10.8498C10.9537 10.898 10.8582 10.9238 10.7608 10.9248Z" fill="white"></path> </svg>
+                           </div>
+                           <span className="value">{data.duration} MIN</span>
+                        </div>
                      </div>
                   </div>
                   <div className="content text">
                      {parse(data.description)}
                   </div>
+                  <div className="explore-more"></div>
+
                </div>
-            ) : ''}
-         </div>
+               <ExploreArticles category={data.category} id={data.id} />
+            </div>
+         )}
       </AnimatedPage>
    )
 }
 
-export default Glossary;
+const mapStateToProps = (state) => {
+   return{
+      levels: state.commonDataState.levels
+   }
+}
+
+export default connect(mapStateToProps, null)(Article);

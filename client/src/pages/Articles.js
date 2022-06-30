@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import AnimatedPage from "../components/animated/AnimatedPage";
-import BgImage from '../components/BgImage';
+import BgImage from '../components/UI/BgImage';
 import { fetchData } from '../queries'
-import Article from "../components/Article";
-import Pagination from "../components/Pagination";
-import NotResult from "../components/NotResult";
+import Article from "../components/article/Article";
+import Pagination from "../components/UI/Pagination";
+import NotResult from "../components/UI/NotResult";
 import { connect } from 'react-redux';
 
 function Articles({ commonData }) {

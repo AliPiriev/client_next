@@ -5,7 +5,7 @@ import WalletConnectModal from '../walletConnect/WalletConnectModal';
 import WalletInfoBox from '../walletConnect/WalletInfoBox';
 import { AnimatePresence } from 'framer-motion'
 import { NavLink } from 'react-router-dom';
-import TopicsBox from '../TopicsBox';
+import TopicsBox from '../UI/TopicsBox';
 
 
 function Header() {
@@ -104,14 +104,14 @@ function Header() {
                   </div>
 
                   <button className="burger">
-                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="2" y1="8" x2="30" y2="8" stroke="white" stroke-width="2"></line> <line x1="2" y1="16" x2="30" y2="16" stroke="white" stroke-width="2"></line> <line x1="2" y1="24" x2="30" y2="24" stroke="white" stroke-width="2"></line> </svg>
+                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="2" y1="8" x2="30" y2="8" stroke="white" ></line> <line x1="2" y1="16" x2="30" y2="16" stroke="white" ></line> <line x1="2" y1="24" x2="30" y2="24" stroke="white" ></line> </svg>
                   </button>
 
                   <div className="mob-navigation">
                      <div className="top">
                         <span className='ttl'>Menu</span>
                         <button className='close'>
-                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 1L1 23" stroke="white" stroke-width="2"></path> <path d="M1 1L23 23" stroke="white" stroke-width="2"></path> </svg>
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 1L1 23" stroke="white" ></path> <path d="M1 1L23 23" stroke="white" ></path> </svg>
                         </button>
                      </div>
 

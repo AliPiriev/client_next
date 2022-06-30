@@ -3,14 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
 // import { AnimatePresence } from "framer-motion";
 
-import Home from '../../views/Home';
-import NotFound from '../../views/NotFound';
-import TestAdmin from '../../views/TestAdmin';
-import Articles from '../../views/Articles';
-import Article from '../../views/Article';
-import SimplePage from '../../views/SimplePage';
-import Glossary from '../../views/Glossary';
-import Glossaries from '../../views/Glossaries';
+import Home from '../../pages/Home';
+import NotFound from '../../pages/NotFound';
+import TestAdmin from '../../pages/TestAdmin';
+import Articles from '../../pages/Articles';
+import Article from '../../pages/Article';
+import SimplePage from '../../pages/SimplePage';
+import Glossary from '../../pages/Glossary';
+import Glossaries from '../../pages/Glossaries';
  
  
 function AnimatedRoutes() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getItemById } from '../helpers'
+import { getItemById } from '../../helpers'
 
 
 function Article({ data, levels, tags, categories }) {
@@ -10,7 +10,7 @@ function Article({ data, levels, tags, categories }) {
    return (
       <Link to={`/articles/${data.slug}`} className="article">
          <div className="img-box">
-            <img src={require('../assets/img/article.png')} alt="" className="img-absolute" />
+            <img src={require('../../assets/img/article.png')} alt="" className="img-absolute" />
             <div className="pins">
                {(data.tags && JSON.parse(data.tags).length && tags.data) ? (
                   JSON.parse(data.tags).map((tag) => {

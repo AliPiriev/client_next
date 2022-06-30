@@ -1,10 +1,11 @@
 import useFetch from '../useFetch';
-import Articles from "../components/Articles";
-import BgImage from "../components/BgImage";
-import IntroBox from "../components/IntroBox";
-import Glossaries from '../components/Glossaries';
+import Articles from "../components/article/Articles";
+import BgImage from "../components/UI/BgImage";
+import IntroBox from "../components/home/IntroBox";
+import Glossaries from '../components/glossary/Glossaries';
 import AnimatedPage from '../components/animated/AnimatedPage';
-import FeaturesBanner from '../components/FeaturesBanner';
+import FeaturesBanner from '../components/home/FeaturesBanner';
+import SmallBannerBox from '../components/home/SmallBannerBox';
  
 function Home() {
    const intro = {
@@ -30,6 +31,7 @@ function Home() {
                {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
                {glossaries && glossaries.length ? <Glossaries data={glossaries} 
                   title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
+            <SmallBannerBox/>
             </div>
          </div>
       </AnimatedPage>
