@@ -9,25 +9,23 @@ function SimplePage() {
    const { data } = useFetch(`http://localhost:8080/api/pages/${slug}`);
 
    return (
-      <AnimatedPage>
-         <div className="simple-page">
-            {data ? (
-               <div className="container">
-                  <h1 className="title">{data.title}</h1>
-                  {data.sub_title && (
-                     <span className="subtitle">{data.sub_title}</span>
-                  )}
-                  <div className="content text">
-                     {parse(data.details)}
-                  </div>
+      <div className="simple-page">
+         {data ? (
+            <div className="container">
+               <h1 className="title">{data.title}</h1>
+               {data.sub_title && (
+                  <span className="subtitle">{data.sub_title}</span>
+               )}
+               <div className="content text">
+                  {parse(data.details)}
                </div>
-            ) : (
-               <div className="container">
-                  <div className="not-found">Page Not found</div>
-               </div>
-            )}
-         </div>
-      </AnimatedPage>
+            </div>
+         ) : (
+            <div className="container">
+               <div className="not-found">Page Not found</div>
+            </div>
+         )}
+      </div>
    )
 }
 

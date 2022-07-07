@@ -8,7 +8,7 @@ function Article({ data, levels, tags, categories }) {
    if (levels && levels.data) level = getItemById(levels.data, data.level);
 
    return (
-      <Link href={`/article/${data.slug}`}>
+      <Link href={`/articles/${data.slug}`}>
          <a  className="article">
             <div className="img-box">
                <img src='/img/article.png' alt="" className="img-absolute" />

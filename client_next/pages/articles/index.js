@@ -1,17 +1,19 @@
 import { useEffect, useState, useRef } from "react";
-import { useSearchParams, useParams } from "react-router-dom";
-import AnimatedPage from "../../components/animated/AnimatedPage";
+// import { useSearchParams, useParams } from "react-router-dom";
 import BgImage from '../../components/UI/BgImage';
-import { fetchData } from '../queries'
+import { fetchData } from '../../queries'
 import Article from "../../components/article/Article";
 import Pagination from "../../components/UI/Pagination";
 import NotResult from "../../components/UI/NotResult";
 import { connect } from 'react-redux';
+import { useRouter } from 'next/router'
 
 function Articles({ commonData }) {
    const [articles, setArticles] = useState(null);
    const { categories, levels, tags } = commonData;
-   const [searchParams, setSearchParams] = useSearchParams();
+   const router = useRouter();
+
+   // const [searchParams, setSearchParams] = useSearchParams();
    const [params, setParams] = useState({
       category: [],
       tag: [],
@@ -20,7 +22,7 @@ function Articles({ commonData }) {
       limit: 15
    })
    const didMount = useRef(true);
- 
+
    const hanldeChange = (definition, value) => {
       if (definition !== 'page' && definition !== 'limit') {
          let result = params[definition];
@@ -30,42 +32,49 @@ function Articles({ commonData }) {
          } else {
             result.splice(index, 1);
          }
-         setSearchParams({ ...params, [definition]: result });
+         router.push({
+            query: { ...params, [definition]: result }
+         })
          setParams({ ...params, [definition]: result })
       } else {
-         setSearchParams({ ...params, [definition]: value });
+         router.push({
+            query: { ...params, [definition]: result }
+         })
          setParams({ ...params, [definition]: value })
       }
    }
 
    const getData = async () => {
-      const res = await fetchData(`http://localhost:8080/api/articles?${searchParams.toString()}`);
+      console.log(router.asPath)
+      const res = await fetchData(`http://localhost:8080/api${router.asPath}`);
       setArticles(res.data);
    }
 
 
-   if(articles && articles.results){
-
-   }
-
 
    useEffect(() => {
-      if (didMount.current) {
-         const category = searchParams.getAll('category');
-         const tag = searchParams.getAll('tag');
-         const level = searchParams.getAll('level');
-         const page = searchParams.get('page') || 1;
-         const limit = searchParams.get('limit') || 15;
-         setSearchParams({ category, tag, level, page, limit });
-         setParams({ category, tag, level, page, limit });
-         didMount.current = false;
-      } else {
-         getData();
+      if (router.isReady) {
+         if (didMount.current) {
+            const category = router.query.category || [];
+            const tag = router.query.tag || [];
+            const level = router.query.level || [];
+            const page = router.query.page || 1;
+            const limit = router.query.limit || 15;
+
+            router.push({
+               query: { category, tag, level, page, limit }
+            })
+            setParams({ category, tag, level, page, limit });
+            didMount.current = false;
+         } else {
+            getData();
+         }
+         console.log(router)
       }
-   }, [params])
+   }, [router.isReady, params])
 
    return (
-      <AnimatedPage>
+      <div>
          <BgImage id={2} />
          <div className="articles-page">
             <div className="container">
@@ -107,8 +116,8 @@ function Articles({ commonData }) {
                            <span className="ttl">Tags:</span>
                            <div className="list">
                               {tags.data.map((tag) => {
-                                 return (<div 
-                                    className={`item tag-item ${params.tag.includes(String(tag.id)) ? 'active' : ''}`} 
+                                 return (<div
+                                    className={`item tag-item ${params.tag.includes(String(tag.id)) ? 'active' : ''}`}
                                     key={tag.id} onClick={() => hanldeChange('tag', tag.id)}>{tag.name}</div>)
                               })}
                            </div>
@@ -140,7 +149,7 @@ function Articles({ commonData }) {
                ) : ''}
             </div>
          </div>
-      </AnimatedPage>
+      </div>
    )
 }
 

@@ -3,10 +3,8 @@ import Articles from "../components/article/Articles";
 import BgImage from "../components/UI/BgImage";
 import IntroBox from "../components/home/IntroBox";
 import Glossaries from '../components/glossary/Glossaries';
-import AnimatedPage from '../components/animated/AnimatedPage';
 import FeaturesBanner from '../components/home/FeaturesBanner';
 import SmallBannerBox from '../components/home/SmallBannerBox';
-import MainLayout from '../components/layouts/MainLayout';
 
 function Home() {
    const intro = {
@@ -48,34 +46,30 @@ function Home() {
 
 
    return (
-      <MainLayout>
-         <AnimatedPage>
-            <div className="home-page">
-               <BgImage id={1} />
-               <div className="container">
-                  {home_contents && <IntroBox data={home_contents} />}
-                  {home_contents && <FeaturesBanner data={home_contents} />}
-                  {releases && releases.results.length ? <Articles data={releases} title='releases' /> : ''}
-                  {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
-                  {glossaries && glossaries.length ? <Glossaries data={glossaries}
-                     title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
-                  <div className="small-banner-box-wrap">
+      <div className="home-page">
+         <BgImage id={1} />
+         <div className="container">
+            {home_contents && <IntroBox data={home_contents} />}
+            {home_contents && <FeaturesBanner data={home_contents} />}
+            {releases && releases.results.length ? <Articles data={releases} title='releases' /> : ''}
+            {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
+            {glossaries && glossaries.length ? <Glossaries data={glossaries}
+               title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
+            <div className="small-banner-box-wrap">
 
-                     {bannerData.legth ? (
-                        <>
-                           {bannerData.map((item) => {
-                              return (
-                                 <SmallBannerBox data={item} />
-                              )
-                           })}
-                        </>
-                     ) : ""}
+               {bannerData.legth ? (
+                  <>
+                     {bannerData.map((item) => {
+                        return (
+                           <SmallBannerBox data={item} />
+                        )
+                     })}
+                  </>
+               ) : ""}
 
-                  </div>
-               </div>
             </div>
-         </AnimatedPage>
-      </MainLayout>
+         </div>
+      </div>
    )
 }
 

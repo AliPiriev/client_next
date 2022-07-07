@@ -7,7 +7,7 @@ import { animateScroll } from 'react-scroll'
 function Footer({ settings_data }) {
    const { data } = useFetch(`http://localhost:8080/api/footer`);
    const scroll = animateScroll;
-
+ 
    const getLinks =  (row) => {
       return data.filter(item => item.section === row).map((link) => {
          let result;
@@ -17,7 +17,7 @@ function Footer({ settings_data }) {
                </a>
             </Link>) :
             result = (
-               <Link href={link.slug}  key={link.id}>
+               <Link href={'/' + link.slug}  key={link.id}>
                   <a className="link">{link.name}</a>
                </Link>)
          return result;

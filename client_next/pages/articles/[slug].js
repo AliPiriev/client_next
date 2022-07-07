@@ -1,4 +1,4 @@
-import AnimatedPage from '../../components/animated/AnimatedPage';
+import { useRouter } from 'next/router'
 import useFetch from '../../hooks/useFetch';
 import parse from 'html-react-parser';
 import ExploreArticles from '../../components/article/ExploreArticles';
@@ -6,18 +6,19 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { getItemById } from '../../helpers'
 
- 
-function Article({levels}) {
-   let { slug } = 'dsdf';
+
+function Article({ levels }) {
+   const router = useRouter();
+   const { slug } = router.query; 
+
    const { data } = useFetch(`http://localhost:8080/api/articles/${slug}`);
 
-
    let level = null;
-   if(levels && levels.data && data) level = getItemById(levels.data, data.level);
+   if (levels && levels.data && data) level = getItemById(levels.data, data.level);
 
 
    return (
-      <AnimatedPage>
+      <div>
          {data && (
             <div className="article-page">
                <div className="container">
@@ -26,7 +27,7 @@ function Article({levels}) {
                      <div className="img-box">
                         <img src='/img/article.png' alt="" className="img-absolute" />
                      </div>
-                     <div className="back-btn" >
+                     <div className="back-btn"  onClick={() => router.back()}>
                         <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M5.43654 1.05412L1.49066 5L5.43654 8.94588L4.38242 10L0.436538 6.05412C0.157023 5.77452 -2.01275e-07 5.39535 -2.18557e-07 5C-2.35838e-07 4.60465 0.157023 4.22548 0.436538 3.94588L4.38242 -1.91561e-07L5.43654 1.05412Z" fill="white"></path> </svg>
                         go back
                      </div>
@@ -66,12 +67,12 @@ function Article({levels}) {
                <ExploreArticles category={data.category} id={data.id} />
             </div>
          )}
-      </AnimatedPage>
+      </div>
    )
 }
 
 const mapStateToProps = (state) => {
-   return{
+   return {
       levels: state.commonDataState.levels
    }
 }
