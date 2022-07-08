@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef } from "react";
-// import { useSearchParams, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import BgImage from '../../components/UI/BgImage';
 import { fetchData } from '../../queries'
 import Article from "../../components/article/Article";
@@ -13,65 +12,85 @@ function Articles({ commonData }) {
    const { categories, levels, tags } = commonData;
    const router = useRouter();
 
-   // const [searchParams, setSearchParams] = useSearchParams();
-   const [params, setParams] = useState({
-      category: [],
-      tag: [],
-      level: [],
-      page: 1,
-      limit: 15
-   })
-   const didMount = useRef(true);
-
    const hanldeChange = (definition, value) => {
       if (definition !== 'page' && definition !== 'limit') {
-         let result = params[definition];
-         const index = result.indexOf(value.toString());
-         if (index === -1) {
-            result.push(value.toString());
-         } else {
-            result.splice(index, 1);
+
+         //if query not exist
+         if (!router.query[definition]) {
+            router.push({
+               query: { ...router.query, [definition]: String(value) }
+            })
+            return true
          }
-         router.push({
-            query: { ...params, [definition]: result }
-         })
-         setParams({ ...params, [definition]: result })
+
+         // if query exist but it single one
+         if (!Array.isArray(router.query[definition]) && router.query[definition] === String(value)) {
+            const params = router.query;
+            delete params[definition];
+            router.push({
+               query: { ...params }
+            })
+            return true;
+         } else if (!Array.isArray(router.query[definition]) && router.query[definition] != String(value)) {
+            const params = [];
+            params.push(router.query[definition]);
+            params.push(String(value));
+
+            router.push({
+               query: { ...router.query, [definition]: params }
+            })
+            return true;
+         }
+
+         //if query is an array
+         if (Array.isArray(router.query[definition])) {
+
+            let params = router.query[definition];
+            const index = params.indexOf(value.toString());
+            if (index === -1) {
+               params.push(value.toString());
+            } else {
+               params.splice(index, 1);
+            }
+           
+            router.push({
+               query: { ...router.query, [definition]: params }
+            })
+
+            return true;
+         }
       } else {
          router.push({
-            query: { ...params, [definition]: result }
+            query: { ...router.query, [definition]: value }
          })
-         setParams({ ...params, [definition]: value })
       }
    }
 
+   const isActive = (definition, id) => {
+
+      if (!router.query[definition]) return false;
+
+      if (Array.isArray(router.query[definition]) && router.query[definition].includes(String(id))) {
+         return true;
+      } else if (router.query[definition] === String(id)) {
+         return true;
+      }
+
+      return false;
+   }
+
    const getData = async () => {
-      console.log(router.asPath)
+      if(!router.query.page)  router.push({query: { ...router.query, page: 1 }})
+      if(!router.query.limit)  router.push({query: { ...router.query, limit: 15 }})
       const res = await fetchData(`http://localhost:8080/api${router.asPath}`);
       setArticles(res.data);
    }
 
-
-
    useEffect(() => {
       if (router.isReady) {
-         if (didMount.current) {
-            const category = router.query.category || [];
-            const tag = router.query.tag || [];
-            const level = router.query.level || [];
-            const page = router.query.page || 1;
-            const limit = router.query.limit || 15;
-
-            router.push({
-               query: { category, tag, level, page, limit }
-            })
-            setParams({ category, tag, level, page, limit });
-            didMount.current = false;
-         } else {
-            getData();
-         }
-         console.log(router)
+         getData();
       }
-   }, [router.isReady, params])
+   }, [router])
 
    return (
       <div>
@@ -87,7 +106,7 @@ function Articles({ commonData }) {
                            <div className="list">
                               {categories.data.map((cat) => {
                                  return (
-                                    <div className={`item cat-item ${params.category.includes(String(cat.id)) ? 'active' : ''}`}
+                                    <div className={`item cat-item ${isActive('category', cat.id) ? 'active' : ''}`}
                                        key={cat.id} onClick={() => hanldeChange('category', cat.id)}>{cat.name}</div>
                                  )
                               })}
@@ -103,7 +122,7 @@ function Articles({ commonData }) {
                                  return (
                                     <div
                                        className={`item lev-item ${lev.title.toLowerCase()} 
-                                       ${params.level.includes(String(lev.id)) ? 'active' : ''}`}
+                                       ${isActive('level', lev.id) ? 'active' : ''}`}
                                        key={lev.id} onClick={() => hanldeChange('level', lev.id)}>{lev.title}</div>
                                  )
                               })}
@@ -117,7 +136,7 @@ function Articles({ commonData }) {
                            <div className="list">
                               {tags.data.map((tag) => {
                                  return (<div
-                                    className={`item tag-item ${params.tag.includes(String(tag.id)) ? 'active' : ''}`}
+                                    className={`item tag-item ${isActive('tag', tag.id) ? 'active' : ''}`}
                                     key={tag.id} onClick={() => hanldeChange('tag', tag.id)}>{tag.name}</div>)
                               })}
                            </div>
@@ -142,8 +161,8 @@ function Articles({ commonData }) {
                {articles && articles.total ? (
                   <Pagination data={{
                      total: articles.total,
-                     limit: Number(params.limit),
-                     page: Number(params.page),
+                     limit: Number(router.query.limit),
+                     page: Number(router.query.page),
                      hanldeChange
                   }} />
                ) : ''}
