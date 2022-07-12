@@ -1,3 +1,5 @@
+
+
 .banner {
     font-family: "lack";
     display: flex;
@@ -10,7 +12,7 @@
 .title {
     font-size: 30px;
     padding-top: 30px;
-}
+} 
 .paragraph {
     padding-top: 20px;
 }
