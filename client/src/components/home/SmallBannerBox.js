@@ -9,6 +9,7 @@ function SmallBannerBox({data}){
       <p className="teaser">{data.paragraph}</p>
       <button className="btn" href={data.button_link}>{data.button_text}</button>
      </div>
+
    )
 }
 

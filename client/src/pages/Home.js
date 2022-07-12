@@ -10,7 +10,9 @@ import Accordion from '../components/courses/Accordion';
 import Tabs from '../components/courses/Tabs';
 import img1 from '../assets/img/smallBannerBox/bg.png'
 import img2 from '../assets/img/smallBannerBox/bgs.png';
+
  
+
 function Home() {
    const intro = {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
@@ -18,6 +20,7 @@ function Home() {
    }
 
    const bannerData = [{
+
       title: 'Lost in all the crypto slang?',
       paragraph: "Take a closer look at our blockchain & crypto glossary",
       img: img1,
@@ -32,13 +35,12 @@ function Home() {
       button_text: "Take a Crypto Quiz"
    }]
 
-
    const { data: home_contents } = useFetch('http://localhost:8080/api/home-content');
    const { data: glossaries } = useFetch('http://localhost:8080/api/glossaries?limit=3');
    const { data: glossariesTotal } = useFetch('http://localhost:8080/api/glossaries-total');
    const { data: releases } = useFetch('http://localhost:8080/api/articles?category=4&limit=3');
    const { data: blockchain } = useFetch('http://localhost:8080/api/articles?category=6&limit=3');
- 
+
 
    return (
       <AnimatedPage>
@@ -46,10 +48,10 @@ function Home() {
             <BgImage id={1} />
             <div className="container">
                {home_contents && <IntroBox data={home_contents} />}
-               {home_contents && <FeaturesBanner data={home_contents}/>}
+               {home_contents && <FeaturesBanner data={home_contents} />}
                {releases && releases.results.length ? <Articles data={releases} title='releases' /> : ''}
                {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
-               {glossaries && glossaries.length ? <Glossaries data={glossaries} 
+               {glossaries && glossaries.length ? <Glossaries data={glossaries}
                   title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
                   <div className='small-banner-box-wrap'>
                      {bannerData.map((item) => {
@@ -65,5 +67,5 @@ function Home() {
       </AnimatedPage>
    )
 }
- 
+
 export default Home;
