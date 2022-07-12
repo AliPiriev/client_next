@@ -65,7 +65,7 @@ function Home() {
                </div>   
                <VideoContent />
                <Banner />
-               <Instructors />
+               <Instructors /> 
 
             </div>
          </div>
