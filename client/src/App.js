@@ -7,7 +7,7 @@ import useFetch from './useFetch';
 
 import Header from './components/modules/Header';
 import Footer from './components/modules/Footer';
-import AnimatedRoutes from './components/animated/AnimatedRoutes';
+import AnimatedRoutes from './components/animated/AnimatedRoutes'; 
 
 
 function App({ setSettings, setCommonData }) {
