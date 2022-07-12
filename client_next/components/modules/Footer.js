@@ -12,7 +12,7 @@ function Footer({ settings_data }) {
       return data.filter(item => item.section === row).map((link) => {
          let result;
          !link.is_static ? result = (
-            <Link href={'/pages/' + link.slug} key={link.id}>
+            <Link href={'/page/' + link.slug} key={link.id}>
                <a className="link">{link.name}
                </a>
             </Link>) :

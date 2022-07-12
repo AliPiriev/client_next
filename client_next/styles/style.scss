@@ -263,7 +263,7 @@ header{
 
       .txt{
          padding-right: 60px;
-         font-size: $f-small;
+         font-size: $f-smallest;
          color: $c-grey;
          line-height: 20px;
       }
@@ -331,7 +331,7 @@ header{
    }
 
    .ttl {
-      font-size: $f-small;
+      font-size: $f-smallest;
       text-transform: uppercase;
    }
 
@@ -367,7 +367,7 @@ header{
    }
 
    .type {
-      font-size: $f-small;
+      font-size: $f-smallest;
       color: #898c93;
    }
 
@@ -456,7 +456,7 @@ header{
    .message {
       display: flex;
       color: $c-orange;
-      font-size: $f-small;
+      font-size: $f-smallest;
       margin-top: 8px;
    }
 }
@@ -619,7 +619,7 @@ header{
       position: relative;
       margin-top: auto;
       padding-left: 12px;
-      font-size: $f-small;
+      font-size: $f-smallest;
       text-transform: uppercase;
 
       &:before {
@@ -831,7 +831,7 @@ header{
 
       .value {
          display: flex;
-         font-size: $f-small;
+         font-size: $f-smallest;
          text-transform: uppercase;
          padding-left: 10px;
          margin-top: 2px;
@@ -1064,7 +1064,7 @@ header{
 
       .value {
          display: flex;
-         font-size: $f-small;
+         font-size: $f-smallest;
          text-transform: uppercase;
          padding-left: 10px;
          margin-top: 2px;

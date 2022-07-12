@@ -1,13 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import useFetch from '../../hooks/useFetch';
 import parse from 'html-react-parser';
-import AnimatedPage from '../../components/animated/AnimatedPage';
+
 
 
 function SimplePage() {
-   let { slug } = useParams();
+   const router = useRouter();
+   const { slug } = router.query; 
    const { data } = useFetch(`http://localhost:8080/api/pages/${slug}`);
-
+   
    return (
       <div className="simple-page">
          {data ? (

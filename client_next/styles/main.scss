@@ -40,7 +40,7 @@
    cursor: pointer;
 
    span{
-      font-size: $f-small;
+      font-size: $f-smallest;
    }
 
    svg{
@@ -96,7 +96,7 @@
 .back-btn {
    display: flex;
    align-items: center;
-   font-size: $f-small;
+   font-size: $f-smallest;
    cursor: pointer;
 
    & svg {
@@ -106,6 +106,26 @@
    &:hover svg {
       transform: translateX(-5px);
    }
+}
+
+.blue-btn{
+   display: inline-flex;
+   justify-content: center;
+   min-width: 260px;
+   max-width: 100%;
+   background: $c-blue;
+   padding: 12px;
+   cursor: pointer;
+   border-radius: $border-radius;
+   transition: .4s;
+
+   &:hover{
+      background: $c-light-blue;
+   }
+
+   span{
+      font-size: $f-small;
+   } 
 }
 
 //end of buttons
@@ -118,7 +138,7 @@
    align-items: center;
    position: relative;
    background-color: $c-white;
-   font-size: $f-small;
+   font-size: $f-smallest;
    line-height: 16px;
    padding: 4px 10px;
    color: $c-dark;
@@ -139,7 +159,7 @@
    display: inline-flex;
    align-items: center;
    position: relative;
-   font-size: $f-small;
+   font-size: $f-smallest;
    line-height: 16px;
    padding: 4px 10px;
    color: $c-white;
@@ -160,7 +180,7 @@
    display: inline-flex;
    align-items: center;
    position: relative;
-   font-size: $f-small;
+   font-size: $f-smallest;
    line-height: 16px;
    padding: 4px 10px 4px 22px;
    color: $c-white;
@@ -219,7 +239,7 @@
 .lev-item-simple {
    position: relative;
    padding-left: 12px;
-   font-size: $f-small;
+   font-size: $f-smallest;
    text-transform: uppercase;
 
    &:before {
@@ -319,7 +339,7 @@
    }
 }
 .input-wrap label {
-   font-size: $f-small;
+   font-size: $f-smallest;
    text-transform: uppercase;
    margin-bottom: 8px;
 }
@@ -333,7 +353,7 @@
    border: 1px solid $border-color;
    border-radius: $border-radius;
    background: transparent;
-   font-size: $f-small;
+   font-size: $f-smallest;
    color: $c-grey;
 }
 .input-wrap input::-webkit-input-placeholder {
@@ -363,7 +383,7 @@
    border: 1px solid $border-color;
    border-radius: $border-radius;
    background: transparent;
-   font-size: $f-small;
+   font-size: $f-smallest;
    color: $c-grey;
 }
 .input-wrap textarea::-webkit-input-placeholder {
@@ -399,7 +419,7 @@
    }
    .select__placeholder,
    .select__single-value {
-      font-size: $f-small;
+      font-size: $f-smallest;
       color: $c-grey;
    }
    .select__input-container {
@@ -419,7 +439,7 @@
       border: 1px solid $border-color;
    }
    .select__option {
-      font-size: $f-small;
+      font-size: $f-smallest;
       color: $c-grey;
       transition: 0.4s;
    }

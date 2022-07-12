@@ -63,7 +63,7 @@ function Header() {
                   <nav className="navigation"  >
                      <ul>
                         <li>
-                           <Link href="pages/introduction"><a className='item'>Get Started</a></Link>
+                           <Link href="page/introduction"><a className='item'>Get Started</a></Link>
                         </li>
                         <li ref={topicsWrap} className={`topics ${topicsBox ? 'active' : ''}`}>
                            <button className='item' onClick={() => setTopicsBox(!topicsBox)}>Topics</button>
