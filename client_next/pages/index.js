@@ -13,24 +13,23 @@ export const getStaticProps = async () => {
    const { data: blockchain } = await fetchData('http://localhost:8080/api/articles?category=6&limit=3');
 
 
+
    return {
       props: { home_contents, glossaries, glossariesTotal, releases, blockchain }
    }
 }
 
 function Home( { home_contents, glossaries, glossariesTotal, releases, blockchain }) {
-   console.log(home_contents)
-   console.log(glossaries)
-   console.log(releases)
+
    return (
       <div className="home-page">
          <BgImage id={1} />
          <div className="container">
             {home_contents && <IntroBox data={home_contents} />}
             {home_contents && <FeaturesBanner data={home_contents} />}
-            {releases.results.length ? <Articles data={releases} title='releases' /> : ''}
-            {blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
-            {glossaries.length ? <Glossaries data={glossaries}
+            {releases && releases.results.length ? <Articles data={releases} title='releases' /> : ''}
+            {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
+            {glossaries && glossaries.length ? <Glossaries data={glossaries}
                title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
          </div>
       </div>

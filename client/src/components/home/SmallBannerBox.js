@@ -1,14 +1,15 @@
 import React from "react";
-import "../../assets/css/temprKeta.scss";
+import "../../assets/css/temprNino.scss";
 
-function SmallBannerBox({data}) {
+function SmallBannerBox({data}){
    return (
-      <div className="BannerBox">
-         <img src={data.img} alt='' />
-         <h2 className="title">{data.title}</h2>
-         <p className="teaser">{data.paragraph}</p>
-         <button href={data.button_link}>{data.button_text}</button>
-      </div>
+     <div className="small-banner-box">
+      <div className="img"><img src={data.img} alt /></div>
+      <h2 className="title">{data.title}</h2>
+      <p className="teaser">{data.paragraph}</p>
+      <button className="btn" href={data.button_link}>{data.button_text}</button>
+     </div>
+
    )
 }
 
