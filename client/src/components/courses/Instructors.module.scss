@@ -1,0 +1,64 @@
+@import "../../assets/css/variables.scss";
+
+.mainContainer{
+    font-family: "Lack-Regular";
+
+    .ttl {
+        font-size: $f-largest;
+    }
+
+    .instructor_list {
+        padding: 60px 0px 60px 0px;
+        border-bottom: 1px solid $border-color;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            $f-medium: 22px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 600px;
+
+            .Names {
+                color: #969BA6;
+            }
+        }
+    }
+
+    .greenBanner {
+        width: 1050px;
+        height: 300px;
+        background-color: #347747;
+        border-radius: 0px 150px 150px 150px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+
+        .subTtl {
+            font-weight: 400;
+            font-size: $f-large;
+            line-height: $f-larger;
+        }
+        .txt {
+            font-weight: 400;
+            font-size: $f-mediumSmall;
+            line-height: 24px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 223px;
+            height: $f-largest;
+            font-weight: 400;
+            font-size: $f-medium;
+            line-height: 34px;
+            background-color: $c-orange;
+            border-radius: 29px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

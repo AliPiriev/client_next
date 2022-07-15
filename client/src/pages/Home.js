@@ -13,7 +13,6 @@ import VideoContent from '../components/courses/VideoContent';
 
 
 
-import Instructors from '../components/courses/Instructors';
 import Banner from '../components/courses/Banner';
 import img1 from '../assets/img/boxImages/blue.png';
 import img2 from '../assets/img/boxImages/green.png';
@@ -61,15 +60,14 @@ function Home() {
                {glossaries && glossaries.length ? <Glossaries data={glossaries}
                   title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
                <div className='small-banner-box-wrap'>
-                  {bannerData.map((item) => {
+                  {bannerData.map((item, index) => {
                      return (
-                        <SmallBannerBox data={item} />
+                        <SmallBannerBox data={item} key={index} />
                      )
                   })}
                </div>
                <VideoContent />
                <Banner />
-               <Instructors />
                <Accordion />
                <Tabs />
             </div>

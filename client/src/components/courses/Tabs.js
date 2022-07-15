@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import TabsTwo from './TabsTwo';
 import Qa from './Qa';
-import styles from "./Tabs.module.css";
+import styles from "./Tabs.module.scss";
 import tabImg from "../../assets/img/tabImg/tabimg.png";
-import yellow from "../../assets/img/tabImg/yellowElipse.png";
-import dot from "../../assets/img/tabImg/dot.png";
+
 
 
 const Tabs = () => {
@@ -44,15 +43,15 @@ const Tabs = () => {
                 <div className={styles.infoText}>
                     <div className={styles.infoTitle}>
                         <div className={styles.dotTitles}>
-                           <div><img src={yellow} alt="" /></div>
+                           <div className={styles.yellow}></div>
                            <div><h4 className={styles.yellTitle}>intermediate</h4></div>
                         </div>
                         <div className={styles.dotTitles}>
-                            <div><img src={dot} alt="" /></div>
+                            <div className={styles.dot}></div>
                             <div><h4 className={styles.dotTitle}>english</h4></div>
                         </div>
                         <div className={styles.dotTitles}>
-                            <div><img src={dot} alt="" /></div>
+                        <div className={styles.dot}></div>
                             <div><h4 className={styles.dotTitle}>8 min</h4></div>
                         </div>
                     </div>

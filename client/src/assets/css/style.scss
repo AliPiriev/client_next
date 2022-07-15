@@ -283,21 +283,6 @@ header{
    }
 }
 
-@media (max-width:1900px) {
-   .footer{
-      width: 100%;
-      margin-top: 100px;
-      padding-top: 40px;
-   }
-}
-@media (max-width:1599px) {
-   .footer {
-      .links {
-          width: 800px;
-      }
-   }
-}
-
 @media (max-width: 1365px) {
    .footer {
       padding: 40px 15px;
@@ -351,6 +336,7 @@ header{
          
       }
    }
+
 // end of footer
 
 

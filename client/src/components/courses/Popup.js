@@ -1,12 +1,10 @@
 import React from 'react'
-import styles from "./Popup.module.css";
+import styles from "./Popup.module.scss";
 
 function Popup({ closePopup }) {
-    
   return (
     <div className={styles.popupBackground}>
         <div className={styles.popupContainer}>
-            
            <div className={styles.titleCloseBtn}>
            <div className={styles.popupTitle}>
                 <h1 className={styles.popupH1}>Course Review</h1>
@@ -19,14 +17,10 @@ function Popup({ closePopup }) {
         </svg>
         </button>
            </div>
-           
             <div className={styles.popupBody}>
                 <p className={styles.popupP}>write your review</p>
                 <input className={styles.popupInput} placeholder="enter" />
                 <div className={styles.checkbox}>
-                {/* <input className={styles.check} type="checkbox" />
-                <p>werfghjkl</p> */}
-                
                 </div>
             </div>
             <div className={styles.popupFooter}>

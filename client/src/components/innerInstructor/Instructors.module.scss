@@ -1,0 +1,97 @@
+@import "../../assets/css/variables.scss";
+$f-largest: 54px;
+$f-large: 30px;
+$f-medium: 22px;
+$bg-orange: #FF7152;
+$c-grey: #969BA6;
+
+.mainContainer{
+    .mainContainer{
+        font-family: "lack";
+    }
+    .instructor_list {
+        display: flex;
+        gap: 50px;
+    }
+    .ttl {
+        font-size: $f-largest;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        font-size: $f-medium;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 600px;
+    }
+    .Names {
+        color: $c-grey;
+    }
+
+    .instructor_list {
+        padding: 60px 0px 60px 0px;
+        border-bottom: 1px solid #111826;
+}
+}
+.greenBanner {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .backgroundWrap {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .background{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -11;
+    }
+    .subTtl {
+        font-weight: 400;
+        font-size: $f-large;
+        line-height: $f-larger;
+        padding-top: 60px;
+    }
+    .txt {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 16px 0px 42px 0px;
+    }
+    .btn {
+        height: 54px;
+        font-weight: 400;
+        font-size: $f-medium;
+        line-height: 34px;
+        background-color: $bg-orange;
+        border-radius: 29px;
+        text-align: center;
+        padding: 10px 30px;
+        margin-bottom: 60px;
+    } 
+}
+
+@media (max-width:1900px) {
+
+}
+@media (max-width:1599px) {
+
+}
+@media (max-width:1365px) {
+
+}
+@media (max-width:1023px) {
+
+} 
+@media (max-width:767px) {
+
+} 

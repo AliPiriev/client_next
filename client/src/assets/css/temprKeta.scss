@@ -1,164 +1,81 @@
+@import "../../assets/css/variables.scss";
+$border-radius: 4px;
+$bg-orange: #FF7152;
+$f-large: 30px;
+$f-larger: 44px;
+$f-medium: 22px;
+$f-small: 12px;
+
+
 .small-banner-box-wrap {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     align-items: center;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 100px;
 }
-
-.small-banner-box-wrap h2 {
-    padding: 40px 100px 0px 50px;
-    font-family: "Lack-Regular";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 44px;
-    line-height: 66px;
-    color: #FFF;
-}
-
-.small-banner-box-wrap p {
-    position: relative;
-    z-index: 222;
-    padding: 16px 50px 50px 50px;
-    font-family: "Lack-Regular";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 34px;
-    color: #fff;
-}
-
-.small-banner-box-wrap button {
-    position: absolute;
-    padding: 12px 25px;
-    margin-bottom: 50px;
-    margin-left: 50px;
-    font-family: "Lack-Regular";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    color: #fff;
-    border: 1px solid #FFFFFF;
-    border-radius: 4px;
-}
-
-.BannerBox {
-    position: relative;
-    width: 510px;
+.small-banner-box {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
     height: 400px;
+    position: relative;
+    padding: 50px 40px;
+    margin-top: $f-large;
+}
+.title {
+    font-size: 44px!important;
+}
+.img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.banner_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.teaser {
+    padding-top: 16px;
+    font-size: $f-medium;
+}
+.btn {
+    border: 1px solid $c-white;
+    width: fit-content;
+    height: $f-larger;
+    border-radius: $border-radius;
+    margin-top: auto;
+    font-size: 14px;
+    transition: 0.5s;
+    padding-top: $f-small;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: $f-small;
+}
+.btn:hover {
+    border: 1px solid $bg-orange;
 }
 
-.small-banner-box-wrap img {
-    position: absolute;
-    // top: 0;
-    // width: 510px;
-    // height: 400px;
-    object-fit: cover;
-    z-index: -1;
+@media (max-width: 1900px) {
+
 }
-@media (max-width: 1365px) {
-    .small-banner-box-wrap {
-        flex-direction: column;
-        width: 100%;
-    }
-    .small-banner-box-wrap h2 {
-        font-size: 34px;
-        line-height: 46px;
-        color: #FFF;
-        padding-bottom: 30px;
-    }
-    
+/*Ipad Pro 1024*/
+@media (max-width:  1365px) {
     .small-banner-box {
-        position: relative;
         width: 100%;
-        height: 100%;
     }
-    
-    .small-banner-box-wrap img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        // width: 510px;
-        // height: 400px;
-        object-fit: cover;
-        z-index: -1;
-    }
-    
-    .small-banner-box-wrap button {
-        right: 5%;
-        top: 35%;
-    }
-    // .small-banner-box {
-    //     width: calc(510px);
-    //     height: calc(400px);
-    // }
-    
-    .small-banner-box-wrap img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-        z-index: -1;
-    }
-    }
-    
-    @media (max-width: 1023px) {
-                
-    .small-banner-box-wrap {
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .small-banner-box-wrap p {
-        margin-bottom: 100px;
-    }
-            
-    .small-banner-box-wrap button {
-        top: auto;
-        bottom: 0;   
-    }
-    
-    }
-    
-    @media (max-width: 767px) {
-    
-            
-    .small-banner-box-wrap {
-        left: 0;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // // gap: 30px;
-        // width: 100%;
-        // height: 100%;
-        // margin: 0 30%;
-        }
-    .small-banner-box {
-        margin-bottom: 15px;
-    }
-        
-    .small-banner-box-wrap h2 {
-        padding: 40px 100px 0px 50px;
-        font-size: 44px;
-        line-height: 66px;
-    }
-    
-    .small-banner-box-wrap p {
-        position: relative;
-        padding: 16px 50px 50px 50px;
-        font-size: 22px;
-        line-height: 34px;
-    }
-            
-    .small-banner-box-wrap button {
-        margin-bottom: 50px;
-        margin-left: 50px;
-        right: auto;
-        top: auto;
-        
-    }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  
 }

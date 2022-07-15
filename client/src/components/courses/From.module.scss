@@ -1,0 +1,113 @@
+@import "../../assets/css/variables.scss";
+
+.box {
+    width: 50%;
+    display: flex;
+    padding-left: 90px;
+
+        .form { 
+            display: flex;
+            flex-direction: column;
+            justify-content: right;
+        }
+
+        .contact2 input {
+            background-color: $bg-dark;
+            border: 1px solid $border-color;
+            padding: 5px;
+            width: 330px;
+            height: $f-larger;
+        }
+
+        .container3 {
+            display: flex;
+            width: 100%;
+            flex-direction: column;    
+        }
+
+        .subjectMenu {
+            display: flex;
+            align-items: center;
+            border: 1px solid $border-color;
+            width: 330px;
+            height: $f-larger;
+            padding: 5px;
+            background-color: $c-dark;
+        }
+
+        .subjectMenu button {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            color: $c-secondary;
+        }
+
+        .subjectMenu ul {
+            background-color: $bg-dark;
+        }
+
+
+        .msgBox input {
+            padding: 15px 5px 128px;
+        }
+
+        .container3 p { 
+            color: #fafafa;
+            line-height: 16px;
+            padding-top: 24px;
+            padding-bottom: 8px;
+        }
+
+        .contact2 p {
+            padding-top: 24px;
+            padding-bottom: 8px;
+        }
+
+        .contact2 {  
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 330px;
+            height: 44px;
+            background: $c-blue;
+            margin-top: 24px;
+        }
+
+        .menuItem { 
+            width: 330px;
+            height: $f-large;
+            border: 1px solid #111826;
+        }
+    }
+
+
+@media (max-width: 1900px) {
+
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .box { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  } 
