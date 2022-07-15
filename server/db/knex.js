@@ -10,6 +10,7 @@ const knex = require('knex')({
     user : dbConfig.USER,
     password : dbConfig.PASSWORD,
     database : dbConfig.DB,
+    socketPath: dbConfig.SOCKETPATH
   }
 });
 

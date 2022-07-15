@@ -8,12 +8,15 @@ function getStars(value) {
     if (part) stars.push(50);
     for(let i = whole; i < (part ? 4 : 5); i++) stars.push(0);
     return stars;
-}
+
+} 
+
 export default function Rating({ value }) {
     return (
         <div className={styles.starsDiv}>
         <div>
             {getStars(value).map((value) => (
+
                 <img src={require(`../../../assets/img/tabImg/${value}.png`)} alt="star"/>
             ))}
         </div>

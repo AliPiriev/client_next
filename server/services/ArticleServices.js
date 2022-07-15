@@ -6,7 +6,7 @@ class ArticleServices {
    }
 
    async index(category, level, tag, limit, page, id_not) {
-      console.log(tag)
+
       let query =  await Article.query().where((item) => {
          if(category && Array.isArray(category)){
             item.whereIn('category', category)
@@ -34,7 +34,7 @@ class ArticleServices {
 
          item.where('status', 1);
 
-      }).page((page - 1 )|| 0 , limit || 10);
+      }).page((page - 1 )|| 0 , limit || 500);
 
       return query;
    }

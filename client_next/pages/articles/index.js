@@ -5,7 +5,8 @@ import Article from "../../components/article/Article";
 import Pagination from "../../components/UI/Pagination";
 import NotResult from "../../components/UI/NotResult";
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+
 
 function Articles({ commonData }) {
    const [articles, setArticles] = useState(null);

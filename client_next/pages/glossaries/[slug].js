@@ -1,15 +1,40 @@
 import { useRouter } from 'next/router'
-import useFetch from '../../hooks/useFetch';
 import parse from 'html-react-parser';
 import Moment from 'react-moment';
 import ModeSwitcher from '../../components/UI/ModeSwitcher';
 import BgImage from '../../components/UI/BgImage';
+import { fetchData } from '../../queries';
 
-function Glossary() {
+export const getStaticPaths = async () => {
+   const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
+
+   const paths = res.data.map((item) => {
+      return {
+         params: {
+            slug: item.slug
+         }
+      }
+   })
+
+   return {
+      paths,
+      fallback: false
+   }
+}
+
+export const getStaticProps = async ({params}) => {
+   const res = await fetchData(`http://localhost:8080/api/glossaries/${params.slug}`)
+
+   return {
+      props:{
+         res
+      }
+   }
+}
+
+function Glossary({res}) {
+   const { data } = res;
    const router = useRouter();
-   const { slug } = router.query;
-   const { data } = useFetch(`http://localhost:8080/api/glossaries/${slug}`);
-
    return (
       <div className="glossary-page">
          <BgImage id={2} />

@@ -35,7 +35,8 @@ router.get('/tags',  TagsController.index);
 router.get('/levels',  LevelController.index);
 
 //simple page
-router.get('/pages/:slug',  SimplePageController.findOne);
+router.get('/pages',  SimplePageController.index); 
+router.get('/pages/:slug',  SimplePageController.findOne); 
 
 //settings
 router.get('/settings',  SettingsController.findFirst);

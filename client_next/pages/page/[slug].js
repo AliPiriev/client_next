@@ -1,14 +1,33 @@
-import { useRouter } from 'next/router'
-import useFetch from '../../hooks/useFetch';
 import parse from 'html-react-parser';
+import { fetchData } from '../../queries';
 
 
 
-function SimplePage() {
-   const router = useRouter();
-   const { slug } = router.query; 
-   const { data } = useFetch(`http://localhost:8080/api/pages/${slug}`);
-   
+export const getStaticPaths = async () => {
+   const res = await fetchData('http://localhost:8080/api/pages');
+
+   const paths = res.data.map(items => {
+      return {
+         params: { slug: items.slug }
+      }
+   })
+
+   return {
+      paths,
+      fallback: false
+   }
+} 
+
+export const getStaticProps = async (context) => {
+   const slug = context.params.slug;
+   const res = await fetchData(`http://localhost:8080/api/pages/${slug}`);
+
+   return {
+      props: { data: res.data }
+   }
+}
+
+function SimplePage({data}) {
    return (
       <div className="simple-page">
          {data ? (

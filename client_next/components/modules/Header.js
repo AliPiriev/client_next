@@ -5,6 +5,7 @@ import WalletInfoBox from '../walletConnect/WalletInfoBox';
 import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link';
 import TopicsBox from '../UI/TopicsBox';
+import SideNavigation from './SideNavigation';
 
 
 function Header() {
@@ -14,6 +15,7 @@ function Header() {
    const [infoBox, setInfoBox] = useState(false);
    const [topicsBox, setTopicsBox] = useState(false);
    const { isLogged } = useContext(AuthContect);
+   const [burger, setBurger] = useState(false);
 
 
    const handleConnectClick = () => {
@@ -30,6 +32,13 @@ function Header() {
    }
 
    useEffect(() => {
+      if(burger){
+         console.log(true)
+         document.body.style.overflow = 'hidden';
+      }else{
+         document.body.style.overflow = 'unset';
+      }
+      
       const checkIfClickedOutside = e => {
          if (infoBox && ref.current && !ref.current.contains(e.target)) {
             setInfoBox(false)
@@ -45,7 +54,8 @@ function Header() {
       return () => {
          document.removeEventListener("mousedown", checkIfClickedOutside)
       }
-   }, [infoBox, topicsBox])
+     
+   }, [infoBox, topicsBox, burger])
 
    return (
       <header className="header">
@@ -104,43 +114,14 @@ function Header() {
                      </div>
                   </div>
 
-                  <button className="burger">
+
+                  <button className="burger" onClick={() => setBurger(!burger)}>
                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="2" y1="8" x2="30" y2="8" stroke="white" ></line> <line x1="2" y1="16" x2="30" y2="16" stroke="white" ></line> <line x1="2" y1="24" x2="30" y2="24" stroke="white" ></line> </svg>
                   </button>
 
-                  <div className="mob-navigation">
-                     <div className="top">
-                        <span className='ttl'>Menu</span>
-                        <button className='close'>
-                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 1L1 23" stroke="white" ></path> <path d="M1 1L23 23" stroke="white" ></path> </svg>
-                        </button>
-                     </div>
-
-                     <ul className='list'>
-                        <li>
-                           <Link href="pages/introduction" >
-                              <a className='item'>
-                                 Get Started
-                              </a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="/articles" >
-                              <a className='item'>
-                                 Topics
-                              </a>
-                           </Link>
-                        </li>
-                        <li>
-                           <Link href="/glossaries">
-                              <a className='item'>
-                                 Glossaries
-                              </a>
-                           </Link>
-                        </li>
-                     </ul>
-
-                  </div>
+                  <AnimatePresence>
+                     {burger && <SideNavigation setBurger={setBurger}/>}
+                  </AnimatePresence>
                </div>
             </div>
          </div>
