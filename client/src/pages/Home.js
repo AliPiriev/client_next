@@ -18,7 +18,7 @@ import Banner from '../components/courses/Banner';
 import img1 from '../assets/img/boxImages/blue.png';
 import img2 from '../assets/img/boxImages/green.png';
 
- 
+
 
 function Home() {
    const intro = {
@@ -60,17 +60,17 @@ function Home() {
                {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
                {glossaries && glossaries.length ? <Glossaries data={glossaries}
                   title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
-                  <div className='small-banner-box-wrap'>
-                     {bannerData.map((item) => {
-                        return(
-                           <SmallBannerBox data={item}/>  
-                        )
-                     })}
-               </div>   
+               <div className='small-banner-box-wrap'>
+                  {bannerData.map((item) => {
+                     return (
+                        <SmallBannerBox data={item} />
+                     )
+                  })}
+               </div>
                <VideoContent />
                <Banner />
-               <Instructors /> 
-               <Accordion/>
+               <Instructors />
+               <Accordion />
                <Tabs />
             </div>
          </div>
