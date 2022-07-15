@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import plus from "../../assets/img/accordion/plus.png"
 import minus from "../../assets/img/accordion/minus.png"
 import elipse from "../../assets/img/accordion/Ellipse.png";
-import styles from "./Accordion.module.css";
+import styles from "./Accordion.module.scss";
 
 const Data = [
     {
@@ -56,7 +56,7 @@ const Accordion = () => {
                        
                         <div onClick={() => toggle(index)} key={index} className={styles.wrap}>
                         <h1 className={styles.h1}>{item.question}</h1>
-                        <span className={styles.span}>{clicked === index ? <img src={minus} /> : <img src={plus} />}</span>
+                        <span className={styles.span}>{clicked === index ? <div className={styles.minus}></div> : <div className={`${styles.extraMinus}, ${styles.plus}`}></div>}</span>
                         </div>
                         {clicked === index ? (
                              <div className={styles.dropdown}>

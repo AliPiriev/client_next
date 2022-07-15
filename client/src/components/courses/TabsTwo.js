@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styles from "./Tabs.module.css";
-import full from "../../assets/img/tabImg/100.png"
+import styles from "./TabsTwo.module.scss";
+// import full from "../../assets/img/tabImg/100.png"
 import Rating from './rating/Rating';
 export default function TabsTwo() {
     
@@ -28,20 +28,20 @@ const [stars, setRStars] = useState([
       people: "9 reviews"
     },
     { id: 2,
-        stars: <Rating value={4}/>,
-        people: "3 reviews"
+      stars: <Rating value={4}/>,
+      people: "3 reviews"
     },
     { id: 3,
-        stars: <Rating value={3}/>,
-        people: "3 reviews"
+      stars: <Rating value={3}/>,
+      people: "3 reviews"
     },
     { id: 4,
-        stars: <Rating value={2}/>,
-        people: "1 reviews"
+      stars: <Rating value={2}/>,
+      people: "1 reviews"
     },
     { id: 5,
-        stars: <Rating value={1.5}/>,
-        people: "1 reviews"
+      stars: <Rating value={1.5}/>,
+      people: "1 reviews"
     }
   ]);
     return (
@@ -62,10 +62,10 @@ const [stars, setRStars] = useState([
         <div className={styles.starsDiv}>
         <h3 className={styles.reviewsTitle}>Course Rates</h3>
         {stars.map(pObj => (
-                <div className={styles.sumStars}>
-                  <div className={`${styles.stars}, ${styles.reviewStars}`} key={pObj.id}>{pObj.stars}</div>
-                  <div className={styles.numberOfReviews} key={pObj.id}>{pObj.people}</div>
-                </div>
+              <div className={styles.sumStars}>
+                <div className={`${styles.stars}, ${styles.reviewStars}`} key={pObj.id}>{pObj.stars}</div>
+                <div className={styles.numberOfReviews} key={pObj.id}>{pObj.people}</div>
+              </div>
             )
             )}
         </div>

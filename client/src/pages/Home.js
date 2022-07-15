@@ -8,8 +8,15 @@ import FeaturesBanner from '../components/home/FeaturesBanner';
 import SmallBannerBox from '../components/home/SmallBannerBox';
 import Accordion from '../components/courses/Accordion';
 import Tabs from '../components/courses/Tabs';
-import img1 from '../assets/img/smallBannerBox/bg.png'
-import img2 from '../assets/img/smallBannerBox/bgs.png';
+
+import VideoContent from '../components/courses/VideoContent';
+
+
+
+import Instructors from '../components/courses/Instructors';
+import Banner from '../components/courses/Banner';
+import img1 from '../assets/img/boxImages/blue.png';
+import img2 from '../assets/img/boxImages/green.png';
 
  
 
@@ -59,9 +66,12 @@ function Home() {
                            <SmallBannerBox data={item}/>  
                         )
                      })}
-                  </div>
-                  <Accordion />
-                  <Tabs />
+               </div>   
+               <VideoContent />
+               <Banner />
+               <Instructors /> 
+               <Accordion/>
+               <Tabs />
             </div>
          </div>
       </AnimatedPage>

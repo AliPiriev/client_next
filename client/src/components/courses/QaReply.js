@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./QaReply.module.css";
+import styles from "./QaReply.module.scss";
 import userReply from "../../assets/img/tabImg/userReply.png";
 
 function QaReply({ closeContent }) {
@@ -11,8 +11,7 @@ function QaReply({ closeContent }) {
                 <div>
                     <img className={styles.QaReplyImg} src={userReply} alt="" />
                 </div>
-                
-            <input className={styles.QaReplyInput} placeholder="enter" />
+                <input className={styles.QaReplyInput} placeholder="enter" />
             </div>
             <div className={styles.QaReplyFooter}>
                 <button className={styles.submitBtn}>Reply Now</button>
