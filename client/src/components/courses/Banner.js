@@ -1,6 +1,6 @@
 import React from "react";
 import SmallBannerBox from "../home/SmallBannerBox";
-import styles from "./Banner.module.css";
+import styles from "./Banner.module.scss";
 import img1 from '../../assets/img/backgroundBanner.png';
 
 const Banner = () => {
@@ -20,9 +20,9 @@ const Banner = () => {
                         <div className={styles.txt}>
                             <h1 className={styles.title}>{item.title} </h1>
                             <p className={styles.paragraph}>{item.paragraph}</p>
-                            <button className={styles.Button}>{item.button}</button>  
                         </div>
-                    <img src={item.img} alt="" />    
+                        <button className={styles.button}>{item.button}</button>  
+                    <img className={styles.background} src={item.img} alt="" />    
                     </div>
 
                 )
