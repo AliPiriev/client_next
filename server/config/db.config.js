@@ -5,3 +5,4 @@ module.exports = {
    DB: "academy",
    SOCKETPATH: '/Applications/MAMP/tmp/mysql/mysql.sock'
  };
+

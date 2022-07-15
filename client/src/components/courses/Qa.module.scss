@@ -1,0 +1,151 @@
+@import "../../assets/css/variables.scss";
+
+.mainReview {
+    display: flex;
+
+    .reviewIntro {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        .reviewsTitle {
+            font-weight: 400;
+            font-size: $f-medium;
+            line-height: 36px;
+            font-family: "Lack-Regular";
+            padding-top: 32px;
+        }
+
+        .reviews {
+            
+            .reviewsText {
+                font-size: $f-mediumSmall;
+                font-weight: 400;
+                line-height: 20px;
+                font-family: "Lack-Regular";
+                padding: 16px 0;
+                text-transform: capitalize;
+            }
+
+            .replyDiv {
+                display: flex;
+                border-bottom: 1px solid $border-color;
+                padding-bottom: 24px;
+
+                .starsReview {
+                    display: flex;
+                    padding-bottom: 16px;
+                    border-bottom: 1px solid $border-color;
+                }
+                .replyFlex {
+                    display: flex;
+                }
+
+                .name {
+                    font-weight: 400;
+                    font-size: $f-mediumSmall;
+                    line-height: 20px;
+                    font-family: "Lack-Regular";
+                    color: $c-grey;
+                    text-transform: capitalize;
+                    margin-right: 16px;
+
+                    .replyFlex {
+                        display: flex;
+                    }
+                }
+
+            }
+
+            .reviewsTitle {
+                font-weight: 400;
+                font-size: $f-medium;
+                line-height: 36px;
+                font-family: "Lack-Regular";
+                padding-top: 32px;
+            }
+            
+            .input {
+                width: 100%;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 16px;
+                color: $c-grey;
+                padding: 14px 395px 98px 16px;
+                border: 1px solid $border-color;
+                border-radius: $border-radius;
+                background-color: transparent;
+                outline: none;
+                margin: 24px auto;
+            }
+
+            .question {
+                background: $bg-blue;
+                border-radius: $border-radius;
+                font-weight: 400;
+                font-size: $f-little;
+                line-height: 20px;
+                width: 100%;
+                padding-bottom: 12px;
+                padding-top: 12px;
+                padding: 12px auto;
+            }
+
+            .closed {
+                display: none;
+
+                .reviewsTitle {
+                    font-weight: 400;
+                    font-size: $f-medium;
+                    line-height: 36px;
+                    font-family: "Lack-Regular";
+                    padding-top: 32px;
+                }
+                
+                .input {
+                    width: 100%;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 16px;
+                    color: $c-grey;
+                    padding: 14px 395px 98px 16px;
+                    border: 1px solid $border-color;
+                    border-radius: $border-radius;
+                    background-color: transparent;
+                    outline: none;
+                    margin: 24px auto;
+                }
+
+                .question {
+                    background: #0500FF;
+                    border-radius: $border-radius;
+                    font-weight: 400;
+                    font-size: $f-little;
+                    line-height: 20px;
+                    width: 100%;
+                    padding-bottom: 12px;
+                    padding-top: 12px;
+                    padding: 12px auto;
+                }
+            }
+        }
+    }   
+}
+
+@media (max-width: 767px) {
+    .mainReview {
+        .reviewIntro {
+            width: 100%;
+
+        .starsDiv {
+            .sumStars {
+                flex-direction: column;
+
+                .numberOfReviews {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    }
+}

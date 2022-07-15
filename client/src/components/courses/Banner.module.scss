@@ -1,0 +1,49 @@
+@import "../../assets/css/variables.scss";
+$f-large: 30px;
+$bg-orange: #FF7152;
+.container {
+    .banner {
+        font-family: "lack";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 260px;
+        width: 100%;
+        margin-top: 70px;
+        flex-direction: column;
+        padding: 32px;
+    }   
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -11;
+    }
+    .txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title {
+        font-size: $f-large;
+        padding-top: $f-large;
+    }
+    .paragraph {
+        padding-top: 20px;
+    }
+    .button {
+        font-size: 16px;
+        width: 170px;
+        height: 40px;
+        border: 2px solid $bg-orange;
+        border-radius: 29px;
+        margin-top: auto;
+        transition: 0.5s;
+    }
+.button:hover {
+    border: 1px solid #FFFFFF;
+}}

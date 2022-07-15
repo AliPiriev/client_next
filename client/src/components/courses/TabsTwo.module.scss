@@ -1,0 +1,105 @@
+@import "../../assets/css/variables.scss";
+
+.mainReview {
+    display: flex;
+
+    .reviewIntro {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        .reviewsTitle {
+            font-weight: 400;
+            font-size: $f-medium;
+            line-height: 36px;
+            font-family: "Lack-Regular";
+            padding-top: 32px;
+        }
+
+        .reviews {
+            .reviewsText {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 20px;
+                font-family: "Lack-Regular";
+                padding: 16px 0;
+                text-transform: capitalize;
+            }
+
+            .starsReview {
+                display: flex;
+                padding-bottom: 16px;
+                border-bottom: 1px solid $border-color;
+
+                .name {
+                    font-weight: 400;
+                    font-size: $f-mediumSmall;
+                    line-height: 20px;
+                    font-family: "Lack-Regular";
+                    color: $c-grey;
+                    text-transform: capitalize;
+                    margin-right: 16px;
+                }
+            }
+            
+        }
+    }   
+    
+    .starsDiv {
+        margin-left: 52px;
+
+        .reviewsTitle {
+            font-weight: 400;
+            font-size: $f-medium;
+            line-height: 36px;
+            font-family: "Lack-Regular";
+            padding-top: 32px;
+        }
+
+        .sumStars {
+            display: flex;
+
+            .reviewStars {
+                padding: 16px 0;
+            }
+
+            .numberOfReviews {
+                font-family: "Lack-Regular";
+                font-weight: 400;
+                font-size: $f-mediumSmall;
+                line-height: 20px;
+                margin-left: 20px;
+                padding: 16px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .mainReview {
+        flex-direction: column;
+
+        .reviewIntro {
+            width: 100%;
+        }
+        .starsDiv {
+            margin-left: 0px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .sumStars {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 30px;
+                align-items: flex-start;
+                margin-top: 25px;
+                align-items: flex-start;
+
+                .numberOfReviews {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+}
