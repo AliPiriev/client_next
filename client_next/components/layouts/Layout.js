@@ -1,6 +1,20 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
+import { fetchData } from '../../queries';
+
+export const getStaticProps = async () => {
+   const { data } = await fetchData(`http://localhost:8080/api/settings`);
+   const categories = await fetchData('http://localhost:8080/api/categories');
+   const levels = await fetchData('http://localhost:8080/api/levels');
+   const tags = await fetchData('http://localhost:8080/api/tags');
+   const { data: glossaries } = await fetchData('http://localhost:8080/api/glossaries?limit=3');
+   console.log(glossaries)
+
+   return {
+      props: { data, categories, levels, tags }
+   }
+}
 
 function Layout({children, setSettings, setCommonData}) {
    const { data } = useFetch(`http://localhost:8080/api/settings`);

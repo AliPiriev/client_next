@@ -39,14 +39,15 @@ function AuthContectProvider(props){
    }
 
    const SignOut = async () => {
-      setIsLogged(false)
-      setCurrentAccount('')
-      setCurrentChainID(-1)
-      localStorage.setItem('isConnectedToWallet', false);
+      // setIsLogged(false)
+      // setCurrentAccount('')
+      // setCurrentChainID(-1)
+      // localStorage.setItem('isConnectedToWallet', false);
+      return false;
    }
 
    useEffect(() => {
-      detectConnections();
+      // detectConnections();
    }, []);
 
    return (

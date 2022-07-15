@@ -79,8 +79,7 @@ header{
 }
 
 .mob-navigation{
-   // position: fixed;
-   display: none;
+   position: fixed;
    top: 0;
    right: 0;
    bottom: 0;
@@ -135,9 +134,30 @@ header{
    .item.active{
       color: $c-orange;
    }
+
+   @media(max-width: 412px){
+      &{
+         width: 280px;
+      }
+   }
 }
 
 
+@media(max-width: 1023px){
+   .header .burger{
+      display: block;
+   }
+
+   .header-inner{
+      .navigation{
+         display: none;
+      }
+
+      .right{
+         justify-content: flex-end;
+      }
+   }
+}
 
 //end of header
 

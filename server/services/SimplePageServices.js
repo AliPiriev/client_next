@@ -5,6 +5,11 @@ class SimplePageServices {
       return err;
    }
 
+   async index() {
+      const pages = await Pages.query();
+      return pages;
+   }
+
    async findOne(slug) {
       const page = await Pages.query().findOne({slug});
       return page;

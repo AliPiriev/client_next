@@ -5,7 +5,6 @@ import img2 from "../../assets/img/AbdurashidAydar.png";
 import img3 from "../../assets/img/ChristianNorman.png";
 
 const Instructors = () => {
-
     const InstructorData = [{
         title: "Making sure that our products exceed customer expectations for quality and performance.",
         name: "Jack Jones",

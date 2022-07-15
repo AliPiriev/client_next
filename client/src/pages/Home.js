@@ -12,7 +12,7 @@ import GreenBanner from '../components/innerInstructor/GreenBanner';
 import Banner from '../components/courses/Banner';
 import img1 from '../assets/img/boxImages/blue.png';
 import img2 from '../assets/img/boxImages/green.png';
- 
+
 
 function Home() {
    const intro = {
@@ -68,6 +68,7 @@ function Home() {
                <Banner />
                <Instructors />
                <GreenBanner />
+
 
             </div>
          </div>

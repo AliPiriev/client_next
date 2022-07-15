@@ -102,6 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
 #db connect configs
 /server/db/knex.js
 /server/config/db.config.js

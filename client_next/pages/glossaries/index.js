@@ -1,12 +1,22 @@
-import useFetch from '../../hooks/useFetch';
 import Link from 'next/link';
 import NotResult from "../../components/UI/NotResult";
 import BgImage from '../../components/UI/BgImage';
 import { Link as ScrollLink, Element } from 'react-scroll'
+import { fetchData } from '../../queries';
 
 
-function Glossaries() {
-   const { data: glossaries, isPending } = useFetch('http://localhost:8080/api/glossaries?limit=500');
+export const getStaticProps = async () => {
+   const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
+
+   return {
+      props: { res }
+   }
+}
+
+
+function Glossaries({res}) {
+   console.log(res)
+   const { data: glossaries, isPending } = res;
    const alphabet = ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
    let group = null;

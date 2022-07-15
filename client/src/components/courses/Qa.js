@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import styles from "./Tabs.module.css";
+import styles from "./Qa.module.scss";
 import Rating from './rating/Rating';
 import vector from "../../assets/img/tabImg/Vector.png";
 import Popup from './Popup';
 import QaReply from './QaReply';
 
 export default function Qa() {
-    
 const [reviews, setReviews] = useState([
     { id: 1,
       review: "A fantastic organisation! Great cutomer support from beginning to end of the process. The team are really informed and go the extra mile at every stage. I would recommend them unreservedly.",
@@ -17,9 +16,6 @@ const [reviews, setReviews] = useState([
       reply: "Reply"
     }
   ]);
-
-  
-
   
   const [openPopup, setOpenPopup] = useState(false);
 
@@ -43,12 +39,14 @@ const [reviews, setReviews] = useState([
                     </button>
                 </div>
                 {changeContent && <QaReply closeContent={setChangeContent} />}
-                <h3 className={styles.reviewsTitle}>Leave your comment or question</h3>
+               <div className={changeContent ? styles.closed : '        '}>
+               <h3 className={styles.reviewsTitle}>Leave your comment or question</h3>
                 <input className={styles.input} type="text" placeholder="Enter text here"></input>
                 <button className={styles.question} onClick={() => {
                     setOpenPopup(true);
                 }}
                 >Question/Comment</button>
+                </div>
                 </div>      
             )
             
