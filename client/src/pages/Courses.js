@@ -3,7 +3,7 @@ import SmallBannerBox from "../components/home/SmallBannerBox";
 import Accordion from "../components/courses/Accordion";
 import Tabs from "../components/courses/Tabs";
 import VideoContent from "../components/courses/VideoContent";
-import Instructors from "../components/courses/Instructors";
+import Instructors from "../components/innerInstructor/Instructors";
 import Banner from "../components/courses/Banner";
 import img1 from "../assets/img/boxImages/blue.png"
 import img2 from '../assets/img/boxImages/green.png';
@@ -48,3 +48,4 @@ function Courses() {
  }
  
  export default Courses;
+

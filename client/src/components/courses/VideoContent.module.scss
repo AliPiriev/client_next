@@ -1,0 +1,43 @@
+@import "../../assets/css/variables.scss";
+$f-medium: 22px;
+$f-large: 30px;
+
+
+.VideoContent {
+    font-family: "lack";
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+
+    .txt {
+        font-size: $f-large;
+        font-weight: 400;
+        line-height: 50px;
+        padding-bottom: 50px;
+    }
+    .paragraph {
+        color: #969BA6;
+        font-size: $f-medium;
+        line-height: 36px;
+        font-weight: 400px;
+    }
+    .video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 540px;
+    padding-top: 100px;
+    }
+    .image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .Circle {
+        margin-top: $f-large;
+        position: absolute;
+        z-index: 111;
+}
+}

@@ -1,0 +1,76 @@
+.small-banner-box { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box h2 { 
+    font-size: 44px;
+    font-family: "Lack-Regular";
+    font-weight: 400;
+    line-height: 66px;
+    color: #fff;
+    padding: 40px 100px 0px 50px;
+}
+
+.box p { 
+    position: relative;
+    z-index: 222;
+    padding: 16px 50px 50px 50px;
+    font-family: "Lack-Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    color: #fff;
+} 
+
+.box button { 
+    position: absolute;
+    padding: 12px 25px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    font-family: "Lack-Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+}
+
+.box { 
+    position: relative;
+    width: 510px;
+    height: 400px
+}
+
+.box img { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    // width: 510px;
+    // height: 400px;
+    object-fit: cover;
+    z-index: -1
+}
+
+@media (max-width: 1900px) {
+
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+
+}
