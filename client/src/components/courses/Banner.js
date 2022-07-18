@@ -6,6 +6,7 @@ import img1 from '../../assets/img/backgroundBanner.png';
 const Banner = () => {
 
     const smallData = [{
+        id: 1,
         title: "Check yourself in the quiz",
         paragraph: "10 questions  •  10 min",
         button: "Start Quiz Now",
@@ -16,7 +17,7 @@ const Banner = () => {
         <div className={styles.container}>
             {smallData.map((item, index) => {
                 return (
-                    <div className={styles.banner} key={index}> 
+                    <div key={item.id} className={styles.banner}> 
                         <div className={styles.txt}>
                             <h3 className={styles.title}>{item.title} </h3>
                             <p className={styles.paragraph}>{item.paragraph}</p>

@@ -48,8 +48,8 @@ const [reviews, setReviews] = useState([
                 >Question/Comment</button>
                 </div>
                 </div>      
+
             )
-            
             )}
              {openPopup && <Popup closePopup={setOpenPopup} />}
             
@@ -60,4 +60,3 @@ const [reviews, setReviews] = useState([
     )
   
 }
-

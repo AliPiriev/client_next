@@ -119,25 +119,35 @@
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1200px) {
-    // .endIntroduction { 
-    //     font-weight: 150;
-    //     font-size: 25px;
-    //     line-height: 33px;
-    // }
+    .container {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+
+        .endIntroduction { 
+            font-weight: 150;
+            font-size: 25px;
+            line-height: 33px;
+        }
+    }
+    
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
-    .butn { 
+    .container {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: 20px;
-    }
-        // .endIntroduction { 
-        //     font-weight: 50;
-        //     font-size: 15px;
-        //     line-height: 15px;
-        // }
+        flex-direction: column;
+        position: relative;
+            .butn { 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 20px;
+            }
+        }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
@@ -146,6 +156,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
 }

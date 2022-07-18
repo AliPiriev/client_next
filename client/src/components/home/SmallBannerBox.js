@@ -4,7 +4,7 @@ import { getItemById } from "../../helpers";
 
 function SmallBannerBox({data}){
    return (
-     <div className="small-banner-box">
+     <div key={data.id} className="small-banner-box">
       <img className="banner_img" src={data.img} alt="" />
       <h2 className="title">{data.title}</h2>
       <p className="teaser">{data.paragraph}</p>

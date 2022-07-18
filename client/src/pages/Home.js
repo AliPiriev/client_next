@@ -5,7 +5,6 @@ import IntroBox from "../components/home/IntroBox";
 import Glossaries from '../components/glossary/Glossaries';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import FeaturesBanner from '../components/home/FeaturesBanner';
-
 function Home() {
    const intro = {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
