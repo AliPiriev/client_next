@@ -1,13 +1,10 @@
 @import "../../assets/css/variables.scss";
-$f-medium: 22px;
-$f-large: 30px;
-
-
 .VideoContent {
     font-family: "lack";
     display: flex;
     justify-content: center;
     flex-direction: column; 
+    margin-top: 70px;
 
     .txt {
         font-size: $f-large;
@@ -28,7 +25,7 @@ $f-large: 30px;
     position: relative;
     height: 540px;
     padding-top: 100px;
-    }
+    
     .image {
         position: absolute;
         width: 100%;
@@ -39,5 +36,8 @@ $f-large: 30px;
         margin-top: $f-large;
         position: absolute;
         z-index: 111;
-}
+    }
+
+    }
+    
 }

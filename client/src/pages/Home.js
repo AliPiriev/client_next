@@ -33,6 +33,7 @@ function Home() {
       teaser: "Build and develop your skills with online educational content from the world's top institutions and organizations."
    }
 
+
    const { data: home_contents } = useFetch('http://localhost:8080/api/home-content');
    const { data: glossaries } = useFetch('http://localhost:8080/api/glossaries?limit=3');
    const { data: glossariesTotal } = useFetch('http://localhost:8080/api/glossaries-total');

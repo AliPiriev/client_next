@@ -6,19 +6,20 @@ import img3 from "../../assets/img/ChristianNorman.png";
 
 const Instructors = () => {
     const InstructorData = [{
-        id: 1,
+        id: 0,
         title: "Making sure that our products exceed customer expectations for quality and performance.",
         name: "Jack Jones",
         img: img1
     },
+
     {
-        id: 2,
+        id: 1,
         title: "We are here to meet your demand and tech the most beneficial way for you in Personal.",
         name: "Abdurashid Aydar",
         img: img2
     },
     {
-        id: 3,
+        id: 2,
         title: "Making sure that our products exceed customer expectations for quality and performance, and we are here to meet your demand and tech the most beneficial way for you in Personal.",
         name: "Christian Norman",
         img: img3
@@ -38,11 +39,6 @@ const Instructors = () => {
                     </div>
                 )  
             })}
-            <div className={styles.greenBanner}>
-                <h5 className={styles.subTtl}>Become a Instructor</h5>
-                <p className={styles.txt}>Teach what you love. Corrector gives you the tools to create a course.</p>
-                <a href="/"className={styles.btn}>Start Teaching</a>
-            </div>
         </div>
     )
 }
