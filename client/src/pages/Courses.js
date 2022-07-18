@@ -3,11 +3,11 @@ import SmallBannerBox from "../components/home/SmallBannerBox";
 import Accordion from "../components/courses/Accordion";
 import Tabs from "../components/courses/Tabs";
 import VideoContent from "../components/courses/VideoContent";
-import Instructors from "../components/innerInstructor/Instructors";
-import GreenBaner from "../components/innerInstructor/GreenBanner";
+import Instructors from "../components/courses/Instructors";
 import Banner from "../components/courses/Banner";
 import img1 from "../assets/img/boxImages/blue.png"
 import img2 from '../assets/img/boxImages/green.png';
+import GreenBaner from "../components/innerInstructor/GreenBanner";
 
 
 const bannerData = [{
@@ -41,15 +41,14 @@ function Courses() {
                <VideoContent />
                <Banner />
 
-                <Instructors /> 
-                <GreenBaner />
-
+               <Instructors />
+                     
                <Accordion/>
-               <Tabs />
+                <Tabs />
+                <GreenBaner />
             </div>
        </div>
     )
  }
  
  export default Courses;
-

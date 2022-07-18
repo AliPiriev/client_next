@@ -38,8 +38,9 @@ const Accordion = () => {
     const toggle = (index) => {
         if (clicked === index) {
             setClicked(null)
+        } else {
+            setClicked(index)
         }
-        setClicked(index)
     }
 
     return (
@@ -51,10 +52,9 @@ const Accordion = () => {
                 {Data.map((item, index) => {
                     return (
                         <div key={index}>
-
-                            <div onClick={() => toggle(index)} className={styles.wrap}>
+                            <div onClick={() => {toggle(index)}} className={styles.wrap}>
                                 <h4 className={styles.h1}>{item.question}</h4>
-                                <div className={`${styles.toggle} ${clicked === index ? 'active' : '' }`}>
+                                <div className={`${styles.toggle} ${clicked === index ? styles.active : '' }`}>
                                     <span></span>
                                     <span></span> 
                                 </div>
