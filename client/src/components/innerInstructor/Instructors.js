@@ -6,19 +6,33 @@ import img3 from "../../assets/img/ChristianNorman.png";
 
 const Instructors = () => {
     const InstructorData = [{
+<<<<<<< HEAD
         id: 0,
+=======
+        id: 1,
+>>>>>>> fdbcbc19487d6d3aff2628ee939b1c8ec76b475a
         title: "Making sure that our products exceed customer expectations for quality and performance.",
         name: "Jack Jones",
         img: img1
     },
+<<<<<<< HEAD
         {
         id: 1,
+=======
+    {
+        id: 2,
+>>>>>>> fdbcbc19487d6d3aff2628ee939b1c8ec76b475a
         title: "We are here to meet your demand and tech the most beneficial way for you in Personal.",
         name: "Abdurashid Aydar",
         img: img2
     },
+<<<<<<< HEAD
         {
         id: 2,
+=======
+    {
+        id: 3,
+>>>>>>> fdbcbc19487d6d3aff2628ee939b1c8ec76b475a
         title: "Making sure that our products exceed customer expectations for quality and performance, and we are here to meet your demand and tech the most beneficial way for you in Personal.",
         name: "Christian Norman",
         img: img3
@@ -26,7 +40,7 @@ const Instructors = () => {
 
     return (
         <div className={styles.mainContainer}>
-            <h1 className={styles.ttl}>Instructors</h1>
+            <h3 className={styles.ttl}>Instructors</h3>
             {InstructorData.map((item) => {
                 return (
                     <div key={item.id} className={styles.instructor_list}>
@@ -38,6 +52,11 @@ const Instructors = () => {
                     </div>
                 )  
             })}
+            <div className={styles.greenBanner}>
+                <h5 className={styles.subTtl}>Become a Instructor</h5>
+                <p className={styles.txt}>Teach what you love. Corrector gives you the tools to create a course.</p>
+                <a href="/"className={styles.btn}>Start Teaching</a>
+            </div>
         </div>
     )
 }

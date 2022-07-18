@@ -1,7 +1,6 @@
 const mysql = require("mysql");
 const dbConfig = require("../config/db.config.js");
 
-
 const knex = require('knex')({
   client: 'mysql',
   connection: {
@@ -9,8 +8,7 @@ const knex = require('knex')({
     port : 3306,
     user : dbConfig.USER,
     password : dbConfig.PASSWORD,
-    database : dbConfig.DB,
-    socketPath: dbConfig.SOCKETPATH
+    database : dbConfig.DB
   }
 });
 

@@ -6,8 +6,6 @@ import Glossaries from '../components/glossary/Glossaries';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import FeaturesBanner from '../components/home/FeaturesBanner';
 
-
-
 function Home() {
    const intro = {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
@@ -15,7 +13,6 @@ function Home() {
    }
 
 
-  
    const { data: home_contents } = useFetch('http://localhost:8080/api/home-content');
    const { data: glossaries } = useFetch('http://localhost:8080/api/glossaries?limit=3');
    const { data: glossariesTotal } = useFetch('http://localhost:8080/api/glossaries-total');
