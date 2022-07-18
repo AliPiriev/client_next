@@ -49,7 +49,6 @@ const [reviews, setReviews] = useState([
                       </div>
               </div>      
             )
-            
             )}
              {openPopup && <Popup closePopup={setOpenPopup} />}
             

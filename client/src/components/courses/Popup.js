@@ -7,7 +7,7 @@ function Popup({ closePopup }) {
         <div className={styles.popupContainer}>
            <div className={styles.titleCloseBtn}>
            <div className={styles.popupTitle}>
-                <h1 className={styles.popupH1}>Course Review</h1>
+                <h3 className={styles.popupH1}>Course Review</h3>
             </div>
            <button className={styles.closeBtn} onClick={() => {
             closePopup(false);

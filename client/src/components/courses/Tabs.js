@@ -60,7 +60,7 @@ const Tabs = () => {
                         <h5 className={styles.dt}>David Tavadze</h5>
                     </div>
                     <div className={styles.buy}>
-                        <h1 className={styles.payment}>$65.00</h1>
+                        <h2 className={styles.payment}>$65.00</h2>
                         <button className={styles.btn}>Buy Course</button>
                     </div>
                 </div>

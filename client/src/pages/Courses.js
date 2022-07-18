@@ -48,6 +48,7 @@ function Courses() {
                <Contact />
                <MyComponent />
                <Footer />
+
             </div>
        </div>
     )

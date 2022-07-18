@@ -4,7 +4,35 @@
 .Accordion {
     position: relative;
     width: 100%;
-    margin: 70px 0;
+    margin: 70px 0;    
+
+    .toggle{
+        position: relative;
+        width: 24px;
+        height: 24px;
+
+
+        span:first-child{
+            width: 100%;
+            height: 2px;
+            background: $c-white;
+            position: absolute;
+            left: 0;
+            top: calc(50% - 1px);
+        }
+        span:last-child{
+            height: 100%;
+            width: 2px;
+            background: $c-white;
+            position: absolute;
+            left: calc(50% - 1px);
+            top: 0;
+        }
+
+ 
+    }
+
+
 
     .container {
         width: 100%;
@@ -29,6 +57,50 @@
         text-align: center;
         cursor: pointer;
         border-bottom: 1px solid $border-color;
+
+        // .toggle[class="active"] {
+        //     span:last-child {
+        //         display: none;
+        //     }
+        // }
+
+        .toggle{
+            position: relative;
+            width: 24px;
+            height: 24px;
+    
+            // &.active span:last-child {
+            //     display: none;
+            // }
+    
+    
+            span:first-child{
+                width: 100%;
+                height: 2px;
+                background: $c-white;
+                position: absolute;
+                left: 0;
+                top: calc(50% - 1px);
+                
+               
+            }
+            span:last-child{
+                height: 100%;
+                width: 2px;
+                background: $c-white;
+                position: absolute;
+                left: calc(50% - 1px);
+                top: 0;
+    
+                
+            }
+    
+            // &.active span:last-child {
+            //     display: none;
+            // }
+            
+        }
+    
 
 
         .h1 {
@@ -106,4 +178,3 @@
     }
     }
 }
-

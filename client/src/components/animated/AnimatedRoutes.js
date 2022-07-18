@@ -13,7 +13,6 @@ import Glossary from '../../pages/Glossary';
 import Glossaries from '../../pages/Glossaries';
 import Courses from '../../pages/Courses';
  
- 
 function AnimatedRoutes() {
    const location = useLocation();
    return ( 
@@ -33,4 +32,4 @@ function AnimatedRoutes() {
    )
 }
 
-export default AnimatedRoutes; 
+export default AnimatedRoutes;

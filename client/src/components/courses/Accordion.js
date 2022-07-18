@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import plus from "../../assets/img/accordion/plus.png"
-import minus from "../../assets/img/accordion/minus.png"
 import elipse from "../../assets/img/accordion/Ellipse.png";
 import styles from "./Accordion.module.scss";
 
 const Data = [
     {
-        id: 0,
         question: "Welcome",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -14,7 +11,6 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
-        id: 1,
         question: "Best Practices",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -22,7 +18,6 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
-        id: 2,
         question: "Lottie",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -30,7 +25,6 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
-        id: 3,
         question: "Conclusion",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -41,9 +35,9 @@ const Data = [
 
 const Accordion = () => {
     const [clicked, setClicked] = useState(false);
-    const toggle = index => {
+    const toggle = (index) => {
         if (clicked === index) {
-            return setClicked(null)
+            setClicked(null)
         }
         setClicked(index)
     }
@@ -52,35 +46,38 @@ const Accordion = () => {
         <div className={styles.Accordion}>
             <div className={styles.container}>
                 <div>
-                    <h1 className={styles.title}>Course Table of contents</h1>
+                    <h3 className={styles.title}>Course Table of contents</h3>
                 </div>
                 {Data.map((item, index) => {
                     return (
-                        <div key={item.id}>
-                       
-                        <div kay={item.id} onClick={() => toggle(index)} key={index} className={styles.wrap}>
-                        <h1 className={styles.h1}>{item.question}</h1>
-                        <span className={styles.span}>{clicked === index ? <div className={styles.minus}></div> : <div className={`${styles.extraMinus}, ${styles.plus}`}></div>}</span>
-                        </div>
-                        {clicked === index ? (
-                             <div className={styles.dropdown}>
-                                <div className={styles.list}>
-                                    <img src={elipse} alt="" />
-                                    <p className={styles.paragraph}>{item.answer1}</p>
-                                </div>
-                                <div className={styles.list}>
-                                    <img src={elipse} alt="" />
-                                    <p className={styles.paragraph}>{item.answer2}</p>
-                                </div>
-                                <div className={styles.list}>
-                                    <img src={elipse} alt="" />
-                                    <p className={styles.paragraph}>{item.answer3}</p>
-                                </div>
-                                <div className={styles.list}>
-                                    <img src={elipse} alt="" />
-                                    <p className={styles.paragraph}>{item.answer4}</p>
+                        <div key={index}>
+
+                            <div onClick={() => toggle(index)} className={styles.wrap}>
+                                <h4 className={styles.h1}>{item.question}</h4>
+                                <div className={`${styles.toggle} ${clicked === index ? 'active' : '' }`}>
+                                    <span></span>
+                                    <span></span> 
                                 </div>
                             </div>
+                            {clicked === index ? (
+                                <div className={styles.dropdown}>
+                                    <div className={styles.list}>
+                                        <img src={elipse} alt="" />
+                                        <p className={styles.paragraph}>{item.answer1}</p>
+                                    </div>
+                                    <div className={styles.list}>
+                                        <img src={elipse} alt="" />
+                                        <p className={styles.paragraph}>{item.answer2}</p>
+                                    </div>
+                                    <div className={styles.list}>
+                                        <img src={elipse} alt="" />
+                                        <p className={styles.paragraph}>{item.answer3}</p>
+                                    </div>
+                                    <div className={styles.list}>
+                                        <img src={elipse} alt="" />
+                                        <p className={styles.paragraph}>{item.answer4}</p>
+                                    </div>
+                                </div>
                             ) : null}
                         </div>
                     )

@@ -5,14 +5,11 @@ import IntroBox from "../components/home/IntroBox";
 import Glossaries from '../components/glossary/Glossaries';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import FeaturesBanner from '../components/home/FeaturesBanner';
-
-
 function Home() {
    const intro = {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
       teaser: "Build and develop your skills with online educational content from the world's top institutions and organizations."
    }
-
 
    const { data: home_contents } = useFetch('http://localhost:8080/api/home-content');
    const { data: glossaries } = useFetch('http://localhost:8080/api/glossaries?limit=3');

@@ -1,5 +1,6 @@
 import React from "react";
-import "../../assets/css/temprKeta.scss";
+import "../../assets/css/temprNino.scss";
+import { getItemById } from "../../helpers";
 
 function SmallBannerBox({data}){
    return (

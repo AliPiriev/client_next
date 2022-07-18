@@ -15,11 +15,11 @@ const Banner = () => {
 
     return (
         <div className={styles.container}>
-            {smallData.map((item) => {
+            {smallData.map((item, index) => {
                 return (
                     <div key={item.id} className={styles.banner}> 
                         <div className={styles.txt}>
-                            <h1 className={styles.title}>{item.title} </h1>
+                            <h3 className={styles.title}>{item.title} </h3>
                             <p className={styles.paragraph}>{item.paragraph}</p>
                         </div>
                         <button className={styles.button}>{item.button}</button>  
@@ -32,10 +32,5 @@ const Banner = () => {
         </div>
     )
 }
-
-
-
-
-
 
 export default Banner;
