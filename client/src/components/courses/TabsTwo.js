@@ -5,17 +5,17 @@ import Rating from './rating/Rating';
 export default function TabsTwo() {
     
 const [reviews, setReviews] = useState([
-    { id: 1,
+    { id: 'd1',
       review: "A fantastic organisation! Great cutomer support from beginning to end of the process. The team are really informed and go the extra mile at every stage. I would recommend them unreservedly.",
       name: "Jack Jones",
       stars: <Rating value={5}/>
     },
-    { id: 2,
+    { id: 'd2',
       review: "Get a lot of bad press, but in my experience customer services has been nothing short of excellent.",
       name: "Alex Clair",
       stars: <Rating value={4}/>
     },
-    { id: 3,
+    { id: 'd3',
       review: "A fantastic organisation! Great cutomer support from beginning to end of the process. The team are really informed and go the extra mile at every stage. I would recommend them unreservedly.",
       name: "Jack Jones",
       stars: <Rating value={5}/>
@@ -23,23 +23,23 @@ const [reviews, setReviews] = useState([
   ]);
      
 const [stars, setRStars] = useState([
-    { id: 1,
+    { id: 'e1',
       stars: <Rating value={5}/>,
       people: "9 reviews"
     },
-    { id: 2,
+    { id: 'e2',
       stars: <Rating value={4}/>,
       people: "3 reviews"
     },
-    { id: 3,
+    { id: 'e3',
       stars: <Rating value={3}/>,
       people: "3 reviews"
     },
-    { id: 4,
+    { id: 'e4',
       stars: <Rating value={2}/>,
       people: "1 reviews"
     },
-    { id: 5,
+    { id: 'e5',
       stars: <Rating value={1.5}/>,
       people: "1 reviews"
     }
