@@ -11,11 +11,7 @@ import Article from '../../pages/Article';
 import SimplePage from '../../pages/SimplePage';
 import Glossary from '../../pages/Glossary';
 import Glossaries from '../../pages/Glossaries';
-<<<<<<< HEAD
-import Courses from '../../pages/Courses'; 
-=======
 import Courses from '../../pages/Courses';
->>>>>>> fdbcbc19487d6d3aff2628ee939b1c8ec76b475a
  
 function AnimatedRoutes() {
    const location = useLocation();
