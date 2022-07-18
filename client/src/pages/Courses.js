@@ -1,13 +1,13 @@
 import React from "react";
-import SmallBannerBox from "../components/home/SmallBannerBox";
+import MyComponent from "../components/courses/MyComponent";
+import VideoContent from "../components/courses/VideoContent";
 import Accordion from "../components/courses/Accordion";
 import Tabs from "../components/courses/Tabs";
-import VideoContent from "../components/courses/VideoContent";
-import Instructors from "../components/courses/Instructors";
 import Banner from "../components/courses/Banner";
+import Footer from "../components/courses/Footer";
+import Instructors from "../components/innerInstructor/Instructors";
 import img1 from "../assets/img/boxImages/blue.png"
 import img2 from '../assets/img/boxImages/green.png';
-import GreenBaner from "../components/innerInstructor/GreenBanner";
 
 
 const bannerData = [{
@@ -30,23 +30,15 @@ const bannerData = [{
 function Courses() {
     return (
        <div className="our projects">
-        <div className="container">
-          <div className='small-banner-box-wrap'>
-                     {bannerData.map((item) => {
-                        return(
-                           <SmallBannerBox data={item} key={item.id}/>  
-                        )
-                     })}
-               </div>   
-               <VideoContent />
-               <Banner />
-
-               <Instructors />
-                     
-               <Accordion/>
-                <Tabs />
-                <GreenBaner />
-            </div>
+         <MyComponent />
+         <div className="container">
+            <VideoContent />
+            <Accordion/>
+            <Banner />
+            <Tabs />
+            <Footer />
+            <Instructors />
+         </div>
        </div>
     )
  }

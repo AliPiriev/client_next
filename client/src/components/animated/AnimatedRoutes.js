@@ -12,6 +12,7 @@ import SimplePage from '../../pages/SimplePage';
 import Glossary from '../../pages/Glossary';
 import Glossaries from '../../pages/Glossaries';
 import Courses from '../../pages/Courses';
+import Main from '../../pages/Main';
  
 function AnimatedRoutes() {
    const location = useLocation();
@@ -26,6 +27,7 @@ function AnimatedRoutes() {
             <Route path='pages/:slug' element={<SimplePage />}></Route>
             <Route path='test-admin' element={<TestAdmin />}></Route>
             <Route path='courses' element={<Courses />}></Route>
+            <Route path='main' element={<Main />}></Route>
             <Route path='*' element={<NotFound />}></Route>
          </Routes>
       </AnimatePresence>
