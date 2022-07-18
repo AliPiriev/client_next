@@ -15,9 +15,9 @@ export default function Rating({ value }) {
     return (
         <div className={styles.starsDiv}>
         <div>
-            {getStars(value).map((value) => (
+            {getStars(value).map((value, index) => (
 
-                <img src={require(`../../../assets/img/tabImg/${value}.png`)} alt="star"/>
+                <img key={index} src={require(`../../../assets/img/tabImg/${value}.png`)} alt="star"/>
             ))}
         </div>
       </div>

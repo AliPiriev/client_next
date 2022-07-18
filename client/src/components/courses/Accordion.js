@@ -6,6 +6,7 @@ import styles from "./Accordion.module.scss";
 
 const Data = [
     {
+        id: 0,
         question: "Welcome",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -13,6 +14,7 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
+        id: 1,
         question: "Best Practices",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -20,6 +22,7 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
+        id: 2,
         question: "Lottie",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -27,6 +30,7 @@ const Data = [
         answer4: "Informing and giving feedback to the user",
     },
     {
+        id: 3,
         question: "Conclusion",
         answer1: "Intro",
         answer2: "Focusing attention and guiding the user",
@@ -52,9 +56,9 @@ const Accordion = () => {
                 </div>
                 {Data.map((item, index) => {
                     return (
-                        <>
+                        <div key={item.id}>
                        
-                        <div onClick={() => toggle(index)} key={index} className={styles.wrap}>
+                        <div kay={item.id} onClick={() => toggle(index)} key={index} className={styles.wrap}>
                         <h1 className={styles.h1}>{item.question}</h1>
                         <span className={styles.span}>{clicked === index ? <div className={styles.minus}></div> : <div className={`${styles.extraMinus}, ${styles.plus}`}></div>}</span>
                         </div>
@@ -78,7 +82,7 @@ const Accordion = () => {
                                 </div>
                             </div>
                             ) : null}
-                        </>
+                        </div>
                     )
                 })}
             </div>

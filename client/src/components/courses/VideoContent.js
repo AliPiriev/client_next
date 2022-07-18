@@ -11,7 +11,7 @@ const VideoContent = () => {
                 <img className={styles.image} src={img1} />
                 <button className={styles.Circle}>
                     <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="70" cy="70" r="69.5" fill="white" fill-opacity="0.3" stroke="white" />
+                        <circle cx="70" cy="70" r="69.5" fill="white" fillOpacity="0.3" stroke="white" />
                         <path d="M82 70L64 80.3923L64 59.6077L82 70Z" fill="white" />
                     </svg>
                 </button>

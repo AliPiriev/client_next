@@ -26,28 +26,28 @@ const [reviews, setReviews] = useState([
         <div className={styles.reviewIntro}>
         <h3 className={styles.reviewsTitle}>Questions and Answers</h3>
             {reviews.map(pObj => (
-               <div className={styles.reviews}>
-                 <h3 className={styles.reviewsText} key={pObj.id}>{pObj.review}</h3>
-                 <div className={styles.replyDiv}>
-                 <h5 className={`${styles.starsReview}, ${styles.name}`} key={pObj.id}>{pObj.people}</h5>
-                    <button className={styles.replyFlex} onClick={() => {
-                      setChangeContent(true);
-                    }}>
-                      
-                    <h5 className={styles.name} key={pObj.id}>{pObj.vector}</h5>
-                    <h5 className={styles.stars} key={pObj.id}>{pObj.reply}</h5>
-                    </button>
-                </div>
-                {changeContent && <QaReply closeContent={setChangeContent} />}
-               <div className={changeContent ? styles.closed : '        '}>
-               <h3 className={styles.reviewsTitle}>Leave your comment or question</h3>
-                <input className={styles.input} type="text" placeholder="Enter text here"></input>
-                <button className={styles.question} onClick={() => {
-                    setOpenPopup(true);
-                }}
-                >Question/Comment</button>
-                </div>
-                </div>      
+               <div key={pObj.id} className={styles.reviews}>
+                    <h3 className={styles.reviewsText} key={pObj.id}>{pObj.review}</h3>
+                    <div className={styles.replyDiv}>
+                    <h5 className={`${styles.starsReview}, ${styles.name}`} key={pObj.id}>{pObj.people}</h5>
+                        <button className={styles.replyFlex} onClick={() => {
+                          setChangeContent(true);
+                        }}>
+                          
+                        <h5 className={styles.name} key={pObj.id}>{pObj.vector}</h5>
+                        <h5 className={styles.stars} key={pObj.id}>{pObj.reply}</h5>
+                        </button>
+                    </div>
+                      {changeContent && <QaReply closeContent={setChangeContent} />}
+                    <div className={changeContent ? styles.closed : '        '}>
+                        <h3 className={styles.reviewsTitle}>Leave your comment or question</h3>
+                        <input className={styles.input} type="text" placeholder="Enter text here"></input>
+                        <button className={styles.question} onClick={() => {
+                            setOpenPopup(true);
+                          }}
+                        >Question/Comment</button>
+                      </div>
+              </div>      
             )
             
             )}
@@ -60,4 +60,3 @@ const [reviews, setReviews] = useState([
     )
   
 }
-
