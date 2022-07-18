@@ -3,11 +3,11 @@
 function Courses() {
    return (
       <div className="xer">
-         jsadhkjsad
-         jdhask
-         dsahfdkjs
-         dsjhfdhkj
-         dfskjhfdkj
+         jkdshgfdk
+         {Map.}
+        <instructor>
+
+           <dsajkdsh></dsajkdsh>
       </div>
    )
 }
