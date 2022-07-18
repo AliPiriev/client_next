@@ -37,7 +37,7 @@ const Tabs = () => {
         <div className={styles.contentTabs}>
             <div className={toggleState === 1 ? `${styles.content}, ${styles.activeContent}` : styles.content}>
             <div className={styles.tabInfo}>
-                <div className={styles.mainImg}>
+                <div className={styles.mainImg}>  
                     <img className={styles.tabImg} src={tabImg} alt=""></img>
                 </div>
                 <div className={styles.infoText}>

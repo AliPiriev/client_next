@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './MyComponent.module.scss';
-import img from "../../assets/img/logo.png";
+import styles from './CourseHeader.module.scss';
+// import img from "../../assets/img/logo.png";
 import img1 from "../../assets/img/background.png";
 import imgProfile from "../../assets/img/dato.png";
 
-const MyComponent = () => {
+const CourseHeader = () => {
+
   return (
     <div className={styles.container}>    
         <img className={styles.background} src={img1} />   
@@ -39,9 +40,9 @@ const MyComponent = () => {
               <button className={styles.btn}>Buy Course $65</button> 
         </div> 
    </div>
-);
+ );
 };
 
 
 
-export default MyComponent;
+export default CourseHeader;

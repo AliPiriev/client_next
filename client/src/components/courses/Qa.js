@@ -7,7 +7,8 @@ import QaReply from './QaReply';
 
 export default function Qa() {
 const [reviews, setReviews] = useState([
-    { id: 1,
+    { 
+      id: 1,
       review: "A fantastic organisation! Great cutomer support from beginning to end of the process. The team are really informed and go the extra mile at every stage. I would recommend them unreservedly.",
       people: "Jack Jones",
       vector: <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +19,7 @@ const [reviews, setReviews] = useState([
   ]);
   
   const [openPopup, setOpenPopup] = useState(false);
-
+  
   const [changeContent, setChangeContent] = useState(false);
      
     return (
@@ -51,10 +52,7 @@ const [reviews, setReviews] = useState([
             )
             )}
              {openPopup && <Popup closePopup={setOpenPopup} />}
-            
-
         </div>
-
       </div>
     )
   

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Contact.module.scss";
+import styles from "./ContactContent.module.scss";
 import From from "./From";
 
-const Contact = () => { 
+const ContactContent = () => { 
     return ( 
         <div className={styles.contact}>
              <div className={styles.contact__inner}>
@@ -36,4 +36,4 @@ const Contact = () => {
     )
 };
 
-export default Contact;
+export default ContactContent;
