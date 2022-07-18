@@ -11,6 +11,7 @@ import Article from '../../pages/Article';
 import SimplePage from '../../pages/SimplePage';
 import Glossary from '../../pages/Glossary';
 import Glossaries from '../../pages/Glossaries';
+import Courses from '../../pages/Courses';
  
  
 function AnimatedRoutes() {
@@ -25,6 +26,7 @@ function AnimatedRoutes() {
             <Route path='glossaries/:slug' element={<Glossary />}></Route>
             <Route path='pages/:slug' element={<SimplePage />}></Route>
             <Route path='test-admin' element={<TestAdmin />}></Route>
+            <Route path='courses' element={<Courses />}></Route>
             <Route path='*' element={<NotFound />}></Route>
          </Routes>
       </AnimatePresence>

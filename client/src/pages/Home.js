@@ -5,19 +5,6 @@ import IntroBox from "../components/home/IntroBox";
 import Glossaries from '../components/glossary/Glossaries';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import FeaturesBanner from '../components/home/FeaturesBanner';
-import SmallBannerBox from '../components/home/SmallBannerBox';
-import Accordion from '../components/courses/Accordion';
-import Tabs from '../components/courses/Tabs';
-
-import VideoContent from '../components/courses/VideoContent';
-
-
-
-import Instructors from '../components/courses/Instructors';
-import Banner from '../components/courses/Banner';
-import img1 from '../assets/img/boxImages/blue.png';
-import img2 from '../assets/img/boxImages/green.png';
-
  
 
 function Home() {
@@ -25,22 +12,6 @@ function Home() {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
       teaser: "Build and develop your skills with online educational content from the world's top institutions and organizations."
    }
-
-   const bannerData = [{
-
-      title: 'Lost in all the crypto slang?',
-      paragraph: "Take a closer look at our blockchain & crypto glossary",
-      img: img1,
-      button_link: "https://www.google.com/",
-      button_text: "Go to the Glossary"
-   },
-   {
-      title: 'Up for an adventure?',
-      paragraph: "Learn while you test your knowledge with a range of quizzes.",
-      img: img2,
-      button_link: "https://www.google.com/",
-      button_text: "Take a Crypto Quiz"
-   }]
 
    const { data: home_contents } = useFetch('http://localhost:8080/api/home-content');
    const { data: glossaries } = useFetch('http://localhost:8080/api/glossaries?limit=3');
@@ -60,18 +31,6 @@ function Home() {
                {blockchain && blockchain.results.length ? <Articles data={blockchain} title='blockchain' /> : ''}
                {glossaries && glossaries.length ? <Glossaries data={glossaries}
                   title={`${glossariesTotal ? glossariesTotal[0]['count(*)'] : ''} Terms in our Glossary`} /> : ''}
-                  <div className='small-banner-box-wrap'>
-                     {bannerData.map((item) => {
-                        return(
-                           <SmallBannerBox data={item}/>  
-                        )
-                     })}
-               </div>   
-               <VideoContent />
-               <Banner />
-               <Instructors /> 
-               <Accordion/>
-               <Tabs />
             </div>
          </div>
       </AnimatedPage>

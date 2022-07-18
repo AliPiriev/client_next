@@ -1,6 +1,6 @@
 import React from "react";
 import SmallBannerBox from "../home/SmallBannerBox";
-import styles from "./Banner.module.css";
+import styles from "./Banner.module.scss";
 import img1 from '../../assets/img/backgroundBanner.png';
 
 const Banner = () => {
@@ -14,15 +14,15 @@ const Banner = () => {
 
     return (
         <div className={styles.container}>
-            {smallData.map((item) => {
+            {smallData.map((item, index) => {
                 return (
-                    <div className={styles.banner}> 
+                    <div className={styles.banner} key={index}> 
                         <div className={styles.txt}>
-                            <h1 className={styles.title}>{item.title} </h1>
+                            <h3 className={styles.title}>{item.title} </h3>
                             <p className={styles.paragraph}>{item.paragraph}</p>
-                            <button className={styles.Button}>{item.button}</button>  
                         </div>
-                    <img src={item.img} alt="" />    
+                        <button className={styles.button}>{item.button}</button>  
+                    <img className={styles.background} src={item.img} alt="" />    
                     </div>
 
                 )
@@ -31,10 +31,5 @@ const Banner = () => {
         </div>
     )
 }
-
-
-
-
-
 
 export default Banner;

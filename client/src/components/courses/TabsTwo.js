@@ -48,12 +48,12 @@ const [stars, setRStars] = useState([
       <div className={styles.mainReview}>
         <div className={styles.reviewIntro}>
         <h3 className={styles.reviewsTitle}>Reviews</h3>
-            {reviews.map(pObj => (
-               <div className={styles.reviews}>
-                 <h3 className={styles.reviewsText} key={pObj.id}>{pObj.review}</h3>
+            {reviews.map((pObj, index) => (
+               <div key={index} className={styles.reviews}>
+                 <h3 className={styles.reviewsText}>{pObj.review}</h3>
                 <div className={styles.starsReview}>
-                <h5 className={styles.name} key={pObj.id}>{pObj.name}</h5>
-                 <h5 className={styles.stars} key={pObj.id}>{pObj.stars}</h5>
+                <h5 className={styles.name}>{pObj.name}</h5>
+                 <h5 className={styles.stars}>{pObj.stars}</h5>
                 </div>
                 </div>   
             )
@@ -61,10 +61,10 @@ const [stars, setRStars] = useState([
         </div>
         <div className={styles.starsDiv}>
         <h3 className={styles.reviewsTitle}>Course Rates</h3>
-        {stars.map(pObj => (
-              <div className={styles.sumStars}>
-                <div className={`${styles.stars}, ${styles.reviewStars}`} key={pObj.id}>{pObj.stars}</div>
-                <div className={styles.numberOfReviews} key={pObj.id}>{pObj.people}</div>
+        {stars.map((pObj, index) => (
+              <div key={index} className={styles.sumStars}>
+                <div className={`${styles.stars}, ${styles.reviewStars}`}>{pObj.stars}</div>
+                <div className={styles.numberOfReviews}>{pObj.people}</div>
               </div>
             )
             )}
@@ -73,4 +73,3 @@ const [stars, setRStars] = useState([
     )
   
 }
-
