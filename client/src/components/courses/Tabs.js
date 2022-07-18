@@ -22,7 +22,7 @@ const Tabs = () => {
           Course Details
         </button>
         <button
-          className={toggleState === 2 ?  `${styles.tabs}, ${styles.activeTabs}` : styles.tabs}
+          className={toggleState === 2 ? ` ${styles.tabs}, ${styles.activeTabs}` : styles.tabs}
           onClick={() => toggleTab(2)}
         >
           TReviews (17)

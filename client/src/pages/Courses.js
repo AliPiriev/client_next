@@ -5,6 +5,7 @@ import Accordion from "../components/courses/Accordion";
 import Tabs from "../components/courses/Tabs";
 import Banner from "../components/courses/Banner";
 import Footer from "../components/courses/Footer";
+import Instructors from "../components/innerInstructor/Instructors";
 import img1 from "../assets/img/boxImages/blue.png"
 import img2 from '../assets/img/boxImages/green.png';
 
@@ -36,6 +37,7 @@ function Courses() {
             <Banner />
             <Tabs />
             <Footer />
+            <Instructors />
          </div>
        </div>
     )
