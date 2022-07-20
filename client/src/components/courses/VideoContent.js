@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./VideoContent.module.scss";
 import img1 from "../../assets/img/videoCont.png";
 const VideoContent = () => {
-
     return (
         <div className={styles.VideoContent}>
             <h3 className={styles.txt}>Motion design creates movement, excitement and adds life to otherwise static experiences. When it comes to digital environments, it not only creates delight but also serves strategic purposes such as brand expression, accessibility, information and guidance.</h3>

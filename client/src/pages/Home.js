@@ -19,6 +19,7 @@ import img2 from '../assets/img/boxImages/green.png';
 
 
 
+
 function Home() {
    const intro = {
       title: 'World-class education for everyone. <span>Together we learn.</span>',
@@ -53,6 +54,13 @@ function Home() {
          <div className="home-page">
             <BgImage id={1} />
             <div className="container">
+            <div className='small-banner-box-wrap'>
+                     {bannerData.map((item) => {
+                        return(
+                           <SmallBannerBox data={item} key={item.id}/>  
+                        )
+                     })}
+               </div> 
                {home_contents && <IntroBox data={home_contents} />}
                {home_contents && <FeaturesBanner data={home_contents} />}
                {releases && releases.results.length ? <Articles data={releases} title='releases' /> : ''}
@@ -72,7 +80,7 @@ function Home() {
                <Tabs />
             </div>
          </div>
-      </AnimatedPage>
+      </AnimatedPage >
    )
 }
 

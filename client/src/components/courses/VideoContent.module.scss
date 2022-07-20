@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column; 
+    margin-top: 70px;
 
     .txt {
         font-size: $f-large;
@@ -24,7 +25,7 @@
     position: relative;
     height: 540px;
     padding-top: 100px;
-    }
+    
     .image {
         position: absolute;
         width: 100%;
@@ -35,5 +36,8 @@
         margin-top: $f-large;
         position: absolute;
         z-index: 111;
-}
+    }
+
+    }
+    
 }

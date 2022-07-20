@@ -1,7 +1,7 @@
 @import "../../assets/css/variables.scss";
 .container {
     .banner {
-        font-family: "lack";
+        font-family: "Lack-Regular";
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,17 +21,21 @@
         z-index: -11;
     }
     .txt {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
     }
     .title {
         font-size: $f-large;
         padding-top: $f-large;
+        max-width: 80%;
     }
     .paragraph {
         padding-top: 20px;
+        max-width: 80%;
     }
     .button {
         font-size: 16px;
