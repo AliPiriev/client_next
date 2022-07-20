@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import plus from "../../assets/img/accordion/plus.png"
-import minus from "../../assets/img/accordion/minus.png"
 import elipse from "../../assets/img/accordion/Ellipse.png";
 import styles from "./Accordion.module.scss";
 
@@ -40,23 +38,23 @@ const Accordion = () => {
     const toggle = (index) => {
         if (clicked === index) {
             setClicked(null)
+        } else {
+            setClicked(index)
         }
-        setClicked(index)
     }
 
     return (
         <div className={styles.Accordion}>
             <div className={styles.container}>
                 <div>
-                    <h1 className={styles.title}>Course Table of contents</h1>
+                    <h3 className={styles.title}>Course Table of contents</h3>
                 </div>
                 {Data.map((item, index) => {
                     return (
                         <div key={index}>
-
-                            <div onClick={() => toggle(index)} className={styles.wrap}>
-                                <h1 className={styles.h1}>{item.question}</h1>
-                                <div className={`${styles.toggle} ${clicked == index ? 'active' : '' }`}>
+                            <div onClick={() => {toggle(index)}} className={styles.wrap}>
+                                <h4 className={styles.h1}>{item.question}</h4>
+                                <div className={`${styles.toggle} ${clicked === index ? styles.active : '' }`}>
                                     <span></span>
                                     <span></span> 
                                 </div>

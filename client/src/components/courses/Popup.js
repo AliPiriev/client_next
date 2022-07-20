@@ -7,13 +7,13 @@ function Popup({ closePopup }) {
         <div className={styles.popupContainer}>
            <div className={styles.titleCloseBtn}>
            <div className={styles.popupTitle}>
-                <h1 className={styles.popupH1}>Course Review</h1>
+                <h3 className={styles.popupH1}>Course Review</h3>
             </div>
            <button className={styles.closeBtn} onClick={() => {
             closePopup(false);
         }}><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.5342 1.46655L1.46751 10.5332" stroke="#00050F" stroke-width="2"/>
-        <path d="M1.46582 1.46655L10.5325 10.5332" stroke="#00050F" stroke-width="2"/>
+        <path d="M10.5342 1.46655L1.46751 10.5332" stroke="#00050F" strokeWidth="2"/>
+        <path d="M1.46582 1.46655L10.5325 10.5332" stroke="#00050F" strokeWidth="2"/>
         </svg>
         </button>
            </div>

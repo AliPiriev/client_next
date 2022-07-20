@@ -1,19 +1,12 @@
 @import "../../assets/css/variables.scss";
-$border-radius: 4px;
-$bg-orange: #FF7152;
-$f-large: 30px;
-$f-larger: 44px;
-$f-medium: 22px;
-$f-small: 12px;
-
 
 .small-banner-box-wrap {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 70px;
+    justify-content: center;
+    gap: 30px;
     margin-bottom: 100px;
 }
 .small-banner-box {
