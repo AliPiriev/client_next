@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-   res.json({ message: "Welcome to core academy application." });
+  res.json({ message: "Welcome to core academy application." });
 });
 
 const PORT = process.env.PORT || 8080;

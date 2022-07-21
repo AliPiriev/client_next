@@ -1,12 +1,12 @@
 import React from "react"
 import { Container } from "react-bootstrap"
 
-// import { AuthProvider } from "../contexts/AuthContext"
+import { AuthProvider } from "./contexts/AuthContext"
 import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom"; 
+} from "react-router-dom";
 // import PrivateRoute from "./components/routes/PrivateRoute"
 
 import Signup from "./components/auth/Signup"
@@ -30,15 +30,15 @@ function App() {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <BrowserRouter>
-         
-            <Routes> 
+          <AuthProvider>
+            <Routes>
               {/* <PrivateRoute exact path="/" component={Dashboard} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} /> */}
               <Route path="/signup" element={<Signup />}></Route>
               {/* <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} /> */}
             </Routes>
-    
+          </AuthProvider>
         </BrowserRouter>
       </div>
     </Container>
