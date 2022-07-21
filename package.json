@@ -1,0 +1,34 @@
+{
+  "name": "academy",
+  "version": "1.0.0",
+  "description": "core academy",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sokratgruzit/react-academy.git"
+  },
+  "keywords": [
+    "core",
+    "academy",
+    "academy"
+  ],
+  "author": "Ali Pirievi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sokratgruzit/react-academy/issues"
+  },
+  "homepage": "https://github.com/sokratgruzit/react-academy#readme",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.6"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "nodemon": "^2.0.19"
+  }
+}
