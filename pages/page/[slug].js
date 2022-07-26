@@ -6,12 +6,16 @@ import { fetchData } from '../../queries';
 export const getStaticPaths = async () => {
    try {
       const res = await fetchData('http://localhost:8080/api/pages');
+      const paths = [];
+      if(){
+         paths = res.data.map(items => {
+            return {
+               params: { slug: items.slug }
+            }
+         })
+      }
 
-      const paths = res.data.map(items => {
-         return {
-            params: { slug: items.slug }
-         }
-      })
+      
 
       return {
          paths,
