@@ -6,11 +6,21 @@ import { fetchData } from '../../queries';
 
 
 export const getStaticProps = async () => {
-   const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
+   try{
+      const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
 
-   return {
-      props: { res }
+      return {
+         props: { res }
+      }
+   }catch(e){
+      return {
+         props: { res: {
+            glossaries: null,
+            isPending: true
+         } }
+      }
    }
+  
 }
 
 

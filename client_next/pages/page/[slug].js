@@ -4,30 +4,42 @@ import { fetchData } from '../../queries';
 
 
 export const getStaticPaths = async () => {
-   const res = await fetchData('http://localhost:8080/api/pages');
+   try {
+      const res = await fetchData('http://localhost:8080/api/pages');
 
-   const paths = res.data.map(items => {
+      const paths = res.data.map(items => {
+         return {
+            params: { slug: items.slug }
+         }
+      })
+
       return {
-         params: { slug: items.slug }
+         paths,
+         fallback: false
       }
-   })
-
-   return {
-      paths,
-      fallback: false
+   } catch (e) {
+      return { paths: [], fallback: false }
    }
-} 
 
-export const getStaticProps = async (context) => {
-   const slug = context.params.slug;
-   const res = await fetchData(`http://localhost:8080/api/pages/${slug}`);
-
-   return {
-      props: { data: res.data }
-   }
 }
 
-function SimplePage({data}) {
+export const getStaticProps = async (context) => {
+   try {
+      const slug = context.params.slug || undefined;
+      const res = await fetchData(`http://localhost:8080/api/pages/${slug}`);
+
+      return {
+         props: { data: res.data }
+      }
+   } catch (e) {
+      return {
+         props: { data: null }
+      }
+   }
+
+}
+
+function SimplePage({ data }) {
    return (
       <div className="simple-page">
          {data ? (

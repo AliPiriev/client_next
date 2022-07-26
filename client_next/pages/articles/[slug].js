@@ -9,34 +9,48 @@ import { getItemById } from '../../helpers'
 
 
 export const getStaticPaths = async () => {
-   const res = await fetchData('http://localhost:8080/api/articles');
 
+   try {
+      const res = await fetchData('http://localhost:8080/api/articles');
 
-   const paths = res.data.results.map(items => {
+      const paths = res.data.results.map(items => {
+         return {
+            params: { slug: items.slug }
+         }
+      })
+
       return {
-         params: { slug: items.slug }
+         paths,
+         fallback: false
       }
-   })
 
-   return {
-      paths,
-      fallback: false
+   } catch (e) {
+      return { paths: [], fallback: false }
    }
+
 }
 
 export const getStaticProps = async (context) => {
-   const slug = context.params.slug;
-   const res = await fetchData(`http://localhost:8080/api/articles/${slug}`);
+   try {
+      const slug = context.params.slug || undefined;
+      const res = await fetchData(`http://localhost:8080/api/articles/${slug}`);
 
-   return {
-      props: { res }
+      return {
+         props: { res }
+      }
+   } catch (e) {
+      return {
+         props: { res: null }
+      }
    }
+
+
 }
 
 
 function Article({ levels, res }) {
    const router = useRouter();
-   const data  = res.data;
+   const data = res.data || null;
 
    let level = null;
    if (levels && levels.data && data) level = getItemById(levels.data, data.level);
