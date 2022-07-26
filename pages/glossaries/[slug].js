@@ -7,14 +7,18 @@ import { fetchData } from '../../queries';
 
 export const getStaticPaths = async () => {
    const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
-
-   const paths = res.data.map((item) => {
-      return {
-         params: {
-            slug: item.slug
+   
+   const paths = [];
+   if(res.data){
+         paths = res.data.map((item) => {
+         return {
+            params: {
+               slug: item.slug
+            }
          }
-      }
-   })
+      })
+   }
+   
 
    return {
       paths,
