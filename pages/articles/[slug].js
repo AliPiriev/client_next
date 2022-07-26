@@ -12,12 +12,16 @@ export const getStaticPaths = async () => {
 
    try {
       const res = await fetchData('http://localhost:8080/api/articles');
+      const paths =[];
 
-      const paths = res.data.results.map(items => {
-         return {
-            params: { slug: items.slug }
-         }
-      })
+        if( res.data &&  res.data.results){
+           paths = res.data.results.map(items => {
+               return {
+                  params: { slug: items.slug }
+               }
+            })
+        }
+      
 
       return {
          paths,
