@@ -16,12 +16,13 @@ export const getStaticProps = async () => {
 
 
 function Glossaries({ res }) {
-   console.log(res)
-   const { data: glossaries, isPending } = res;
+
+   const data = res.glossaries || null;
+   const isPending = res.isPending || true;
    const alphabet = ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
    let group = null;
-   if (!isPending && glossaries.length) {
+   if (!isPending && glossaries && glossaries.length) {
       group = alphabet.map((letter) => {
          const groupedByLetter = glossaries.filter((item) => item.letter.toUpperCase() === letter);
 
