@@ -8,13 +8,17 @@ import { fetchData } from '../../queries';
 export const getStaticPaths = async () => {
    const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
 
-   const paths = res.data.map((item) => {
-      return {
-         params: {
-            slug: item.slug
+   const paths = [];
+
+   if (res.data) {
+      paths = res.data.map((item) => {
+         return {
+            params: {
+               slug: item.slug
+            }
          }
-      }
-   })
+      })
+   }
 
    return {
       paths,
@@ -22,18 +26,19 @@ export const getStaticPaths = async () => {
    }
 }
 
-export const getStaticProps = async ({params}) => {
-   const res = await fetchData(`http://localhost:8080/api/glossaries/${params.slug}`)
+export const getStaticProps = async ({ params }) => {
+   const slug = context.params.slug || undefined;
+   const res = await fetchData(`http://localhost:8080/api/glossaries/${slug}`)
 
    return {
-      props:{
+      props: {
          res
       }
    }
 }
 
-function Glossary({res}) {
-   const { data } = res;
+function Glossary({ res }) {
+   const data = res.data || null;
    const router = useRouter();
    return (
       <div className="glossary-page">

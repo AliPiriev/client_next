@@ -10,41 +10,33 @@ import { getItemById } from '../../helpers'
 
 export const getStaticPaths = async () => {
 
-   try {
-      const res = await fetchData('http://localhost:8080/api/articles');
+   const res = await fetchData('http://localhost:8080/api/articles');
 
-      const paths = res.data.results.map(items => {
+   const paths = [];
+
+   if(res.data && res.data.results){
+      paths = res.data.results.map(items => {
          return {
             params: { slug: items.slug }
          }
       })
+   }
+   
 
-      return {
-         paths,
-         fallback: false
-      }
-
-   } catch (e) {
-      return { paths: [], fallback: false }
+   return {
+      paths,
+      fallback: false
    }
 
 }
 
 export const getStaticProps = async (context) => {
-   try {
-      const slug = context.params.slug || undefined;
-      const res = await fetchData(`http://localhost:8080/api/articles/${slug}`);
+   const slug = context.params.slug || undefined;
+   const res = await fetchData(`http://localhost:8080/api/articles/${slug}`);
 
-      return {
-         props: { res }
-      }
-   } catch (e) {
-      return {
-         props: { res: null }
-      }
+   return {
+      props: { res }
    }
-
-
 }
 
 

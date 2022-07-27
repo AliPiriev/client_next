@@ -6,25 +6,16 @@ import { fetchData } from '../../queries';
 
 
 export const getStaticProps = async () => {
-   try{
-      const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
+   const res = await fetchData('http://localhost:8080/api/glossaries?limit=500');
 
-      return {
-         props: { res }
-      }
-   }catch(e){
-      return {
-         props: { res: {
-            glossaries: null,
-            isPending: true
-         } }
-      }
+   return {
+      props: { res }
    }
-  
+
 }
 
 
-function Glossaries({res}) {
+function Glossaries({ res }) {
    console.log(res)
    const { data: glossaries, isPending } = res;
    const alphabet = ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
