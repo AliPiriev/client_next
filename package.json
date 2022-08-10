@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "admin": "npm run start --prefix admin",
+    "admin:install": "npm install --prefix admin",
+    "admin:build": "npm run build --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run admin\""
   },
   "repository": {
     "type": "git",
@@ -24,8 +28,11 @@
   "homepage": "https://github.com/sokratgruzit/react-academy#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
     "config": "^3.3.7",
     "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.6"
   },
   "devDependencies": {
