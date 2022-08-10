@@ -1,0 +1,14 @@
+.socialIcons {
+    display: flex;
+    margin-top: 55px;
+    justify-content: center;
+    align-items: center;
+ }
+
+.socialIcons a {
+    margin-right: 24px;
+}
+
+.socialIcons:last-child {
+    margin-right: 0px;
+}

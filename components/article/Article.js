@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { connect } from 'react-redux';
-import { getItemById } from '../../helpers'
-
+import { getItemById } from '../../helpers';
+import CornerDecor from '../courses/border/CornerDecor';
+import ArticleImgs from './ArticleImgs';
 
 function Article({ data, levels, tags, categories }) {
    let level = null;
@@ -10,26 +11,45 @@ function Article({ data, levels, tags, categories }) {
    return (
       <Link href={`/articles/${data.slug}`}>
          <a  className="article">
+         <div className='cornerBorderDiv'>
+            <CornerDecor />
+            <div className='cornerBorder'>
             <div className="img-box">
-               <img src='/img/article.png' alt="" className="img-absolute" />
-               <div className="pins">
+               {categories && categories.data ? (<ArticleImgs />) : ` return (
+               <div>
+                     {ArtiImgs.map((item) => (
+                        <img key={item.id} src={item.img} alt="articleImage" className="img-absolute" />
+                     )
+                     )}
+               </div>
+            )`}
+               <ArticleImgs />
+              <div className="pins">
                   {(data.tags && JSON.parse(data.tags).length && tags.data) ? (
                      JSON.parse(data.tags).map((tag) => {
                         return (
-                           <div className="tag-item" key={tag}>
+                           <div className="white-cat-item" key={tag}>
                               {getItemById(tags.data, tag).name}
                            </div>
                         )
                      })
                   ) : ''}
-                  <div className="cat-item">
+                  <div className="white-cat-item">
                      {categories && categories.data ? getItemById(categories.data, data.category).name : ''}
                   </div>
                </div>
             </div>
+
             <div className="bottom">
-               <h3 className="ttl">{data.title}</h3>
-               {level && <div className={`level ${level.title.toLowerCase()}`}>{level.title}</div>}
+               <div className='bottomTtl'>
+                  <h3 className="ttl">{data.title}</h3>
+               </div>
+               <div className='bottomLevel'>
+                {level && <div className={`level ${level.title.toLowerCase()}`}><br/>{level.title}</div>}
+                {/* <br/><div className='dot'>English</div><div className='dot'>8 min</div> */}
+               </div>
+            </div>
+            </div>
             </div>
          </a>
       </Link>

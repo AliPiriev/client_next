@@ -6,7 +6,7 @@ import { fetchData } from '../../queries';
 export const getStaticPaths = async () => {
 
    const res = await fetchData('http://localhost:8080/api/pages');
-   const paths = [];
+   let paths = [];
 
    if (res.data) {
       paths = res.data.map(items => {

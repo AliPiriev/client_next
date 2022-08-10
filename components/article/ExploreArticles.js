@@ -1,5 +1,6 @@
 import useFetch from '../../hooks/useFetch';
-import Article from './Article'
+import Article from './Article';
+import styles from "../../styles/articles/Slug.module.scss";
 
 function ExploreArticles({ id, category }) {
    const { data } = useFetch(`http://localhost:8080/api/articles?id_not=${id}&category=${category}&limit=3`);

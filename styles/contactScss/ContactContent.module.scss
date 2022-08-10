@@ -1,0 +1,79 @@
+@import "../variables.scss";
+
+.contact { 
+   display: flex;
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 60px;
+
+    .contact__inner {
+        width: 50%;
+    }
+    .tittle { 
+        font-family: 'Lack-regular';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 54px;
+        line-height: 66px;
+    }
+
+    .box1 a { 
+        margin-left: 12px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        color: $c-grey;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+       .box1 a:hover { 
+         color: blue; 
+      }
+
+       .box1 .paragraph {
+          font-weight: 400;
+          @extend %large;
+          line-height: 44px;
+          color: $c-grey;
+          margin-top: 30px;
+          margin-bottom: 30px;
+    }
+
+  }
+
+
+@media (max-width: 1900px) {
+
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .contact {
+    width: 90%;
+  }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .contact {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+   
+      .tittle   { 
+        font-size: 34px;
+       line-height: normal;
+      }
+
+      .box1 { 
+        font-size: 21px;
+        line-height: normal;
+      }
+  }
+}

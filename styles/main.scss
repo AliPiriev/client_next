@@ -6,9 +6,45 @@
    padding: 0 16px;
    margin: 0 auto;
 }
+// @media(max-width: 1900px){
+//    .container {
+//       padding: 0 195px;
+//    }
+// }
 
 .wrapper{
    min-height: calc(100vh - 90px);
+}
+
+.container-sm {
+   width: 100%;
+   max-width: 1920px;
+   padding: 0 285px;
+   margin: 0 auto;
+}
+
+@media (max-width: 1900px) {
+   .container {
+      padding: 0px 195px;
+   }
+}
+
+@media (max-width: 1365px) {
+   .container {
+      padding: 0px 50px;
+   }
+}
+
+@media (max-width: 1023px) {
+   .container {
+      padding: 0px 25px;
+   }
+}
+
+@media (max-width: 767px) {
+   .container {
+      padding: 0px 15px;
+   }
 }
 
 //images
@@ -73,6 +109,33 @@
    }
 }
 
+.dark-grey-btn {
+   flex: none;
+   display: inline-flex;
+   align-items: center;
+   align-self: flex-start;
+   padding: 4px 10px;
+   background: rgba(255, 255, 255, 0.7);
+   border-radius: rgba(255, 255, 255, 0.7);
+   transition: 0.4s;
+   border-radius: $border-radius;
+   cursor: pointer;
+
+   &:hover {
+      background: $bg-grey;
+   }
+
+   span {
+      font-size: 13px;
+      color: #000;
+      font-family: 'Lack';
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+   }
+}
+
 .border-gery-btn {
    display: inline-flex;
    align-items: center;
@@ -127,7 +190,61 @@
       font-size: $f-small;
    } 
 }
+.orange-bg-btn {
+   background: #FF7152;
+   border-radius: 30px;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 28px;
+   padding: 16px 40px;
+   transition: 0.4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+   border: 2px solid #FF7152;
 
+   &:hover {
+      background-color: transparent;
+   } 
+}
+.orange-border-btn {
+   @extend %mediumSmall ;
+   padding: 10px 24px 10px 24px;
+   border-radius: 29px;
+   margin-top: auto;
+   border: 2px solid $bg-orange;
+   transition: 0.4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+   &:hover {
+      background-color: $bg-orange;
+      }
+}
+
+
+.orange-bg-btn {
+   background: #FF7152;
+   border-radius: 30px;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 28px;
+   padding: 16px 40px;
+   transition: 0.4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+   border: 2px solid #FF7152;
+
+   &:hover {
+      background-color: transparent;
+   } 
+}
+
+.orange-border-btn {
+   @extend %mediumSmall ;
+  padding: 10px 24px 10px 24px;
+   border-radius: 29px;
+   margin-top: auto;
+   border: 2px solid $bg-orange;
+   transition: 0.4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+   &:hover {
+      background-color: $bg-orange;
+      }
+}
+
+  
 //end of buttons
 
 //small items
@@ -145,6 +262,9 @@
    text-transform: uppercase;
    transition: 0.6s;
    cursor: pointer;
+   border-radius: $border-radius;
+   margin-right: 8px;
+   margin-top: 8px;
 }
 
 .tag-item.active{
@@ -175,6 +295,22 @@
    border-color: $c-blue;
 }
 
+.white-cat-item {
+   display: inline-flex;
+   align-items: center;
+   position: relative;
+   background: rgba(255, 255, 255, 0.7);
+   border-radius: $border-radius;
+   font-size: 13px;
+   line-height: 16px;
+   text-transform: uppercase;
+   color: #000000;
+   padding: 10px 4px;
+   margin-top: 16px;
+   transition: 0.6s;
+   cursor: pointer;
+}
+
 //level
 .lev-item {
    display: inline-flex;
@@ -188,6 +324,9 @@
    transition: 0.6s;
    border: 2px solid transparent;
    cursor: pointer;
+   border-radius: $border-radius;
+   margin-right: 8px;
+   margin-top: 8px;
 
    &:before {
       content: "";
@@ -236,11 +375,22 @@
    }
 }
 
+.dot {
+   content: '';
+   display: block;
+   width: 3px;
+   height: 3px;
+   border-radius: 50%;
+   background-color: 
+   $c-grey;
+}
+
 .lev-item-simple {
    position: relative;
    padding-left: 12px;
    font-size: $f-smallest;
    text-transform: uppercase;
+
 
    &:before {
       content: "";
@@ -251,6 +401,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
+
    }
 
    &.beginner:before {
@@ -396,16 +547,19 @@
    color: $c-grey;
 }
 
+.select__control{
+   background-color: transparent !important;
+   border-color: #111826!important;
+}
 //select
 .select {
    width: 330px;
    max-width: 100%;
-
-   .select__control {
+   select__control {
       height: 44px;
       border: 1px solid $border-color;
       border-radius: $border-radius;
-      background: transparent;
+      background: 'transparent';
    }
    .select__control:hover {
       border-color: $border-color;
@@ -554,8 +708,6 @@ td {
    font-size: 16px;
    color: $c-secondary;
 }
-.text ul {
-}
 .text ul li {
    position: relative;
    font-size: 16px;
@@ -637,3 +789,5 @@ td {
 }
 
 //end of switcher
+
+
