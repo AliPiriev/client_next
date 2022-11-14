@@ -1,14 +1,49 @@
-.socialIcons {
+@import "../variables.scss";
+
+.icons {
+  position: relative;
+
+  .hoveredIcons {
     display: flex;
     margin-top: 55px;
     justify-content: center;
     align-items: center;
- }
+    flex-wrap: wrap;
+  }
 
-.socialIcons a {
+  .socialIcons {
+    position: absolute;
+    top: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .hovers {
+      &:hover {
+        display: none;
+        transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+    }
+  }
+
+  .socialIcons a,
+  .hoveredIcons a {
     margin-right: 24px;
-}
+    transition: 0.4s;
 
-.socialIcons:last-child {
+    .iconsSvg path {
+      transition: 0.4s;
+      &:hover {
+        fill: $c-blue;
+      }
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  .socialIcons:last-child .hoveredIcons:last-child {
     margin-right: 0px;
+  }
 }

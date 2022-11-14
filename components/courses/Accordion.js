@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "../../styles/clientScss/Accordion.module.scss";
-import CornerDecor from "./border/CornerDecor";
 
 const Data = [
     {

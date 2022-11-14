@@ -1,0 +1,75 @@
+@import '../variables.scss';
+
+body:global(.light) .title{
+   color: $c-dark;
+}
+
+.introBox {
+    margin-top: 100px;
+    width: 100%;
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        margin-right: auto;
+        margin-left: auto;
+        align-items: center;
+        text-align: center;
+
+        .title {
+            text-align: center!important;
+            background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+            background-size: cover;
+            color: transparent;
+            -moz-background-clip: text;
+            -webkit-background-clip: text;
+        }
+    
+        .title span {
+            color: $c-orange;
+            // line-height: 61px;
+            @extend %largest
+        }
+    
+        .teaser {
+            margin-top: 35px;
+            // width: %;
+            width: 75%;
+            // text-align: center;
+            color: $c-secondaryGray;
+        }
+    }
+
+}
+
+@media (max-width: 1900px) {
+
+}
+@media (max-width: 1690px) {
+    .introBox {
+        .inner {
+            width: 70%;
+        }
+    }
+}
+/*Ipad Pro 1024*/
+@media (max-width:  1365px) {
+    // .introBox {
+    //     .inner {
+    //         width: 60%;
+    //     }
+    // }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .introBox {
+        .inner {
+            width: 100%;
+        }
+    }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  
+}

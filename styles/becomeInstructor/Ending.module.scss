@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+body:global(.light) .item__title {
+    color: $c-dark;
+}
+
+.ending {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 100px;
+
+    .ending__item {
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .item__teaser {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: $c-grey;
+        }
+        .item__hotLink {
+            color: $c-orange;
+            cursor: pointer;
+            transition: .5s;
+            width: fit-content;
+            text-align: start;
+        }
+        .item__hotLink:hover {
+            color: $c-blue;
+        }
+    }
+}

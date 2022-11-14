@@ -1,0 +1,388 @@
+@import "../variables.scss";
+
+.header {
+  position: relative;
+  z-index: 99;
+}
+
+body:global(.light) .header .item:hover,
+body:global(.light) .header .item.active {
+  color: $c-orange;
+}
+body:global(.light) .header .arrow path {
+  fill: $bg-dark;
+}
+body:global(.light) .header .arrow path:hover {
+  fill: $c-orange;
+}
+body:global(.light) .header .connectBtnWrap {
+  position: relative;
+  margin-right: 0;
+  margin-left: auto;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn {
+  border: 1px solid $bg-orange;
+  background: $c-orange;
+  transition: 0.4s;
+}
+
+body:global(.light) .header .connectBtnWrap .connectBtn span {
+  color: $c-white;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn span:hover {
+  color: $c-dark;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn.connected {
+  background: transparent;
+  border: 1px solid $c-orange;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn:hover {
+  background: transparent;
+  border: 1px solid $c-orange;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn.connected .arrow {
+  display: block;
+  margin-left: 9px;
+  transition: 0.4s;
+}
+body:global(.light) .header .connectBtnWrap .connectBtn.connected:hover .arrow {
+  transform: rotate(180deg);
+}
+body:global(.light) .header .arrow {
+  margin-left: 5px;
+  transition: 0.4s;
+}
+body:global(.light) .header .arrow path {
+  transition: 0.4s;
+}
+body:global(.light) .header .arrow:hover {
+  transform: rotate(180deg);
+}
+body:global(.light) .header .arrow:active {
+  transform: rotate(180deg);
+}
+body:global(.light) .header .arrow path:hover,
+body:global(.light) .header .arrow path:active {
+  fill: $c-orange;
+}
+body:global(.light) .header .navigation ul {
+  display: flex;
+}
+body:global(.light) .header .navigation ul li {
+  margin-right: 40px;
+}
+body:global(.light) .header .navigation ul li .item {
+  cursor: pointer;
+  color: $c-dark;
+  transition: 0.4s;
+}
+body:global(.light) .header .navigation ul li:last-child {
+  margin-right: 0;
+}
+body:global(.light) .header .navigation ul li.topics {
+  position: relative;
+}
+body:global(.light) .header .navigation ul li.topics {
+  position: relative;
+}
+body:global(.light) .header .navigation ul li.topics .arrow {
+  margin-left: 5px;
+  transition: 0.4s;
+}
+body:global(.light) .header .navigation ul li.topics .arrow path {
+  transition: 0.4s;
+}
+body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics.active
+  body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics:hover {
+  .item {
+    color: $c-orange;
+  }
+}
+body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics.active
+  body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics:hover {
+  .arrow {
+    transform: rotate(180deg);
+  }
+}
+body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics.active
+  body:global(.light)
+  .header
+  .navigation
+  ul
+  li.topics:hover {
+  .arrow path {
+    fill: $c-orange;
+  }
+}
+body:global(.light) .header .navigation ul .item {
+  cursor: pointer;
+  transition: 0.4s;
+}
+body:global(.light) .header .navigation ul .item:hover {
+  color: $c-orange;
+}
+body:global(.light) .header .navigation ul .item.active {
+  color: $c-orange;
+}
+body:global(.light) .headerInner .right {
+  .lightImg {
+    display: flex;
+  }
+  .darkImg {
+    display: none;
+  }
+}
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .input {
+    width: 30px;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+  }
+  .marker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    cursor: pointer;
+  }
+  .input:checked ~ .marker {
+    cursor: pointer;
+  }
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  height: 90px;
+
+  .right {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    .lightImg {
+      display: none;
+    }
+    .darkImg {
+      display: flex;
+    }
+    .endOfHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .switch {
+        margin-right: 16px;
+        transition: 0.4s;
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header .navigation ul {
+  display: flex;
+
+  li {
+    margin-right: 40px;
+    .item {
+      color: #ffffffb3;
+    }
+  }
+  li:last-child {
+    margin-right: 0;
+  }
+  li.topics {
+    position: relative;
+
+    .arrow {
+      margin-left: 5px;
+      transition: 0.4s;
+    }
+
+    .arrow path {
+      transition: 0.4s;
+    }
+  }
+
+  li.topics.active,
+  li.topics:hover {
+    .item {
+      color: $c-orange;
+    }
+
+    .arrow {
+      transform: rotate(180deg);
+    }
+
+    .arrow path {
+      fill: $c-orange;
+    }
+  }
+
+  .item {
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .item:hover,
+  .item.active {
+    color: $c-orange;
+  }
+}
+
+.header {
+  .burger {
+    display: none;
+    margin-left: 20px;
+  }
+  .connectBtnWrap {
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
+    display: flex;
+
+    .connectBtn {
+      flex: none;
+      display: flex;
+      align-items: center;
+      padding: 10px 22px;
+      border-radius: 4px;
+      border: 1px solid $bg-orange;
+      background: $c-orange;
+      transition: 0.4s;
+      margin-right: 16px;
+      span {
+        color: $c-white;
+        //  &:hover {
+        //     color: $c-dark;
+        //  }
+      }
+
+      &.connected,
+      &:hover {
+        background: transparent;
+        border: 1px solid $c-orange;
+      }
+
+      &.connected .arrow {
+        display: block;
+        margin-left: 9px;
+        transition: 0.4s;
+      }
+      &.connected:hover .arrow {
+        transform: rotate(180deg);
+      }
+    }
+    .connectBtnTwo {
+      display: none;
+    }
+  }
+  .arrow {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .headerInner {
+    .right {
+      justify-content: flex-end;
+    }
+    .logo {
+      margin-right: auto;
+      left: 0;
+      margin-left: 0;
+    }
+    .endOfHeader {
+      .switch {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .header .burger {
+    display: block;
+  }
+  .header {
+    .connectBtnWrap {
+      .connectBtn {
+        display: none;
+      }
+      .connectBtnTwo {
+        display: flex;
+      }
+    }
+  }
+
+  .headerInner {
+    .navigation {
+      display: none;
+    }
+
+    // .right{
+    //    justify-content: flex-end;
+    // }
+  }
+}
+@media (max-width: 1023px) {
+  .headerInner {
+    .right {
+      justify-content: flex-end;
+    }
+    .logo {
+      margin-right: auto;
+      left: 0;
+      margin-left: 0;
+    }
+    .endOfHeader {
+      .switch {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 380px) {
+  .header {
+    .connectBtnWrap {
+      .connectBtn {
+        display: none;
+      }
+      .connectBtnTwo {
+        display: none;
+      }
+    }
+  }
+}

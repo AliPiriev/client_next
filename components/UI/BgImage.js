@@ -1,4 +1,3 @@
-
 function BgImage({ id }) {
    let image = false;
    try {

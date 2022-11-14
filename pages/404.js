@@ -1,40 +1,21 @@
-import BgImage from "../components/UI/BgImage";
-import Style from "../styles/notfound.module.scss"
-import Link from "next/link"
-import {useEffect} from "react"
+import styles from "../styles/notfound.module.scss";
+import Link from "next/link";
 
 function NotFound() {
-
-   useEffect(() => {
-      console.log("use effect run")
-   }, [])
-   
-   return (
-      <div className="not-found">
-         <BgImage id={3} />
-         <div className={Style.inner}>
-            <div className="container">
-               <h1 className={Style.title}>
-                  Ooops! 404.
-                  Page not found
-               </h1>
-               <p className={Style.teaser}>
-                  The requested page does not exist.
-                  You may have typed the wrong address.
-               </p>
-               <Link href='/'>
-                  <a className={`blue-btn ${Style.btn}`}>
-                     <span>Return to the main page</span>
-                  </a>
-               </Link>
-
-               <div className={Style.svg}>
-                  <img src="/svg/notfound.svg" alt="" />
-               </div>
-            </div>
-         </div>
+  return (
+    <div className="not-found">
+      <div className={styles.outer}>
+        <img className={styles.background} src="img/notFound/background1.png" />
+        <div className={styles.inner}>
+            <p className={styles.title}>Error 404</p>
+            <p className={styles.teaser}>Your browser sent a request that this server could not understand</p>
+            <Link href='/'>
+               <div className={styles.btn}>Go Back To Main Page</div>
+            </Link>
+        </div>
       </div>
-   )
+    </div>
+  );
 }
 
 export default NotFound;

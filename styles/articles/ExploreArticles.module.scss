@@ -1,0 +1,42 @@
+@import "../variables.scss";
+.exploreArticles {
+  margin-bottom: 150px;
+  .title {
+    @extend %largest;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .list {
+    // display: flex;
+    // flex-wrap: wrap;
+    margin-top: 40px;
+    max-width: 1920px;
+
+    .item {
+      // width: calc(33.33% - 20px);
+      margin-right: 30px;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .item:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+body:global(.light) .exploreArticles .title {
+  color: $c-dark;
+}
+
+@media (max-width: 1023px) {
+  .exploreArticles {
+    .list {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      // .item {
+      //   width: 45%;
+      // }
+    }
+  }
+}

@@ -1,13 +1,14 @@
-import parse from 'html-react-parser';
+
+// import parse from 'html-react-parser';
+import styles from '../../styles/home/IntroBox.module.scss';
 
 function IntroBox({ data }) {
+
    return (
-      <div className="intro-box">
-         <div className="left">
-            <h1 className="title">{parse(data.slider_title)}</h1>
-         </div>
-         <div className="right">
-            <p className="teaser">{data.slider_text}</p>
+      <div className={styles.introBox}>
+         <div className={`${styles.inner} ${'textStyles'}`}>
+            <h1 className={styles.title}>World-Class Education For Everyone. <span>Together We Learn.</span></h1>
+            <h4 className={styles.teaser}>Build and develop your skills with online educational content from the world's top institutions and organizations.</h4>
          </div>
       </div>
    )

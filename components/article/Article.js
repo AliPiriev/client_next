@@ -1,67 +1,68 @@
-import Link from 'next/link';
-import { connect } from 'react-redux';
-import { getItemById } from '../../helpers';
-import CornerDecor from '../courses/border/CornerDecor';
-import ArticleImgs from './ArticleImgs';
+import Link from "next/link";
+import { connect } from "react-redux";
+import { getItemById } from "../../helpers";
+import CornerDecor from "../courses/border/CornerDecor";
+import styles from "../../styles/articles/Article.module.scss";
 
-function Article({ data, levels, tags, categories }) {
-   let level = null;
-   if (levels && levels.data) level = getItemById(levels.data, data.level);
-
-   return (
-      <Link href={`/articles/${data.slug}`}>
-         <a  className="article">
-         <div className='cornerBorderDiv'>
-            <CornerDecor />
-            <div className='cornerBorder'>
-            <div className="img-box">
-               {categories && categories.data ? (<ArticleImgs />) : ` return (
-               <div>
-                     {ArtiImgs.map((item) => (
-                        <img key={item.id} src={item.img} alt="articleImage" className="img-absolute" />
-                     )
-                     )}
-               </div>
-            )`}
-               <ArticleImgs />
-              <div className="pins">
-                  {(data.tags && JSON.parse(data.tags).length && tags.data) ? (
-                     JSON.parse(data.tags).map((tag) => {
-                        return (
-                           <div className="white-cat-item" key={tag}>
-                              {getItemById(tags.data, tag).name}
-                           </div>
-                        )
-                     })
-                  ) : ''}
-                  <div className="white-cat-item">
-                     {categories && categories.data ? getItemById(categories.data, data.category).name : ''}
+function Article({ data }) {
+  return (
+    <Link href={`/articles/${data.slug}`}>
+      <a className={styles.article}>
+        <div className={styles.cornerBorderDiv}>
+          <CornerDecor />
+          <div className={styles.cornerBorder}>
+            <div className={styles.imgBox}>
+              <img
+                src="/img/article/article1.png"
+                alt="articleImage"
+                className={styles.imgAbsolute}
+              />
+              <div className={styles.pins}>
+                {data.tag?.length
+                  ? data.tag.map((tag) => {
+                      return (
+                        <div className="white-cat-item" key={tag._id + "hash"}>
+                          {tag.title}
+                        </div>
+                      );
+                    })
+                  : ""}
+                <div className="white-cat-item">
+                  {data.category._id ? data.category.title : ""}
+                </div>
+              </div>
+            </div>
+            <div className={styles.bottom}>
+              <div className={styles.bottomTtl}>
+                <h3 className={styles.ttl}>{data.title}</h3>
+              </div>
+              <div className="bottomLevel">
+                {data.level._id ? (
+                  <div
+                    className={`itemDot level ${data.level.title.toLowerCase()}`}
+                  >
+                    {data.level.title}
                   </div>
-               </div>
+                ) : (
+                  ""
+                )}
+                <div className="itemDot">English</div>
+                <div className="itemDot">8 min</div>
+              </div>
             </div>
-
-            <div className="bottom">
-               <div className='bottomTtl'>
-                  <h3 className="ttl">{data.title}</h3>
-               </div>
-               <div className='bottomLevel'>
-                {level && <div className={`level ${level.title.toLowerCase()}`}><br/>{level.title}</div>}
-                {/* <br/><div className='dot'>English</div><div className='dot'>8 min</div> */}
-               </div>
-            </div>
-            </div>
-            </div>
-         </a>
-      </Link>
-   )
+          </div>
+        </div>
+      </a>
+    </Link>
+  );
 }
 
 const mapStateToProps = (state) => {
-   return {
-      levels: state.commonDataState.levels,
-      tags: state.commonDataState.tags,
-      categories: state.commonDataState.categories
-   }
-}
+  return {
+    levels: state.commonDataState.levels,
+    tags: state.commonDataState.tags,
+    categories: state.commonDataState.categories,
+  };
+};
 
 export default connect(mapStateToProps, null)(Article);

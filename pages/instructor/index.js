@@ -1,18 +1,15 @@
-import Instructors from "../../components/instructor/Instructors";
+import { fetchData } from "../../queries";
 import GreenBanner from "../../components/instructor/GreenBanner";
-import styles from "../../styles/instructorScss/index.module.scss";
-import Banner from "../../components/instructor/Banner";
-import VideoContent from "../../components/instructor/VideoContent";
+import Instructors from "../../components/instructor/Instructors";
 
 
 function instructor() {
     return (
-        <div className={styles.container}>
+        <div>
             <Instructors />
             <GreenBanner />
-            <Banner />
-            <VideoContent />
         </div>
+       
     )
 }
 

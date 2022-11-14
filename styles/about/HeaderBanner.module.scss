@@ -1,0 +1,91 @@
+@import "../variables.scss";
+
+// .headerWrapLight {
+//     background-color: $c-white;
+// }
+// body:global(.light) .headerWrap{
+//     background-color: $c-white;    
+//     // droebitia ...
+// }
+body:global(.light) .text h1, body:global(.light) .text h2 {
+    color: $c-dark;    
+}
+body:global(.light) .bg {
+    opacity: 0!important;
+}
+body:global(.light) .bgL {
+    opacity: 1!important;
+}
+
+.headerWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    .headerLight {
+        background-color: #EBEDF0;
+        z-index: -5;
+    }
+    .header {
+        position: relative;
+        width: 100%;
+        height: 500px;
+
+        .bg {
+            transition: 0.8s;
+            opacity: 1;
+        }
+        .bgL {
+            transition: 0.8s;
+            opacity: 0;
+        }
+        .bckImg {
+            position: absolute;
+            left: 0;
+            top: -20%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .text {
+            margin-top: 120px;
+
+            .title, .title span {
+                @extend %largest;
+            }
+            .title span {
+                color: $c-orange;
+            }
+            .teaser {
+                @extend %large;
+                padding-top: 55px;
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1900px) {
+
+}
+
+@media (max-width: 1365px) {
+    .headerWrap {
+        .header {
+            .text {
+                .teaser {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+   
+}
+
+@media (max-width: 767px) {
+
+}

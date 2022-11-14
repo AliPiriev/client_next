@@ -1,0 +1,27 @@
+@import '../variables.scss';
+
+body:global(.light) .notResult h1 {
+    color: $c-dark;
+}
+body:global(.light) .notResult h4 {
+    color: $c-dirty-grey;
+}
+body:global(.light) .notResult svg path {
+    fill: $c-dark;
+}
+
+.notResult {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notResult h4 {
+    margin-top: 10px;
+}
+
+.notResult svg {
+    margin-top: 50px;
+}

@@ -12,8 +12,9 @@ import Layout from '../components/layouts/Layout';
 import MainLayout from '../components/layouts/MainLayout';
 
 import { motion } from "framer-motion";
+import { fetchData } from '../queries';
 
-
+  
 
 function MyApp({ Component, pageProps }) {
   const pageVariants = {
@@ -27,7 +28,6 @@ function MyApp({ Component, pageProps }) {
       opacity: 0,
     },
   } 
-
   const router = useRouter();
 
   return (

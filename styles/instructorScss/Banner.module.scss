@@ -1,5 +1,5 @@
 @import "../variables.scss";
-.container {
+.container {    
     .banner {
         font-family: "Lack-Regular";
         display: flex;
@@ -12,7 +12,7 @@
         margin-top: 70px;
         flex-direction: column;
         padding: 32px 0px;
-        height: 260px;
+        height: auto;
     }   
     .txt {
         width: 100%;
@@ -20,11 +20,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        margin-left: auto;
-        margin-right: auto;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        height: 100%
+        z-index: 111;
+        
     }
     .title {
         @extend %large;
@@ -35,7 +32,6 @@
         padding-top: 20px;
         max-width: 80%;
     }
-    // button {
-    //     margin-top: auto;
-    // }
+
   }
+

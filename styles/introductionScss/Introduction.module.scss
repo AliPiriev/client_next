@@ -1,0 +1,42 @@
+@import "../variables.scss";
+
+.getStarted {
+  // margin-top: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Div {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  //container
+  .Div {
+    width: 100%;
+    max-width: 1920px;
+    // padding: 0 195px;
+    padding: 55px 40px;
+  }
+  .gradient {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #000f2e 0%,
+      rgba(0, 5, 15, 0) 100%
+    );
+  }
+}
+
+@media (max-width: 1023px) {
+  .getStarted {
+    .Div {
+      padding: 55px 32px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .getStarted {
+    .Div {
+      padding: 55px 16px;
+    }
+  }
+}

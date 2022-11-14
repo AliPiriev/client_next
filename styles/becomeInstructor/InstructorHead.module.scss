@@ -1,0 +1,69 @@
+@import '../variables.scss';
+
+body:global(.light) .paragraph__sml, body:global(.light) .paragraph__big {
+    color: $c-dark;    
+}
+body:global(.light) .bgL {
+    opacity: 1;
+}
+body:global(.light) .bg {
+    opacity: 0;
+}
+
+.head__background__wrap {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding-bottom: 60px;
+
+    .head__background {
+        position: absolute;
+        top: -25%;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.8s;
+    }
+    .bg {
+        opacity: 1;
+    }
+    .bgL {
+        opacity: 0;
+    }
+   
+
+    .head {
+        display: flex;
+        flex-direction: column;
+        padding-top: 130px;
+        
+        .paragraph__sml {
+            padding-bottom: 30px;
+            @extend %mediumSmall;
+        }
+        .paragraph__big {
+            @extend %largest;
+
+        }
+        .paragraph__big span {
+            @extend %largest;
+            color: $bg-orange;
+            text-transform: capitalize;
+        }
+    }
+ 
+}
+
+@media (max-width: 1900px) {
+}
+
+@media (max-width: 1365px) {
+}
+
+@media (max-width: 1023px) {
+}
+
+@media (max-width: 767px) {
+}

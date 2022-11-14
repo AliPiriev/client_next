@@ -1,5 +1,5 @@
 import React from "react";
-// import img1 from "/img/instructorImgs/backgroundBanner.png";
+import img1 from "/img/instructorImgs/backgroundBanner.png";
 import styles from "../../styles/instructorScss/Banner.module.scss"; 
 
 const Banner = () => {
@@ -17,7 +17,7 @@ const Banner = () => {
             {smallData.map((item, index) => {
                 return (
                     <div key={item.id} className={styles.banner}> 
-                        <img className="main-bg-img" src={item.img} alt="" />    
+                        <img className="img-absolute" src={item.img} alt="" />    
                         <div className={styles.txt}>
                             <h3 className={styles.title}>{item.title} </h3>
                             <p className={styles.paragraph}>{item.paragraph}</p>

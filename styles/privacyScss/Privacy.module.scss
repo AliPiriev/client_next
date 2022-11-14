@@ -1,0 +1,28 @@
+@import "../variables.scss";
+
+.privacy {
+  margin-top: 89px;
+  .privacyList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    width: 80%;
+  }
+}
+@media (max-width: 1365px) {
+  .privacy {
+    .privacyList {
+      margin-left: 5%;
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .privacy {
+    .privacyList {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}

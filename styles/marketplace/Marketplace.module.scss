@@ -1,0 +1,42 @@
+@import'../../styles/variables.scss';
+body:global(.light) .mainWrapp {
+    background-color: $c-white;
+}
+.mainWrapp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+        .secondWrapp {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .columWrap {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            margin-top: 300px;
+        }
+}
+@media (max-width: 767px) {
+    .mainWrapp {
+        .secondWrapp {
+               flex-direction: column;
+               margin-top: 55px;
+           }
+    }
+}
+@media (max-width: 514px) {
+    .mainWrapp {
+        width: 100%;
+        .secondWrapp {
+            margin-top: 50px;
+           }
+    }
+}

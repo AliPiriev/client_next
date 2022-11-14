@@ -1,0 +1,220 @@
+@import '../variables.scss';
+
+body:global(.light) .outer {
+    background-color: $c-white;
+}
+body:global(.light) .top, body:global(.light) .bottom {
+    background: none!important;
+}
+body:global(.light) .top {
+    background-color: #D3DEF5!important;
+}
+body:global(.light) .bottom {
+    background-color: $c-white!important;
+}
+body:global(.light) .title {
+    color: $c-dark;
+}
+body:global(.light) .teaser {
+    color: $c-dirty-grey;
+}
+.outer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .itemsWrap {
+        .top, .bottom {
+            background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%);
+            .item {
+                padding: 90px 0px;
+                width: 65%;
+                .teaser {
+                    padding-top: 35px;
+                }
+                .btn {
+                    color: $c-orange;
+                    cursor: pointer;
+                    width: fit-content;
+                    transition: .5s;
+                    margin-top: 100px;
+    
+                    &:hover {
+                        color: $c-blue;
+                    }
+                }
+            }
+            
+        }
+        .topLight {
+            .item {
+                padding: 90px 0px;
+                width: 65%;
+                .title {
+                    color: $c-dark;
+                }
+                .teaser {
+                    padding-top: 35px;
+                    color: $c-dirty-grey;
+                }
+                .btn {
+                    color: $c-orange;
+                    cursor: pointer;
+                    width: fit-content;
+                    transition: .5s;
+                    margin-top: 100px;
+    
+                    &:hover {
+                        color: $c-blue;
+                    }
+                }
+            }
+        }
+        .bottom {
+            // filter: blur(100px);
+            background-color: #0D121B;
+            margin-top: 100px;
+            .item {
+                .btn {
+                    margin-top: 20px;
+                }
+            }
+            // .itemB {
+            //     padding: 100px 0px;
+            // }
+        }
+        .bottomLight {
+            background-color: $c-white;
+            .item {
+                // margin: 90px 0px;
+                width: 65%;
+                .title {
+                    color: $c-dark;
+                }
+                .teaser {
+                    padding-top: 35px;
+                    color: $c-dark-grey;
+                }
+                .btn {
+                    color: $c-orange;
+                    cursor: pointer;
+                    width: fit-content;
+                    transition: .5s;
+                    margin-top: 20px;
+    
+                    &:hover {
+                        color: $c-blue;
+                    }
+                }
+            }
+            .itemB {
+                padding: 100px 0px;
+                .teaser {
+                    color: $c-dirty-grey;
+                }
+            }
+        }
+
+    }
+
+    .none {
+        display: none;
+    }
+    .registration__modal {
+        z-index: 9999;
+        background-color: $c-white;
+        position: absolute;
+        top: 30%;
+        width: 500px;
+        height: auto;
+        left: 30%;
+        transition: .8s;
+        // width: 100px;
+        // height: 100px;
+            .inner {
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                .modal__header {
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 24px;
+                    
+                    h3 {
+                        color: $c-dark;
+                    }
+
+                    svg {
+                        cursor: pointer;
+                    }
+                }
+                .modal__item {
+                    margin-bottom: 24px;
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    text-transform: uppercase;
+
+                    .item__title {
+                        color: $c-dark;
+                    }
+                    .input {
+                        padding: 14px 27px;
+                        color: $c-dark;
+                        border: 1px solid $c-light-grey;
+                        border-radius: 4px;
+                    }
+
+                    .input:focus{
+                        border-color: $c-dark;
+                    }
+                }
+                .btns__outer {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    .btn__cancel button {
+                        color: $c-dark-grey;
+                        text-decoration: underline;
+                        transition: .8s;
+                        padding: 12px;
+                        // need after here.. i  will come back quick
+                    }
+                    .btn__cancel button:hover {
+                        text-decoration: none;
+                    }
+                    .btn button {
+                        min-width: 140px;
+                    }
+                }
+            }
+    }
+}
+
+
+@media (max-width: 1900px) {
+
+}
+
+@media (max-width: 1365px) {
+    .outer {
+        .itemsWrap {
+            .top, .bottom {
+                .item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+
+}
+
+@media (max-width: 767px) {
+
+}

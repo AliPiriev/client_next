@@ -3,13 +3,14 @@ import { fetchData } from '../../queries';
 
 
 
+
+   
 export const getStaticPaths = async () => {
 
-   const res = await fetchData('http://localhost:8080/api/pages');
+   const res = await fetchData('https://academy-admin.vercel.app/api/data/pages');
    let paths = [];
-
-   if (res.data) {
-      paths = res.data.map(items => {
+   if (res.data && res.data.result) {
+      paths = res.data.result.map(items => {
          return {
             params: { slug: items.slug }
          }
@@ -26,15 +27,15 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
    const slug = context.params.slug || undefined;
-   const res = await fetchData(`http://localhost:8080/api/pages/${slug}`);
+   const res = await fetchData(`https://academy-admin.vercel.app/api/data/pages/${slug}`);
 
    return {
-      props: {  res }
+      props: {  res: res.data.result }
    }
 }
 
 function SimplePage({ res }) {
-   const data = res.data || null;
+   const data = res || null;
    return (
       <div className="simple-page">
          {data ? (
@@ -44,7 +45,7 @@ function SimplePage({ res }) {
                   <span className="subtitle">{data.sub_title}</span>
                )}
                <div className="content text">
-                  {parse(data.details)}
+                  {parse(data.editor)}
                </div>
             </div>
          ) : (

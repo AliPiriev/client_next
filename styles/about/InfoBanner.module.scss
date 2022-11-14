@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+body:global(.light) .banner {
+    background-color: $c-white;    
+}
+
+.banner {
+    background-color: #0D121C;
+    padding: 55px 0px;
+
+    .blockquote {
+        color: $c-secondary;
+        @extend %mediumSmall
+    }
+}

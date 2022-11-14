@@ -1,0 +1,104 @@
+@import "../variables.scss";
+
+.box { 
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    width: 100%;
+    height: 100%;
+     
+        .h1 {
+
+            font-weight: 400;
+            @extend %large;
+            line-height: 50px;
+        }
+
+        
+            .mainContetn { 
+                display: flex;  
+                margin-top: 40px;
+                // margin-left: 10%;
+                max-width: 100%;
+                    
+                    .imgbackrgound { 
+                        position: relative;
+                        height: 120px;
+                        width: 120px;
+                        img { 
+                            width: 100%;
+                            height: 100%;
+    
+                        }
+                    }
+
+                    .container { 
+                        margin-left: 30px;
+                        // padding-right: 285px;
+                        width: calc(100% - 150px);
+                    }
+
+                
+
+                    .dt { 
+                        font-weight: 400;
+                        font-size: 22px;
+                        line-height: 36px;
+                    }
+
+                    .pa  { 
+                        font-weight: 400;
+                        @extend %mediumSmall;
+                        line-height: 28px;
+                        color: $c-grey;
+                    }
+
+                    .paragrap { 
+                        font-weight: 400;
+                        @extend %mediumSmall;
+                        line-height: 28px;
+                        color: $c-grey;
+                        
+                    }
+
+                    .title { 
+                        width: 100%;
+                        margin-top: 24px;
+                        // width: calc(100% - 500px);
+                    }
+            }
+    }
+    
+    @media (max-width: 1900px) {
+
+    }
+    /*Ipad Pro 1024*/
+    @media (max-width: 1200px) {
+       
+    }
+    /*Ipad 768*/
+    @media (max-width: 1023px) {
+      
+    }
+    /*Mobile 320*/
+    @media (max-width: 767px) {
+        // .container { 
+        //     padding-right: 5px !important;
+        // }
+        .box {
+            .mainContetn { 
+                display: flex;  
+                margin-top: 30px;
+                margin-left: 0;
+                flex-direction: column;
+                    
+
+                    .container { 
+                        margin-left: 0px;
+                        padding-right: 0px;
+                        width: 100%;
+                        margin-top: 30px;
+                    }
+            }
+        }
+      } 

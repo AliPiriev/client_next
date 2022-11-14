@@ -1,7 +1,6 @@
 
 
 function SmallBannerBox({data}){
-   console.log(data)
 
    return (
       <div className="small-banner-box">

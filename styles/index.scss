@@ -1,28 +1,38 @@
-@import './variables.scss';
-@import './main.scss';
-@import './style.scss';
+@import "./variables.scss";
+@import "./main.scss";
+@import "./style.scss";
 
 @font-face {
-   font-family: "Lack-Regular";
-   src: url("/fonts/Lack-Regular.eot");
-   src: url("/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
-      url("/fonts/Lack-Regular.svg#Lack-Regular") format("svg"), url("/fonts/Lack-Regular.ttf") format("truetype"),
-      url("/fonts/Lack-Regular.woff") format("woff"), url("/fonts/Lack-Regular.woff2") format("woff2");
-   font-weight: normal;
-   font-style: normal;
+  font-family: "Lack-Regular";
+  src: url("/fonts/Lack-Regular.eot");
+  src: url("/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
+    url("/fonts/Lack-Regular.ttf") format("truetype"),
+    url("/fonts/Lack-Regular.woff") format("woff"),
+    url("/fonts/Lack-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-   font-family: "Lack-Regular";
-   font-size: 16px;
-   color: $c-white;
-   box-sizing: border-box;
-   text-decoration: none;
+  font-family: "Lack-Regular";
+  font-size: 16px;
+  color: $c-white;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 body {
-   margin: 0;
-   padding: 0;
-   background: $c-dark;
+  margin: 0;
+  padding: 0;
+  background: $c-dark;
+
+  transition: 0.8s;
+}
+
+body.light {
+  background: $bg-light-grey;
+
+  transition: 0.8s;
 }
 ul,
 li,
@@ -37,22 +47,44 @@ h6,
 input,
 button,
 nav {
-   padding: 0;
-   margin: 0;
-   list-style: none;
-   font-weight: normal;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-weight: normal;
 }
 input,
 textarea {
-   outline: none;
-   box-shadow: none;
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 button {
-   border: none;
-   background: none;
-   cursor: pointer;
-   outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body.light .default-bg {
+  opacity: 0;
+}
+.carouselContainer {
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (max-width: 1023px) {
+  .carouselContainer {
+    padding-left: 32px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 767px) {
+  .carouselContainer {
+    padding-left: 16px;
+  }
 }

@@ -1,75 +1,128 @@
 @import "../variables.scss";
 
+body:global(.light) .bgL {
+    opacity: 1!important;
+
+}
+body:global(.light) .bg {
+    opacity: 0!important;
+}
+body:global(.light) .bghdins {
+    opacity: 0!important;
+}
+body:global(.light) .img_container { 
+    border: 10px solid rgb(255, 255, 255);
+}
+body:gllobal(.light) .CornerDecor_decorBoxWrap__Xi0_S { 
+    border-color: transparent !important;
+}
+
+
 .mainContainer{
     font-family: "Lack-Regular";
-    margin-top: 50px;
-    .ttl {
-       @extend %largest;
-    }
-
-    .instructor_list {
-        display: flex;
-        gap: 50px;
-        padding: 60px 0px 60px 0px;
-        border-bottom: 1px solid #111826;
-        
-        .img_container {
-            width: 240px;
-            height: 240px;
-            position: relative;
-           
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    margin-top: 150px;
+        .insTitlhed { 
+            margin-left: 40px;
+            margin-top: 150px;
+            margin-bottom: 100px;
         }
-
-        .text {
+       
+        .bgImgInst { 
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
-            @extend %medium;
-            // text-overflow: ellipsis;
-            // word-wrap: break-word;
-            width: 60%;
-            .Names {
-                color: $c-grey;
-                margin-top: auto;
+            width: 100%;
+            height: 100%;
+            .bghdins { 
+            //    margin-top: -180px;
+               z-index: -1;
             }
+            .bghdins { 
+                opacity: 1;
+                position: absolute;
+                top: 0px !important;
+            }
+            .bgL {
+              opacity: 0;
+            }
+            .bg {
+                height: auto;
+                opacity: 1;
+                position: absolute;
+                z-index: -2;
+                height: 100%;
+            }
+
         }
-    }
-   
-}
-.greenBanner {
-    width: 100%;
-    height: 300px;
-    background-color: #347747;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 40px;
-    border-bottom-left-radius: 150px;
-    border-bottom-right-radius: 150px;
-    border-top-right-radius: 150px;
+        .containertow { 
+            display: flex;
+            flex-direction: column;
+            gap: 89px;
+            position: relative;
+        }
+            .instructor_list {
+                display: flex;
+                gap: 50px;
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                margin-top: 0px;
 
 
-    
-    .subTtl {
-        font-weight: 400;
-        @extend %large;
-        line-height: $f-larger;
-        padding-top: 60px;
-    }
-    .txt {
-        @extend %mediumSmall;
-        line-height: 24px;
-        padding: 16px 0px 54px 0px;
-        max-width: 60%
-    }
-    button {
-        @extend %medium;
-        padding: 10px 30px;
-        margin-top: auto;
-        margin-bottom: 70px;
+                &:nth-child(even)  {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    text-align: right;
+                    .text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px;
+                        align-items: flex-end;
+                        .names {
+                            font-size: 30px;
+                        }
+                        .txt {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                &:nth-child(odd)  {
+                   
+                    .text {
+                        align-items: flex-start;
+                    }
+                }
+                .img_container {
+                    width: 240px;
+                    height: 240px;
+                    position: relative; 
+                }
+                .text {
+                        display: flex;
+                        flex-direction: column;
+                        width: 40%;
+                        gap: 30px;
+                .txt {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5; /* number of lines to show */
+                    line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    font-weight: 400;
+                    line-height: 34px;
+                    // color: #C2C3C5;
+                }
+
+                .Names {
+                    overflow: visible;
+                }   
+           }
+      }    
 }
-}
+
 @media (max-width:1900px) {
 
 }
@@ -80,19 +133,140 @@
 
 }
 @media (max-width:1023px) {
+    .mainContainer{
+
+.containertow{
+    gap: 55px;
+}
+                .instructor_list {
+                    .text {
+                            display: flex;
+                            flex-direction: column;
+                            width: 60%;
+               }
+          }    
+    }
+    
 } 
 @media (max-width:767px) {
-   .mainContainer {
-        .instructor_list {
-        .text {
-            gap: 20px;
+    .mainContainer{
+       
+            .containertow { 
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                position: relative;
+            }
+                .instructor_list {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
+    
+    
+                    &:nth-child(even)  {
+                        text-align: left;
+                        flex-direction: column;
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0px;
+                            align-items: flex-start;
+                        }
+                    }
+                    &:nth-child(odd)  {
+                        text-align: left;
+
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0px;
+                            align-items: flex-start;
+                        }
+                    }
+                   
+                    .text {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            gap: 0px;
+                 
+               }
+               .img_container {
+                width: 100%;
+                height: 100%;
+                padding-top: 100%;
+               }
+          }    
+    }
+}
+
+
+body:global(.light) .txt {
+    color: #808287;
+  };
+
+body:global(.light) .subTltLigth {
+    color: black;
+  };
+
+  body:global(.light) .orangBtn {
+    background-color:#FF7152;
+    border-radius: 4px;
+    padding: 4px 26px;
+  };
+
+
+//start GeenBanner
+.greenBanner { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    background:rgba(255, 255, 255, 0.05);
+    z-index: 111;
+
+
+        .subTtl {
+            font-weight: 400;
+            font-size: 51px;
+            line-height: $f-larger;
+            margin-top: 60px;
         }
-    }   
-   }
-   .greenBanner {
-        border-bottom-left-radius: 85px;
-        border-bottom-right-radius: 85px;
-        border-top-right-radius: 85px;
-        padding: 20px;
-   }
+
+        .txt {
+            @extend %mediumSmall;
+            line-height: 24px;
+            max-width: 60%;
+            text-align: center;
+            margin-top: 16px;
+            margin-bottom: 42px;
+            
+        }
+
+        button {
+            @extend %medium;
+            padding: 10px 30px;
+            margin-top: auto;
+            margin-bottom: 89px;
+        }
+}
+body:global(.light) .greenBanner {
+    background: #fff;
+}
+@media (max-width:1900px) {
+    
+}
+@media (max-width:1599px) {
+
+}
+@media (max-width:1365px) {
+    
+}
+@media (max-width:1023px) {
+
+} 
+@media (max-width:767px) { 
+    
 }

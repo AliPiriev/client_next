@@ -1,49 +1,57 @@
-import React, { useState } from "react";
-import styles from "../../styles/contactScss/Form.module.scss";
-import Select from 'react-select'
-
-const difficulty = [
-    { value: 'beginner', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
-    { value: 'advance', label: 'Advance' },
-    { value: 'pro', label: 'Pro' }
- ];
+import React, { useState, useEffect } from "react";
+import styles from "../../styles/contact/Form.module.scss";
 
 const Form = () => { 
-    const [dificult, setDificult] = useState('');
+    const [active, setActive] = useState(null);
+    const [theme, setTheme] = useState(false);
+
+    useEffect (() => {
+      const body = document.getElementsByTagName('body')[0];
+      if (theme) {
+         body.classList.add('light');
+      }else {
+         body.classList.remove('light');
+      }
+    }, [theme])
 
     return (
-        <div className={styles.box}>
-            <form>
-                <div className={styles.contact2}>
-                    <label className={styles.movelabl}>name</label>
-                    <input type='text' placeholder='Enter'  />
-                </div>
-                <div className={styles.contact2}>
-                    <label className={styles.movelabl}>e-mail</label>
-                    <input type='text' placeholder  ='Enter' />
-                </div> 
-                <div className={styles.container3}>
-                    <div className="input-wrap">
-                            <label className={styles.lbl}>subject</label>
-                            <Select
-                            options={difficulty}
-                            placeholder='Choose'
-                            className="select "
-                            classNamePrefix="select"
-                             menuColor='red'
-                            onChange={(e) => setDificult(e)} />
+        <div id={styles[theme]} className={styles.Formbox}>
+                <div className={`${styles.box} ${'container'}`}>
+                <form>  
+                    <div className={`${'custom-input'} ${styles.costomInput}`}>
+                        <input className={styles.lightiinp1} type='text' placeholder='your name' />
+                        <label className={styles.lightiinp} >full name</label>
                     </div>
-                </div>
-                <div className={`${styles.msgBox} ${styles.contact2}`}>
-                    <label className={styles.movelabl}>Message</label>
-                    <input className={styles.input2} type='text' placeholder='Message text...' />
-                </div>
-                <div className={styles.btn}>
-                    <button className="blue-btn">Send message</button>
-                </div>
+                    <div className={`${'custom-input'} ${styles.costomInput}`}>
+                        <input className={`${styles.lightiinp1} ${'Lightinp'}`}   type='text' placeholder='type e-mail address' />
+                        <label className={styles.lightiinp} >email address </label>
+                    </div>
+                    <div className={`${'custom-input'} ${styles.costomInput}`}>
+                        <input className={styles.lightiinp1}   type='text' placeholder  ='enter your phone number' />
+                        <label className={styles.lightiinp} >phone number</label>
+                    </div>
+                    <div className={`${'custom-input'} ${styles.costomInput}`}>
+                        <input className={styles.lightiinp1}   type='text' placeholder  ='enter password' />
+                        <label className={styles.lightiinp}  >Password </label>
+                    </div>
+                    <div className={`${'custom-input'} ${styles.costomInput}`}>
+                        <input className={styles.lightiinp1}   type='text' placeholder  ='enter password' />
+                        <label className={styles.lightiinp} >Password </label>
+                            </div>
+                            
+                    <div className={`${"test-input"} ${styles.testInput}`}>
+                        <label className={`${"mainBox" } ${styles.mainBoxtwo}`}>
+                            <p className={`${styles.lightchng}`}>By signing up, you agree to <span className={`${"fontchng"} ${styles.lightchng2}` }>Terms of Service and Privacy Policy.</span></p>
+                            <input   type="checkbox" />
+                            <span className="geekmark"></span>
+                        </label>
+                    </div>
+                    <div className={styles.btn}>
+                        <button  className={`${"blue-btn"} ${styles.bluebtn} `}>Register</button>
+                    </div>
             </form>
-       </div>
+        </div>
+    </div>  
     )
 };
 

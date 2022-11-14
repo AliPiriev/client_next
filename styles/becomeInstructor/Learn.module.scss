@@ -1,0 +1,192 @@
+@import '../variables.scss';
+
+body:global(.light) .learn__title {
+    color: $c-dark;
+}
+.learn {    
+    position: relative;
+    height: auto;
+    width: 100%;
+
+    .learn__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .learn__wrap {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 200px;
+        width: 100%;
+
+        .learn__inner {
+            text-align: center;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+
+            .learn__title {
+                @extend %large;
+                transition: .8s;
+            }
+            .paragraph__black {
+                color: $c-dark;
+            }
+        }
+
+        .learn__list {
+            display: flex;
+            width: 100%;
+            padding-top: 100px;
+            
+            .list__item__marked {
+                padding-right: 100px;
+                padding-left: 100px;
+            }
+
+            .item__first {
+                padding-top: 0px!important;
+                padding-right: 100px;
+            }
+
+            .item__last {
+                padding-left: 100px;
+            }
+
+            .list__item__outer {
+                display: flex;
+                width: 33.3%;
+            }
+            
+            .list__item {
+                width: 33.3%;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+
+                .item__title {
+                    color: $bg-orange;
+                    text-align: center;
+                    @extend %medium;
+                    padding-bottom: 10px;
+                }
+                .item__blockquote {
+                    opacity: .7;
+                    @extend %mediumSmall;
+                }
+                .paragraph__grey {
+                    color: $c-dirty-grey;
+                }
+            }
+            
+            .list__item:after {
+                content: '';
+                width: 2px;
+                position: absolute;
+                height: 100%;
+                top: 0%;
+                right: 0px;
+                background: rgb(116,100,215);
+                background: linear-gradient(0deg, rgba(116,100,215,0) 0%, rgba(116,100,215,1) 50%, rgba(116,100,215,0) 100%);
+            }
+            .list__item:last-child:after {
+                display: none;
+            }
+        }
+
+        
+    }
+}
+
+
+@media (max-width: 1900px) {
+
+}
+
+@media (max-width: 1365px) {
+    .learn {
+        .learn__wrap {
+            padding-bottom: 100px;
+            .learn__list {
+                flex-direction: column;
+                
+                .list__item:after {
+                    display: none;
+                }
+                .list__item {
+                    width: 100%;
+                    padding: 45px 0px 0px 0px;
+                }
+                // .list__item__marked {
+                //     padding: 55px 0px 0px 0px;
+                // }
+            }
+        }
+    }
+    // .learn__wrap {
+    //     padding-bottom: 100px;
+    //     .learn__list { 
+    //         flex-direction: column;
+    //         padding-top: 0px!important;
+    //         .list__item:after {
+    //             display: none;
+    //         }
+    //         .list__item {
+    //             width: 100%!important;
+    //             padding: 45px 0px 0px 0px!important;
+    //         }
+    //         .list__item__marked {
+    //             padding: 55px 0px 0px 0px!important;
+    //         }
+    //     }
+    // }   
+    // .learn {
+    //     .learn__wrap {
+    //         .learn__list {
+    //             flex-direction: column;
+    //             align-items: center;
+    //             justify-content: center;
+    //         }
+    //         .learn__list::after {
+    //             display: none!important;
+    //             content: none!important;
+    //         }
+    //     }
+    // }
+//    .learn__wrap {
+//        .learn__list {
+//             padding-top: 45px;
+//            .list__item {
+//                 padding-left: 20px;
+//                 padding-right: 20px;    
+//            }
+//            .list__item__marked {
+//                 padding-right: 20px;
+//                 padding-left: 20px;
+//            }
+//        }
+//    }
+}
+
+@media (max-width: 1023px) {
+   
+}
+
+@media (max-width: 767px) {
+    // .learn__wrap {
+    //     .learn__list {
+    //         .list__item {
+    //             padding-left: 5%!important;
+    //             padding-right: 5%!important;
+    //         }
+    //     }
+    // }
+
+}

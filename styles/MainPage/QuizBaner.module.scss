@@ -1,0 +1,60 @@
+@import "../variables.scss";
+
+.QuizBanerBox { 
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+            .backColor { 
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(270deg, #00050F 0%, rgba(0, 5, 15, 0) 33.02%);
+            }
+   
+            .h1Tiel{
+                width: 279px;
+                height: 42px;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 42px;
+                z-index: 1;
+                margin-top: 144px;
+            }
+
+            .pTitle { 
+                margin-top: 21px;
+                width: 395px;               
+                height: 56px;
+                color: #B2B4B7;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                z-index: 1;
+            }
+
+            .quzbtn { 
+                margin-top: 71px;
+                padding: 16px 41px 16px 41px;
+                display: flex;
+                border: 1px solid white;
+                z-index: 1;
+                margin-bottom: 160px;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: #fff;
+                    color: black;
+                    transition: 0.5s;
+                    } 
+            }
+}
+
+.light  {
+    border: 1px Solid #808287;
+    z-index: 11;
+}

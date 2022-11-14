@@ -1,0 +1,9 @@
+@import "../variables.scss";
+// body:global(.light) .terms {
+//   background-color: transparent;
+// }
+.terms {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

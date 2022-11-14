@@ -1,0 +1,181 @@
+@import "../variables.scss";
+
+body:global(.light) .containerBox {
+    background-color: $c-white;
+}
+body:global(.light) .backgroundL {
+    display: block;
+}
+body:global(.light) .backgroundD, .backgroundGradient {
+    display: none;
+}
+.containerBox { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // width: 100%;
+    // margin-left: auto;
+    // margin-right: auto;
+
+    // body:global(.light) .SubscribeBox {
+    //     background-color: red;
+    //   }
+      .switcher {
+        z-index: 11;
+       
+        .input {
+           width: 30px;
+           height: 30px;
+           display: block;
+        }
+        .marker {
+           width: 30px;
+           height: 30px;
+           display: block;
+           background-color: red;
+        }
+        .input:checked ~ .marker{
+           background-color: $c-blue;
+           
+        }
+      }
+
+        .btn {
+            background-color: red;
+            padding: 5px;
+            z-index: 1111;
+        }
+
+
+            .BGimg { 
+                width: 100%;
+                height: 40%;
+                position: absolute;
+                object-fit: cover;
+            }
+
+            // .bgLightmode { 
+            //     display: none;
+            // }
+
+            .backgroundL { 
+                display: none;
+            }
+
+            .containerbg { 
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+            .tlth1 { 
+                @extend %large;
+                color: #fff;
+                z-index: 1;
+                padding-top: 13px;
+                text-align: center;
+                
+            }
+
+            .tltp1 { 
+                font-size: 15px;
+                line-height: 21px;
+                z-index: 1;
+                padding-top: 13px;
+                text-align: center;
+            }
+
+            .containerBox1 { 
+                display: flex;
+                position: relative;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 20px;
+                height: 57px;
+                border-radius: 4px;
+                margin-top: 34px;
+                width: 40%;
+            }
+            .containerBox1Light {
+                border: 1px solid $c-secondaryGray;   
+                z-index: 1;   
+            }
+                    .contactinput { 
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        background-color: transparent;
+                        border: none;
+                        width: 100%;
+                        max-width: 300px;
+                        z-index: 11;
+                    }  
+             
+                    .clkbtn {    
+                        display: flex;
+                        position: absolute;
+                        padding: 11px 5px 5px 5px;
+                        text-align: center;
+                        height: 44px;
+                        background-color: $c-blue;
+                        align-items: cente;
+                        right: 22px;
+                        margin: -14px;
+                        border-radius: 4px;
+                        z-index: 1;
+                    }
+
+}
+
+// .light  {
+//     border: 1px Solid #808287;
+//     z-index: 11;
+// }
+  .light { 
+        .tlth1Light { 
+            color: $bg-dark;
+        }
+        .title1Light { 
+            color:  #B2B4B7;
+        }
+        .span { 
+            color: $bg-dark;
+        }
+ }
+
+
+
+@media (max-width: 1900px) {
+
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .containerBox { 
+        width: 70%;
+        .containerBox1 { 
+            width: 85%;
+        }
+    }
+        
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+     .containerBox { 
+        width: 100%;
+        .tlth1 { 
+            text-align: center;
+
+            .span {
+                display: none;
+            }
+        }   
+        
+        .containerBox1 { 
+            width: 100%;
+            
+        }
+     }
+  } 

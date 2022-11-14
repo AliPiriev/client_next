@@ -1,6 +1,8 @@
 import Header from '../modules/Header'
 import Footer from '../modules/Footer'
 import Head from 'next/head'
+import { fetchData } from "../../queries";
+
 
 function MainLayout ({ children, title = 'Core Academy' }){
    return (

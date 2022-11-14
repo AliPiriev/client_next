@@ -9,7 +9,7 @@ export const getStaticProps = async () => {
    const levels = await fetchData('http://localhost:8080/api/levels');
    const tags = await fetchData('http://localhost:8080/api/tags');
    const { data: glossaries } = await fetchData('http://localhost:8080/api/glossaries?limit=3');
-   console.log(glossaries)
+   // console.log(glossaries)
 
    return {
       props: { data, categories, levels, tags }

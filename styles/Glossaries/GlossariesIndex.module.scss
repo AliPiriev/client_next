@@ -1,0 +1,220 @@
+@import "../variables.scss";
+
+body:global(.light) .backgroundL{
+   display: block;
+}
+body:global(.light) .teaser, body:global(.light) .item {
+   color: $c-dark!important;
+}
+// body:global(.light) .content p {
+//    color: $c-dirty-grey!important;
+// }
+.glossariesPage {
+   margin-top: 100px;
+   position: relative;
+   width: 100%;
+   height: 100%;
+   // display: flex;
+   // flex-direction: column;
+   // align-items: center;
+   // justify-content: center;
+
+      .background {
+         position: absolute;
+         top: -60%;
+         left: 0;
+         width: 100%;
+         object-fit: cover;
+         z-index: -1;
+      }
+      .backgroundL {
+         display: none;
+         position: absolute;
+         top: -60%;
+         left: 0;
+         width: 100%;
+         object-fit: cover;
+         z-index: -1;
+      }
+
+   .inner {
+ 
+      .top {
+         text-align: center;
+   
+         .title {
+            // @extend %largest;
+            color: $c-orange;
+            text-align: center;
+         }
+   
+         .teaser {
+            color: $c-white;
+            // @extend %medium;
+            padding-top: 34px;
+         }
+      }
+   
+      .search {
+         margin-top: 90px;
+         padding: 40px;
+         display: flex;
+         position: relative;
+         width: 80%;
+         margin-left: auto;
+         margin-right: auto;
+
+         .letters {
+            display: flex;
+            // flex-wrap: wrap;
+            gap: 30px;
+            width: 100%;
+            justify-content: space-between;
+
+            .item {
+               text-decoration: none;
+               display: block;
+               color: $c-white;
+               text-transform: uppercase;
+               transition: 0.4s;
+               cursor: pointer;
+            }
+            .item:hover {
+               color: $c-orange;
+            }
+         }
+      }
+
+      .glossaryList {
+         width: 80%;
+         margin: 90px auto 0px auto;
+
+         .item {
+               display: flex;
+               // align-items: center;
+               width: 100%;
+               margin-top: 60px;
+               margin-bottom: 90px;
+               gap: 30px;
+
+               .value {
+                  border: 1px solid $c-blue;
+                  background-color: rgba(5, 0, 255, 0.2);
+                  width: 85px;
+                  height: 85px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-top: 10px;
+                  padding: 35px;
+                  font-size: 30px;
+               }
+               
+               .contentList {
+                  width: calc(100% - 115px);
+                  display: flex;
+                  flex-direction: column;
+                  transition: .8s;
+
+                  .listItem {
+                     margin-bottom: 60px;
+                     padding: 30px;
+                     transition: .6s;
+                     border: 1px solid transparent;
+                     border-radius: 4px;
+                     cursor: pointer;
+
+                     .content {
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                     }  
+                     
+                  }
+
+                  .listItem:hover {
+                     border: 1px solid $c-blue;
+                     transition: .6s;
+                     background-color: rgba(5, 0, 255, 0.05);
+                  }
+               }
+            .contentList p {
+               padding-top: 16px;
+            }
+         } 
+      } 
+   }
+ }
+
+ @media (max-width: 1900px) {
+ 
+}
+
+@media (max-width: 1365px) {
+
+}
+
+@media (max-width: 1023px) {
+   .glossariesPage {
+      .inner {
+         .search {
+            padding: 40px 30px;
+            width: 100%;
+         } 
+         .glossaryList {
+            width: 100%;
+            margin: 90px 0px 0px 0px;
+         }
+      }
+   }
+}
+
+@media (max-width: 767px) {
+   .glossariesPage {
+      .inner {
+         .search {
+            padding: 40px 17px;
+            overflow-x: auto;
+            overflow: hidden;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
+            border-left: none;
+            border-right: none;
+            .cornerDecor {
+               display: none!important ;
+            }
+            .letters {
+               overflow-x: auto;
+               overflow: -moz-scrollbars-none;
+               .item {
+                  white-space: nowrap;
+               }
+            }
+            .letters::-webkit-scrollbar {
+               display: none;
+           }
+         } 
+
+         .search:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 63px;
+            height: 103px;
+            z-index: 999;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8659838936) 47%);
+         }
+         .glossaryList {
+            .item {
+               .value {
+                  width: 60px;
+                  height: 60px;
+               }
+            }
+         }
+      }
+   }
+}

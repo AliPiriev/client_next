@@ -1,0 +1,199 @@
+@import '../variables.scss';
+
+body:global(.light) .bg {
+    opacity: 0;
+}
+body:global(.light) .bgL {
+    opacity: 1;
+}
+body:global(.light) .innerB {
+    background: none!important;
+}
+body:global(.light) .icon svg path {
+    stroke: $c-dark;
+}
+
+.glossary__page {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    // height: 900px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+ 
+    .background {
+        position: absolute;
+        top: -30%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        transition: .8s;
+    }
+
+    .bg {
+        opacity: 1;
+    }
+    .bgL {
+        opacity: 0;
+    }
+
+    .backBtn {
+        display: flex;
+        align-items: center;
+        transition: .5s;
+        cursor: pointer;
+        width: fit-content;
+    }
+
+    .backBtn p {
+        padding-left: 5px;
+        color: $c-orange!important;
+        margin: 0px;
+    }
+
+    .backBtn svg {
+        transition: .5s;
+    }
+
+    .backBtn:hover  p {
+        color: $c-blue!important;
+    }
+    .backBtn:hover  svg path {
+        fill: $c-blue;
+    }
+    .backBtn:hover  svg {
+        transform: translateX(-5px);
+    }
+
+    .inner {
+        display: flex;
+        // margin-top: 55px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+
+        .item__outer {
+            margin-top: 55px;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+
+            .item {
+                display: flex;
+                align-items: center;
+
+                .icon svg {
+                    margin-top: 5px;
+                }
+                .value {
+                    padding-left: 15px;
+                    color: $c-grey;
+                }
+            }
+        }
+    }
+
+    .content {
+        margin-top: 30px;
+    }
+
+    .explore__more {
+        margin-top: 200px;
+
+        .item__wrap {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+
+            .itemB {
+                position: relative;
+                padding: 10px;
+                width: calc(33.3% - 30px);
+              
+                .innerB {
+                    padding: 30px 16px 30px 16px;
+                    background: rgba(0, 0, 0, 0.3);
+
+                    .item__text  p {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
+                    .fullBtn {
+                        margin-top: 50px;
+                        padding: 8px 12px;
+                        background-color: #252A33;
+                        border-radius: 4px;
+                        width: fit-content;
+                        color: $c-white;
+                        transition: .5s;
+                        cursor: pointer;
+                    }
+                    .fullBtn:hover {
+                        opacity: 0.7;
+                    }
+                }
+                
+            }
+
+            // .itemB:hover {
+            //     padding: 0px;
+            // }
+        }
+    }
+    
+}
+
+@media (max-width: 1900px) {
+
+ }
+ 
+ @media (max-width: 1365px) {
+   
+ }
+ 
+ @media (max-width: 1023px) {
+    .glossary__page {
+        .explore__more {
+            .item__wrap {
+                .itemB {
+                    width: calc(50% - 15px);
+                }
+                .itemB:last-child {
+                    width: 100%;
+                }
+            }
+        }
+    }
+ 
+ }
+ 
+ @media (max-width: 767px) {
+    .glossary__page {
+        .inner {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px;
+
+            .item__outer {
+                gap: 16px;
+            }
+        }
+
+        .explore__more {
+            .item__wrap {
+                .itemB {
+                    width: 100%;
+                }
+            }
+        }
+    }
+ }
+ 
